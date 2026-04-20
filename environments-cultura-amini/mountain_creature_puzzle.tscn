@@ -1,5 +1,6 @@
-[gd_scene load_steps=192 format=3 uid="uid://mcctughmtbmw"]
+[gd_scene load_steps=193 format=3 uid="uid://mcctughmtbmw"]
 
+[ext_resource type="Script" uid="uid://cb6hiwvkssss4" path="res://mountain_creature_puzzle.gd" id="1_if0km"]
 [ext_resource type="Texture2D" uid="uid://b6670da3urpww" path="res://assets/mountain_creature_puzzle/Scene_04_background_2220x1380_300dpi_transparent.png" id="1_j5b3p"]
 [ext_resource type="Texture2D" uid="uid://3g4l56s8kdtp" path="res://assets/spaceshipScene/SpaceBackground_Edited_v2.png" id="1_rtoh4"]
 [ext_resource type="Texture2D" uid="uid://b3wdwfd58jgk6" path="res://assets/mountain_creature_puzzle/Scene_04_mid-ground_2220x1380_300dpi_transparent.png" id="2_2h7dt"]
@@ -747,6 +748,7 @@ point_count = 10
 size = Vector2(106.355576, 126.1405)
 
 [node name="mountain_creature_puzzle" type="Node2D"]
+script = ExtResource("1_if0km")
 
 [node name="starrybg" type="Sprite2D" parent="."]
 position = Vector2(995.5072, 559.5)
@@ -799,7 +801,6 @@ scale = Vector2(0.51, 0.51)
 script = ExtResource("188_vwrsa")
 next_scene_path = "uid://18mv8bbljs5v"
 next_marker_name = "spawn_from_right"
-trigger_lock_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
 position = Vector2(-3.9647102, 23.47229)

@@ -1,0 +1,977 @@
+[gd_scene load_steps=242 format=3 uid="uid://kj3sxynvlq4e"]
+
+[ext_resource type="Texture2D" uid="uid://c6qv5fie1gxgj" path="res://assets/gardenPuzzleScene/spores/Spores Release_00000.png" id="1_sch2f"]
+[ext_resource type="Texture2D" uid="uid://kgyav3nmdqpl" path="res://assets/gardenPuzzleScene/spores/Spores Release_00001.png" id="2_7u20c"]
+[ext_resource type="Texture2D" uid="uid://xfud584j05f8" path="res://assets/gardenPuzzleScene/spores/Spores Release_00002.png" id="3_t0w1s"]
+[ext_resource type="Texture2D" uid="uid://1j2lqvu5b6o0" path="res://assets/gardenPuzzleScene/spores/Spores Release_00003.png" id="4_48klg"]
+[ext_resource type="Texture2D" uid="uid://dl4iijy6ijv3j" path="res://assets/gardenPuzzleScene/spores/Spores Release_00004.png" id="5_g0l7n"]
+[ext_resource type="Texture2D" uid="uid://bdo7133wdatuy" path="res://assets/gardenPuzzleScene/spores/Spores Release_00005.png" id="6_i2xws"]
+[ext_resource type="Texture2D" uid="uid://c8pho4n10dx8w" path="res://assets/gardenPuzzleScene/spores/Spores Release_00006.png" id="7_dfklg"]
+[ext_resource type="Texture2D" uid="uid://c13ab8bxhcfmw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00007.png" id="8_kdn5j"]
+[ext_resource type="Texture2D" uid="uid://bi6wwyvar7kx0" path="res://assets/gardenPuzzleScene/spores/Spores Release_00008.png" id="9_4xsfq"]
+[ext_resource type="Texture2D" uid="uid://cdgolnxw6slwa" path="res://assets/gardenPuzzleScene/spores/Spores Release_00009.png" id="10_si0my"]
+[ext_resource type="Texture2D" uid="uid://co8v7nugkl7vd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00010.png" id="11_qx6uu"]
+[ext_resource type="Texture2D" uid="uid://cojl7wejftfcd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00011.png" id="12_ucjjg"]
+[ext_resource type="Texture2D" uid="uid://dqgm3x8cd7qi3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00012.png" id="13_dp2m3"]
+[ext_resource type="Texture2D" uid="uid://c8kioufg8o8rm" path="res://assets/gardenPuzzleScene/spores/Spores Release_00013.png" id="14_eyul0"]
+[ext_resource type="Texture2D" uid="uid://cj3t64uxpf00h" path="res://assets/gardenPuzzleScene/spores/Spores Release_00014.png" id="15_0vl2f"]
+[ext_resource type="Texture2D" uid="uid://ditaflde2ehy6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00015.png" id="16_5mrvn"]
+[ext_resource type="Texture2D" uid="uid://bl2hd6kdo4xjk" path="res://assets/gardenPuzzleScene/spores/Spores Release_00016.png" id="17_i6qgm"]
+[ext_resource type="Texture2D" uid="uid://dql0l7ey8kucn" path="res://assets/gardenPuzzleScene/spores/Spores Release_00017.png" id="18_in86p"]
+[ext_resource type="Texture2D" uid="uid://dy7f6jb2di27" path="res://assets/gardenPuzzleScene/spores/Spores Release_00018.png" id="19_gitmr"]
+[ext_resource type="Texture2D" uid="uid://qf2oqrjcjrob" path="res://assets/gardenPuzzleScene/spores/Spores Release_00019.png" id="20_nw3i8"]
+[ext_resource type="Texture2D" uid="uid://dev6r30ei1s52" path="res://assets/gardenPuzzleScene/spores/Spores Release_00020.png" id="21_0mlow"]
+[ext_resource type="Texture2D" uid="uid://cr5be2j2svoy4" path="res://assets/gardenPuzzleScene/spores/Spores Release_00021.png" id="22_f7se4"]
+[ext_resource type="Texture2D" uid="uid://dnnrl4pmbe83u" path="res://assets/gardenPuzzleScene/spores/Spores Release_00022.png" id="23_s2udi"]
+[ext_resource type="Texture2D" uid="uid://ciqpf5nk4imbg" path="res://assets/gardenPuzzleScene/spores/Spores Release_00023.png" id="24_vi7km"]
+[ext_resource type="Texture2D" uid="uid://d14cpexeuoprf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00024.png" id="25_wd10l"]
+[ext_resource type="Texture2D" uid="uid://2f8r7r8kk6w6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00025.png" id="26_sal0k"]
+[ext_resource type="Texture2D" uid="uid://cg84a7lth6cl2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00026.png" id="27_i6ohp"]
+[ext_resource type="Texture2D" uid="uid://coquhw5pjacgi" path="res://assets/gardenPuzzleScene/spores/Spores Release_00027.png" id="28_71k7p"]
+[ext_resource type="Texture2D" uid="uid://bouhuxfdwjdpo" path="res://assets/gardenPuzzleScene/spores/Spores Release_00028.png" id="29_iky1o"]
+[ext_resource type="Texture2D" uid="uid://c385awcsjmnyj" path="res://assets/gardenPuzzleScene/spores/Spores Release_00029.png" id="30_l5pc1"]
+[ext_resource type="Texture2D" uid="uid://bolrtcptksxug" path="res://assets/gardenPuzzleScene/spores/Spores Release_00030.png" id="31_5uy8g"]
+[ext_resource type="Texture2D" uid="uid://spgibdkekrw7" path="res://assets/gardenPuzzleScene/spores/Spores Release_00031.png" id="32_ncxcy"]
+[ext_resource type="Texture2D" uid="uid://dgxt40y2v51fe" path="res://assets/gardenPuzzleScene/spores/Spores Release_00032.png" id="33_4uoum"]
+[ext_resource type="Texture2D" uid="uid://b0ng03uc20ktf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00033.png" id="34_oer2y"]
+[ext_resource type="Texture2D" uid="uid://cdjdf76p60mli" path="res://assets/gardenPuzzleScene/spores/Spores Release_00034.png" id="35_2fmod"]
+[ext_resource type="Texture2D" uid="uid://chotwatecyujf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00035.png" id="36_cys88"]
+[ext_resource type="Texture2D" uid="uid://bmcfd71ol4l46" path="res://assets/gardenPuzzleScene/spores/Spores Release_00036.png" id="37_ri51t"]
+[ext_resource type="Texture2D" uid="uid://cfmw1vdimnoic" path="res://assets/gardenPuzzleScene/spores/Spores Release_00037.png" id="38_omg7m"]
+[ext_resource type="Texture2D" uid="uid://c74nolk1tkhiq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00038.png" id="39_t6vu1"]
+[ext_resource type="Texture2D" uid="uid://dh5emhwnuj3u2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00039.png" id="40_km3ep"]
+[ext_resource type="Texture2D" uid="uid://bt53ev0yyjivy" path="res://assets/gardenPuzzleScene/spores/Spores Release_00040.png" id="41_xoy5o"]
+[ext_resource type="Texture2D" uid="uid://ckqnj42j4wjdr" path="res://assets/gardenPuzzleScene/spores/Spores Release_00041.png" id="42_y448b"]
+[ext_resource type="Texture2D" uid="uid://6gew17b224xt" path="res://assets/gardenPuzzleScene/spores/Spores Release_00042.png" id="43_k6u5a"]
+[ext_resource type="Texture2D" uid="uid://ch4r2kjrg65en" path="res://assets/gardenPuzzleScene/spores/Spores Release_00043.png" id="44_rj34i"]
+[ext_resource type="Texture2D" uid="uid://ocajckn43mi0" path="res://assets/gardenPuzzleScene/spores/Spores Release_00044.png" id="45_vv1dp"]
+[ext_resource type="Texture2D" uid="uid://dulxgyga7bxl4" path="res://assets/gardenPuzzleScene/spores/Spores Release_00045.png" id="46_x3ljb"]
+[ext_resource type="Texture2D" uid="uid://dybps00oyubkf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00046.png" id="47_eabe6"]
+[ext_resource type="Texture2D" uid="uid://c2jii88udwn00" path="res://assets/gardenPuzzleScene/spores/Spores Release_00047.png" id="48_lq01j"]
+[ext_resource type="Texture2D" uid="uid://bm2f3jbj26oju" path="res://assets/gardenPuzzleScene/spores/Spores Release_00048.png" id="49_0ifjr"]
+[ext_resource type="Texture2D" uid="uid://c62l65xdnidno" path="res://assets/gardenPuzzleScene/spores/Spores Release_00049.png" id="50_53lpk"]
+[ext_resource type="Texture2D" uid="uid://ksv2ea11288y" path="res://assets/gardenPuzzleScene/spores/Spores Release_00050.png" id="51_krr3s"]
+[ext_resource type="Texture2D" uid="uid://cd658xidgydn8" path="res://assets/gardenPuzzleScene/spores/Spores Release_00051.png" id="52_3gr0t"]
+[ext_resource type="Texture2D" uid="uid://6ejkdoep8w0o" path="res://assets/gardenPuzzleScene/spores/Spores Release_00052.png" id="53_8rgux"]
+[ext_resource type="Texture2D" uid="uid://c6wevici0irpr" path="res://assets/gardenPuzzleScene/spores/Spores Release_00053.png" id="54_1xm5d"]
+[ext_resource type="Texture2D" uid="uid://dli2cxxbi1i4x" path="res://assets/gardenPuzzleScene/spores/Spores Release_00054.png" id="55_on2dt"]
+[ext_resource type="Texture2D" uid="uid://bmntgilmdkq50" path="res://assets/gardenPuzzleScene/spores/Spores Release_00055.png" id="56_o255p"]
+[ext_resource type="Texture2D" uid="uid://ciukdi3huh6cl" path="res://assets/gardenPuzzleScene/spores/Spores Release_00056.png" id="57_utkfl"]
+[ext_resource type="Texture2D" uid="uid://bbih7yrsjnkot" path="res://assets/gardenPuzzleScene/spores/Spores Release_00057.png" id="58_plats"]
+[ext_resource type="Texture2D" uid="uid://du0yk77ig8q0g" path="res://assets/gardenPuzzleScene/spores/Spores Release_00058.png" id="59_lqcfo"]
+[ext_resource type="Texture2D" uid="uid://dvx1mchlirm2h" path="res://assets/gardenPuzzleScene/spores/Spores Release_00059.png" id="60_kec8n"]
+[ext_resource type="Texture2D" uid="uid://dexhj6j4i2slf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00060.png" id="61_tfg4m"]
+[ext_resource type="Texture2D" uid="uid://dtn6vx604f4us" path="res://assets/gardenPuzzleScene/spores/Spores Release_00061.png" id="62_6i3rc"]
+[ext_resource type="Texture2D" uid="uid://d3mu6tkeuyf0i" path="res://assets/gardenPuzzleScene/spores/Spores Release_00062.png" id="63_ep4o4"]
+[ext_resource type="Texture2D" uid="uid://2u245kl7iq63" path="res://assets/gardenPuzzleScene/spores/Spores Release_00063.png" id="64_o4fl7"]
+[ext_resource type="Texture2D" uid="uid://d2wlmy7ylh8gy" path="res://assets/gardenPuzzleScene/spores/Spores Release_00064.png" id="65_q4uo4"]
+[ext_resource type="Texture2D" uid="uid://dqw0kku03r2sp" path="res://assets/gardenPuzzleScene/spores/Spores Release_00065.png" id="66_u0ghu"]
+[ext_resource type="Texture2D" uid="uid://bp861xrwl67d0" path="res://assets/gardenPuzzleScene/spores/Spores Release_00066.png" id="67_y07gg"]
+[ext_resource type="Texture2D" uid="uid://bwphiv5qa0g8r" path="res://assets/gardenPuzzleScene/spores/Spores Release_00067.png" id="68_l5bbm"]
+[ext_resource type="Texture2D" uid="uid://lwvkcinablfh" path="res://assets/gardenPuzzleScene/spores/Spores Release_00068.png" id="69_op3au"]
+[ext_resource type="Texture2D" uid="uid://nrwdjeugt4fo" path="res://assets/gardenPuzzleScene/spores/Spores Release_00069.png" id="70_r0ot7"]
+[ext_resource type="Texture2D" uid="uid://bstm23w2h7uji" path="res://assets/gardenPuzzleScene/spores/Spores Release_00070.png" id="71_lw5yw"]
+[ext_resource type="Texture2D" uid="uid://bidr2ek8fej16" path="res://assets/gardenPuzzleScene/spores/Spores Release_00071.png" id="72_ybj30"]
+[ext_resource type="Texture2D" uid="uid://pi4gr3diblfs" path="res://assets/gardenPuzzleScene/spores/Spores Release_00072.png" id="73_bil8n"]
+[ext_resource type="Texture2D" uid="uid://cacehavbqpj7u" path="res://assets/gardenPuzzleScene/spores/Spores Release_00073.png" id="74_mm24k"]
+[ext_resource type="Texture2D" uid="uid://banlocjmo4o2j" path="res://assets/gardenPuzzleScene/spores/Spores Release_00074.png" id="75_4wnck"]
+[ext_resource type="Texture2D" uid="uid://bqudiaolvscu6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00075.png" id="76_xih7o"]
+[ext_resource type="Texture2D" uid="uid://c52jowp3jysx2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00076.png" id="77_ponrl"]
+[ext_resource type="Texture2D" uid="uid://cfjdpgkqocmyt" path="res://assets/gardenPuzzleScene/spores/Spores Release_00077.png" id="78_71ebo"]
+[ext_resource type="Texture2D" uid="uid://xyn30qoxoxs2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00078.png" id="79_h8wir"]
+[ext_resource type="Texture2D" uid="uid://vgx53cwkc2da" path="res://assets/gardenPuzzleScene/spores/Spores Release_00079.png" id="80_48ogm"]
+[ext_resource type="Texture2D" uid="uid://ctred771bquhm" path="res://assets/gardenPuzzleScene/spores/Spores Release_00080.png" id="81_ktert"]
+[ext_resource type="Texture2D" uid="uid://d0syibmn6efhc" path="res://assets/gardenPuzzleScene/spores/Spores Release_00081.png" id="82_5kxna"]
+[ext_resource type="Texture2D" uid="uid://ctchi0urb7fa3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00082.png" id="83_4xy5g"]
+[ext_resource type="Texture2D" uid="uid://bdvhk6nm4u5fq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00083.png" id="84_ykvmt"]
+[ext_resource type="Texture2D" uid="uid://cajof3iiahr2p" path="res://assets/gardenPuzzleScene/spores/Spores Release_00084.png" id="85_cnkdv"]
+[ext_resource type="Texture2D" uid="uid://dvtkclihu1fg4" path="res://assets/gardenPuzzleScene/spores/Spores Release_00085.png" id="86_rna1n"]
+[ext_resource type="Texture2D" uid="uid://dhnt37vitgkwq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00086.png" id="87_ichnm"]
+[ext_resource type="Texture2D" uid="uid://cjk6vmykmm2bp" path="res://assets/gardenPuzzleScene/spores/Spores Release_00087.png" id="88_bjebf"]
+[ext_resource type="Texture2D" uid="uid://bn8vookwkb2ri" path="res://assets/gardenPuzzleScene/spores/Spores Release_00088.png" id="89_0l0te"]
+[ext_resource type="Texture2D" uid="uid://dvr2h6dtx8dyr" path="res://assets/gardenPuzzleScene/spores/Spores Release_00089.png" id="90_kkgpp"]
+[ext_resource type="Texture2D" uid="uid://d2qy6q0x0nxnp" path="res://assets/gardenPuzzleScene/spores/Spores Release_00090.png" id="91_i0pca"]
+[ext_resource type="Texture2D" uid="uid://2yrwublwm0d2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00091.png" id="92_qlbkg"]
+[ext_resource type="Texture2D" uid="uid://db8u37fvfn7cq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00092.png" id="93_2h15m"]
+[ext_resource type="Texture2D" uid="uid://cjq5dawq2ky7u" path="res://assets/gardenPuzzleScene/spores/Spores Release_00093.png" id="94_nms12"]
+[ext_resource type="Texture2D" uid="uid://c51pxbseqc65s" path="res://assets/gardenPuzzleScene/spores/Spores Release_00094.png" id="95_b1wiy"]
+[ext_resource type="Texture2D" uid="uid://dh7cnypon0ad3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00095.png" id="96_qt23l"]
+[ext_resource type="Texture2D" uid="uid://cyui07lp86mjw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00096.png" id="97_qdx4x"]
+[ext_resource type="Texture2D" uid="uid://20xr1sodbe12" path="res://assets/gardenPuzzleScene/spores/Spores Release_00097.png" id="98_exw3t"]
+[ext_resource type="Texture2D" uid="uid://cxyjndtt62rd6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00098.png" id="99_5i4nc"]
+[ext_resource type="Texture2D" uid="uid://ho5jyqmctxhb" path="res://assets/gardenPuzzleScene/spores/Spores Release_00099.png" id="100_i8lmh"]
+[ext_resource type="Texture2D" uid="uid://dkcakwyt8bain" path="res://assets/gardenPuzzleScene/spores/Spores Release_00100.png" id="101_ad5hd"]
+[ext_resource type="Texture2D" uid="uid://cmiyl7j7o2rs8" path="res://assets/gardenPuzzleScene/spores/Spores Release_00101.png" id="102_fk3ay"]
+[ext_resource type="Texture2D" uid="uid://bqjeccdc6o6xo" path="res://assets/gardenPuzzleScene/spores/Spores Release_00102.png" id="103_05jm2"]
+[ext_resource type="Texture2D" uid="uid://b5qluuqtn43gy" path="res://assets/gardenPuzzleScene/spores/Spores Release_00103.png" id="104_61gsb"]
+[ext_resource type="Texture2D" uid="uid://dya5cw7ip31vf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00104.png" id="105_7iq4x"]
+[ext_resource type="Texture2D" uid="uid://c5grer2snka8j" path="res://assets/gardenPuzzleScene/spores/Spores Release_00105.png" id="106_eymhx"]
+[ext_resource type="Texture2D" uid="uid://b43mqjb07teot" path="res://assets/gardenPuzzleScene/spores/Spores Release_00106.png" id="107_nvqes"]
+[ext_resource type="Texture2D" uid="uid://c82mim4wkidv6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00107.png" id="108_cgogy"]
+[ext_resource type="Texture2D" uid="uid://bfi4316p8ums5" path="res://assets/gardenPuzzleScene/spores/Spores Release_00108.png" id="109_q0w7e"]
+[ext_resource type="Texture2D" uid="uid://blokskf0envb2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00109.png" id="110_hikf1"]
+[ext_resource type="Texture2D" uid="uid://ccuix2ciua3su" path="res://assets/gardenPuzzleScene/spores/Spores Release_00110.png" id="111_ni8km"]
+[ext_resource type="Texture2D" uid="uid://xug6hb1npegf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00111.png" id="112_5cfkx"]
+[ext_resource type="Texture2D" uid="uid://lpiaabe3crjl" path="res://assets/gardenPuzzleScene/spores/Spores Release_00112.png" id="113_8mswk"]
+[ext_resource type="Texture2D" uid="uid://bhj4k8h133fi5" path="res://assets/gardenPuzzleScene/spores/Spores Release_00113.png" id="114_m8jmd"]
+[ext_resource type="Texture2D" uid="uid://dcc6lm056xk7w" path="res://assets/gardenPuzzleScene/spores/Spores Release_00114.png" id="115_imold"]
+[ext_resource type="Texture2D" uid="uid://07psdm7osan7" path="res://assets/gardenPuzzleScene/spores/Spores Release_00115.png" id="116_evjbp"]
+[ext_resource type="Texture2D" uid="uid://1opl4vjr4hae" path="res://assets/gardenPuzzleScene/spores/Spores Release_00116.png" id="117_dq730"]
+[ext_resource type="Texture2D" uid="uid://cpqlmibousioi" path="res://assets/gardenPuzzleScene/spores/Spores Release_00117.png" id="118_jabp2"]
+[ext_resource type="Texture2D" uid="uid://yhog6j3ttsc5" path="res://assets/gardenPuzzleScene/spores/Spores Release_00118.png" id="119_ltf7k"]
+[ext_resource type="Texture2D" uid="uid://ca6khv7b050xr" path="res://assets/gardenPuzzleScene/spores/Spores Release_00119.png" id="120_d0880"]
+[ext_resource type="Texture2D" uid="uid://cd2bfqtss2v3d" path="res://assets/gardenPuzzleScene/spores/Spores Release_00120.png" id="121_shtuv"]
+[ext_resource type="Texture2D" uid="uid://dmnhaitmcrakb" path="res://assets/gardenPuzzleScene/spores/Spores Release_00121.png" id="122_u0w0n"]
+[ext_resource type="Texture2D" uid="uid://fs80xb4xhw0x" path="res://assets/gardenPuzzleScene/spores/Spores Release_00122.png" id="123_q750c"]
+[ext_resource type="Texture2D" uid="uid://r168nflclhv8" path="res://assets/gardenPuzzleScene/spores/Spores Release_00123.png" id="124_7l0iu"]
+[ext_resource type="Texture2D" uid="uid://0v4qmoxnqsv5" path="res://assets/gardenPuzzleScene/spores/Spores Release_00124.png" id="125_0gcqh"]
+[ext_resource type="Texture2D" uid="uid://chl0gys6sp6e4" path="res://assets/gardenPuzzleScene/spores/Spores Release_00125.png" id="126_6x2hb"]
+[ext_resource type="Texture2D" uid="uid://bccsoj1nmv1q0" path="res://assets/gardenPuzzleScene/spores/Spores Release_00126.png" id="127_lheba"]
+[ext_resource type="Texture2D" uid="uid://brdmk0ha70hph" path="res://assets/gardenPuzzleScene/spores/Spores Release_00127.png" id="128_i16iv"]
+[ext_resource type="Texture2D" uid="uid://8do2u0d8cv0x" path="res://assets/gardenPuzzleScene/spores/Spores Release_00128.png" id="129_p3q4v"]
+[ext_resource type="Texture2D" uid="uid://bssvicgv6m4ee" path="res://assets/gardenPuzzleScene/spores/Spores Release_00129.png" id="130_u0lek"]
+[ext_resource type="Texture2D" uid="uid://q8hfrqjyw278" path="res://assets/gardenPuzzleScene/spores/Spores Release_00130.png" id="131_hdkxd"]
+[ext_resource type="Texture2D" uid="uid://be5tkw50xract" path="res://assets/gardenPuzzleScene/spores/Spores Release_00131.png" id="132_18hxr"]
+[ext_resource type="Texture2D" uid="uid://by7xgys731ll3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00132.png" id="133_gbcsy"]
+[ext_resource type="Texture2D" uid="uid://debldrvf5v3da" path="res://assets/gardenPuzzleScene/spores/Spores Release_00133.png" id="134_15sol"]
+[ext_resource type="Texture2D" uid="uid://csbemka7b8q6q" path="res://assets/gardenPuzzleScene/spores/Spores Release_00134.png" id="135_d5gqb"]
+[ext_resource type="Texture2D" uid="uid://db1gnpkb2tmws" path="res://assets/gardenPuzzleScene/spores/Spores Release_00135.png" id="136_7f4rf"]
+[ext_resource type="Texture2D" uid="uid://da0u5c45pmatc" path="res://assets/gardenPuzzleScene/spores/Spores Release_00136.png" id="137_dqcy3"]
+[ext_resource type="Texture2D" uid="uid://tf4gqio7fiei" path="res://assets/gardenPuzzleScene/spores/Spores Release_00137.png" id="138_avbhi"]
+[ext_resource type="Texture2D" uid="uid://c1vwy5mr8sb1u" path="res://assets/gardenPuzzleScene/spores/Spores Release_00138.png" id="139_2urau"]
+[ext_resource type="Texture2D" uid="uid://bubr11d7usbjs" path="res://assets/gardenPuzzleScene/spores/Spores Release_00139.png" id="140_yhbkk"]
+[ext_resource type="Texture2D" uid="uid://bjub8vnqbygvk" path="res://assets/gardenPuzzleScene/spores/Spores Release_00140.png" id="141_dbq4d"]
+[ext_resource type="Texture2D" uid="uid://bifokbfeihchd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00141.png" id="142_7bdhh"]
+[ext_resource type="Texture2D" uid="uid://dxuohd8ukmaom" path="res://assets/gardenPuzzleScene/spores/Spores Release_00142.png" id="143_tqyyh"]
+[ext_resource type="Texture2D" uid="uid://byhih0d7adrtc" path="res://assets/gardenPuzzleScene/spores/Spores Release_00143.png" id="144_omhib"]
+[ext_resource type="Texture2D" uid="uid://ditaq5hjlgncc" path="res://assets/gardenPuzzleScene/spores/Spores Release_00144.png" id="145_ohbc2"]
+[ext_resource type="Texture2D" uid="uid://bk6u1c1votddx" path="res://assets/gardenPuzzleScene/spores/Spores Release_00145.png" id="146_uhg0f"]
+[ext_resource type="Texture2D" uid="uid://cyyskwkym7qpg" path="res://assets/gardenPuzzleScene/spores/Spores Release_00146.png" id="147_o3tco"]
+[ext_resource type="Texture2D" uid="uid://vmc724hg2j7t" path="res://assets/gardenPuzzleScene/spores/Spores Release_00147.png" id="148_y0rra"]
+[ext_resource type="Texture2D" uid="uid://bnj5j5fywom6y" path="res://assets/gardenPuzzleScene/spores/Spores Release_00148.png" id="149_fufrq"]
+[ext_resource type="Texture2D" uid="uid://bxcvtuik38u7r" path="res://assets/gardenPuzzleScene/spores/Spores Release_00149.png" id="150_6aa03"]
+[ext_resource type="Texture2D" uid="uid://du4oq21xqrbkj" path="res://assets/gardenPuzzleScene/spores/Spores Release_00150.png" id="151_m5spu"]
+[ext_resource type="Texture2D" uid="uid://ceta51penumi4" path="res://assets/gardenPuzzleScene/spores/Spores Release_00151.png" id="152_l2n7d"]
+[ext_resource type="Texture2D" uid="uid://b74gx5l8hsfnj" path="res://assets/gardenPuzzleScene/spores/Spores Release_00152.png" id="153_i3na4"]
+[ext_resource type="Texture2D" uid="uid://cvtaata3lc71e" path="res://assets/gardenPuzzleScene/spores/Spores Release_00153.png" id="154_bqybm"]
+[ext_resource type="Texture2D" uid="uid://dgmtwydt67ae7" path="res://assets/gardenPuzzleScene/spores/Spores Release_00154.png" id="155_f38q7"]
+[ext_resource type="Texture2D" uid="uid://vy0ewx61eml6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00155.png" id="156_t45a8"]
+[ext_resource type="Texture2D" uid="uid://bx36cfk3u00ya" path="res://assets/gardenPuzzleScene/spores/Spores Release_00156.png" id="157_b1sht"]
+[ext_resource type="Texture2D" uid="uid://blmonj5tiidrd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00157.png" id="158_vg7xk"]
+[ext_resource type="Texture2D" uid="uid://bkh2rvoq3rakr" path="res://assets/gardenPuzzleScene/spores/Spores Release_00158.png" id="159_mr3s8"]
+[ext_resource type="Texture2D" uid="uid://ttmq5kfid21b" path="res://assets/gardenPuzzleScene/spores/Spores Release_00159.png" id="160_lv420"]
+[ext_resource type="Texture2D" uid="uid://tyshvuf6l80k" path="res://assets/gardenPuzzleScene/spores/Spores Release_00160.png" id="161_c1odp"]
+[ext_resource type="Texture2D" uid="uid://d1wm07p4uyrej" path="res://assets/gardenPuzzleScene/spores/Spores Release_00161.png" id="162_hm873"]
+[ext_resource type="Texture2D" uid="uid://b1l62e2ma3bit" path="res://assets/gardenPuzzleScene/spores/Spores Release_00162.png" id="163_brg4s"]
+[ext_resource type="Texture2D" uid="uid://bfc5wbyb2bb8d" path="res://assets/gardenPuzzleScene/spores/Spores Release_00163.png" id="164_cq4fm"]
+[ext_resource type="Texture2D" uid="uid://rwif72k17iog" path="res://assets/gardenPuzzleScene/spores/Spores Release_00164.png" id="165_6a012"]
+[ext_resource type="Texture2D" uid="uid://bmylcl207dhx1" path="res://assets/gardenPuzzleScene/spores/Spores Release_00165.png" id="166_g5fh6"]
+[ext_resource type="Texture2D" uid="uid://bolrhjncy2ilw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00166.png" id="167_otiop"]
+[ext_resource type="Texture2D" uid="uid://kp5as6njd2l3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00167.png" id="168_06v3p"]
+[ext_resource type="Texture2D" uid="uid://dq8vdlxjcu6qo" path="res://assets/gardenPuzzleScene/spores/Spores Release_00168.png" id="169_5ifeb"]
+[ext_resource type="Texture2D" uid="uid://x2pflj8axr2s" path="res://assets/gardenPuzzleScene/spores/Spores Release_00169.png" id="170_cqsfn"]
+[ext_resource type="Texture2D" uid="uid://crbey4syjo7pa" path="res://assets/gardenPuzzleScene/spores/Spores Release_00170.png" id="171_qllqj"]
+[ext_resource type="Texture2D" uid="uid://bj4bctgvawoth" path="res://assets/gardenPuzzleScene/spores/Spores Release_00171.png" id="172_fgpve"]
+[ext_resource type="Texture2D" uid="uid://bpnq0krpp8jpl" path="res://assets/gardenPuzzleScene/spores/Spores Release_00172.png" id="173_d133u"]
+[ext_resource type="Texture2D" uid="uid://151ks0mwb8mp" path="res://assets/gardenPuzzleScene/spores/Spores Release_00173.png" id="174_kh58r"]
+[ext_resource type="Texture2D" uid="uid://d0riw1ta6fur7" path="res://assets/gardenPuzzleScene/spores/Spores Release_00174.png" id="175_twa63"]
+[ext_resource type="Texture2D" uid="uid://q5jbfx8quu8m" path="res://assets/gardenPuzzleScene/spores/Spores Release_00175.png" id="176_qp1eh"]
+[ext_resource type="Texture2D" uid="uid://dmput1bvf3hs0" path="res://assets/gardenPuzzleScene/spores/Spores Release_00176.png" id="177_o1bfy"]
+[ext_resource type="Texture2D" uid="uid://bovjsctrwxc5e" path="res://assets/gardenPuzzleScene/spores/Spores Release_00177.png" id="178_hunml"]
+[ext_resource type="Texture2D" uid="uid://pam0w6jikh6b" path="res://assets/gardenPuzzleScene/spores/Spores Release_00178.png" id="179_nsfu5"]
+[ext_resource type="Texture2D" uid="uid://eaon0jgl4opd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00179.png" id="180_ljgop"]
+[ext_resource type="Texture2D" uid="uid://d2w7yak3vc7y2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00180.png" id="181_cr3ti"]
+[ext_resource type="Texture2D" uid="uid://b4myk8fctlf17" path="res://assets/gardenPuzzleScene/spores/Spores Release_00181.png" id="182_8e5a4"]
+[ext_resource type="Texture2D" uid="uid://cd837hw1xsacb" path="res://assets/gardenPuzzleScene/spores/Spores Release_00182.png" id="183_4qd7u"]
+[ext_resource type="Texture2D" uid="uid://cagipshbunb6i" path="res://assets/gardenPuzzleScene/spores/Spores Release_00183.png" id="184_gj0mp"]
+[ext_resource type="Texture2D" uid="uid://dq5lv3btmsg1r" path="res://assets/gardenPuzzleScene/spores/Spores Release_00184.png" id="185_gwho5"]
+[ext_resource type="Texture2D" uid="uid://cu48fxqwi1d81" path="res://assets/gardenPuzzleScene/spores/Spores Release_00185.png" id="186_626qa"]
+[ext_resource type="Texture2D" uid="uid://h0oulkgfl8oa" path="res://assets/gardenPuzzleScene/spores/Spores Release_00186.png" id="187_5s1md"]
+[ext_resource type="Texture2D" uid="uid://bmxn8mcphpboy" path="res://assets/gardenPuzzleScene/spores/Spores Release_00187.png" id="188_dflrd"]
+[ext_resource type="Texture2D" uid="uid://dclugcxwjyjmq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00188.png" id="189_jbpqk"]
+[ext_resource type="Texture2D" uid="uid://up0cfayhnt65" path="res://assets/gardenPuzzleScene/spores/Spores Release_00189.png" id="190_p5rnl"]
+[ext_resource type="Texture2D" uid="uid://mg83rocafs8g" path="res://assets/gardenPuzzleScene/spores/Spores Release_00190.png" id="191_7prys"]
+[ext_resource type="Texture2D" uid="uid://b7wc7nuqu7gqv" path="res://assets/gardenPuzzleScene/spores/Spores Release_00191.png" id="192_3fqu4"]
+[ext_resource type="Texture2D" uid="uid://b4dei8iapkjk4" path="res://assets/gardenPuzzleScene/spores/Spores Release_00192.png" id="193_6kx1a"]
+[ext_resource type="Texture2D" uid="uid://br0rggui6n38o" path="res://assets/gardenPuzzleScene/spores/Spores Release_00193.png" id="194_ume28"]
+[ext_resource type="Texture2D" uid="uid://hq7uv487yvtd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00194.png" id="195_wkpys"]
+[ext_resource type="Texture2D" uid="uid://clicbgwxjvgi2" path="res://assets/gardenPuzzleScene/spores/Spores Release_00195.png" id="196_8sfnu"]
+[ext_resource type="Texture2D" uid="uid://cu45ik8kwicoy" path="res://assets/gardenPuzzleScene/spores/Spores Release_00196.png" id="197_155w7"]
+[ext_resource type="Texture2D" uid="uid://peqkso70okq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00197.png" id="198_yojmg"]
+[ext_resource type="Texture2D" uid="uid://b0daeiond4ryw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00198.png" id="199_s8c7l"]
+[ext_resource type="Texture2D" uid="uid://78oli8k8dmgc" path="res://assets/gardenPuzzleScene/spores/Spores Release_00199.png" id="200_tutuq"]
+[ext_resource type="Texture2D" uid="uid://ctr615cdsivyb" path="res://assets/gardenPuzzleScene/spores/Spores Release_00200.png" id="201_5hpkj"]
+[ext_resource type="Texture2D" uid="uid://c5f4yowfv604j" path="res://assets/gardenPuzzleScene/spores/Spores Release_00201.png" id="202_n0k2s"]
+[ext_resource type="Texture2D" uid="uid://qtouf8s4lh4c" path="res://assets/gardenPuzzleScene/spores/Spores Release_00202.png" id="203_f775x"]
+[ext_resource type="Texture2D" uid="uid://cikg3x08cf4e3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00203.png" id="204_ohhgj"]
+[ext_resource type="Texture2D" uid="uid://7nj2p420udw1" path="res://assets/gardenPuzzleScene/spores/Spores Release_00204.png" id="205_vy655"]
+[ext_resource type="Texture2D" uid="uid://db7dfsiu75svg" path="res://assets/gardenPuzzleScene/spores/Spores Release_00205.png" id="206_j5qyq"]
+[ext_resource type="Texture2D" uid="uid://bl5gohjhnt38f" path="res://assets/gardenPuzzleScene/spores/Spores Release_00206.png" id="207_sm3xm"]
+[ext_resource type="Texture2D" uid="uid://sfllei8d3pir" path="res://assets/gardenPuzzleScene/spores/Spores Release_00207.png" id="208_gohpd"]
+[ext_resource type="Texture2D" uid="uid://cjium4wplyl6w" path="res://assets/gardenPuzzleScene/spores/Spores Release_00208.png" id="209_wcdvx"]
+[ext_resource type="Texture2D" uid="uid://cywclpmh1wooa" path="res://assets/gardenPuzzleScene/spores/Spores Release_00209.png" id="210_luo7j"]
+[ext_resource type="Texture2D" uid="uid://b4d5c4ly2o2fw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00210.png" id="211_ylfxy"]
+[ext_resource type="Texture2D" uid="uid://cykgrjrf7yllo" path="res://assets/gardenPuzzleScene/spores/Spores Release_00211.png" id="212_1p3ay"]
+[ext_resource type="Texture2D" uid="uid://buuijgs4wjtkv" path="res://assets/gardenPuzzleScene/spores/Spores Release_00212.png" id="213_dn4b2"]
+[ext_resource type="Texture2D" uid="uid://dvobjvxrpnh4u" path="res://assets/gardenPuzzleScene/spores/Spores Release_00213.png" id="214_jasma"]
+[ext_resource type="Texture2D" uid="uid://bcnp815wquimt" path="res://assets/gardenPuzzleScene/spores/Spores Release_00214.png" id="215_qcsok"]
+[ext_resource type="Texture2D" uid="uid://c6btub8kmgluv" path="res://assets/gardenPuzzleScene/spores/Spores Release_00215.png" id="216_ahl8x"]
+[ext_resource type="Texture2D" uid="uid://534y2kye2enq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00216.png" id="217_yvqq0"]
+[ext_resource type="Texture2D" uid="uid://b7r5c4c51e1cf" path="res://assets/gardenPuzzleScene/spores/Spores Release_00217.png" id="218_geitg"]
+[ext_resource type="Texture2D" uid="uid://b0hqfkkuip2gw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00218.png" id="219_018wd"]
+[ext_resource type="Texture2D" uid="uid://m2fxr8v337g8" path="res://assets/gardenPuzzleScene/spores/Spores Release_00219.png" id="220_c3t31"]
+[ext_resource type="Texture2D" uid="uid://b0x181kje6gaq" path="res://assets/gardenPuzzleScene/spores/Spores Release_00220.png" id="221_qi0f4"]
+[ext_resource type="Texture2D" uid="uid://ml0xjqrnwrlw" path="res://assets/gardenPuzzleScene/spores/Spores Release_00221.png" id="222_h2ps2"]
+[ext_resource type="Texture2D" uid="uid://dhdk5aepkmkca" path="res://assets/gardenPuzzleScene/spores/Spores Release_00222.png" id="223_lk63a"]
+[ext_resource type="Texture2D" uid="uid://c5g61m6ysmscs" path="res://assets/gardenPuzzleScene/spores/Spores Release_00223.png" id="224_k8f7e"]
+[ext_resource type="Texture2D" uid="uid://cp5hq5qr6o00m" path="res://assets/gardenPuzzleScene/spores/Spores Release_00224.png" id="225_gyvio"]
+[ext_resource type="Texture2D" uid="uid://df42dhhek6e5e" path="res://assets/gardenPuzzleScene/spores/Spores Release_00225.png" id="226_nnwhb"]
+[ext_resource type="Texture2D" uid="uid://b77qspjl2eeli" path="res://assets/gardenPuzzleScene/spores/Spores Release_00226.png" id="227_t70e6"]
+[ext_resource type="Texture2D" uid="uid://4nq0qw7ipee6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00227.png" id="228_ash4w"]
+[ext_resource type="Texture2D" uid="uid://ldpslaapeeh" path="res://assets/gardenPuzzleScene/spores/Spores Release_00228.png" id="229_15lgg"]
+[ext_resource type="Texture2D" uid="uid://colo13mmhxy36" path="res://assets/gardenPuzzleScene/spores/Spores Release_00229.png" id="230_14wt1"]
+[ext_resource type="Texture2D" uid="uid://tswu2y75g5mi" path="res://assets/gardenPuzzleScene/spores/Spores Release_00230.png" id="231_mdwsb"]
+[ext_resource type="Texture2D" uid="uid://b2kovn5o4hqgh" path="res://assets/gardenPuzzleScene/spores/Spores Release_00231.png" id="232_s23co"]
+[ext_resource type="Texture2D" uid="uid://bwhej7484pts6" path="res://assets/gardenPuzzleScene/spores/Spores Release_00232.png" id="233_ppfap"]
+[ext_resource type="Texture2D" uid="uid://ctbuur6srap1m" path="res://assets/gardenPuzzleScene/spores/Spores Release_00233.png" id="234_tdn85"]
+[ext_resource type="Texture2D" uid="uid://ud041o8x7uh3" path="res://assets/gardenPuzzleScene/spores/Spores Release_00234.png" id="235_shs2n"]
+[ext_resource type="Texture2D" uid="uid://th4vhw3xpqy1" path="res://assets/gardenPuzzleScene/spores/Spores Release_00235.png" id="236_f0tuy"]
+[ext_resource type="Texture2D" uid="uid://bspsf3f1baaso" path="res://assets/gardenPuzzleScene/spores/Spores Release_00236.png" id="237_1hff8"]
+[ext_resource type="Texture2D" uid="uid://1bvun7hy02ht" path="res://assets/gardenPuzzleScene/spores/Spores Release_00237.png" id="238_nhrai"]
+[ext_resource type="Texture2D" uid="uid://blut1ey1thixl" path="res://assets/gardenPuzzleScene/spores/Spores Release_00238.png" id="239_vg874"]
+[ext_resource type="Texture2D" uid="uid://comx0h75ubyrd" path="res://assets/gardenPuzzleScene/spores/Spores Release_00239.png" id="240_qcous"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nevfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sch2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7u20c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t0w1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_48klg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g0l7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i2xws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dfklg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kdn5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4xsfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_si0my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qx6uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ucjjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dp2m3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_eyul0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0vl2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5mrvn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i6qgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_in86p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gitmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_nw3i8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_0mlow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_f7se4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_s2udi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vi7km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_wd10l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_sal0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_i6ohp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_71k7p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_iky1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_l5pc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_5uy8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_ncxcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_4uoum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_oer2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_2fmod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_cys88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ri51t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_omg7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t6vu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_km3ep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_xoy5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_y448b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_k6u5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_rj34i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_vv1dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_x3ljb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_eabe6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_lq01j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_0ifjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_53lpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_krr3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_3gr0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_8rgux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_1xm5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_on2dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_o255p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_utkfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_plats")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_lqcfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_kec8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_tfg4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_6i3rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_ep4o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_o4fl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_q4uo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_u0ghu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_y07gg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_l5bbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_op3au")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_r0ot7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_lw5yw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_ybj30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_bil8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_mm24k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_4wnck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_xih7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_ponrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_71ebo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_h8wir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_48ogm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_ktert")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_5kxna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_4xy5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_ykvmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_cnkdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_rna1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_ichnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_bjebf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_0l0te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_kkgpp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_i0pca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_qlbkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_2h15m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_nms12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_b1wiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_qt23l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_qdx4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_exw3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_5i4nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_i8lmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_ad5hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_fk3ay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_05jm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_61gsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_7iq4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_eymhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_nvqes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_cgogy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_q0w7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_hikf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_ni8km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_5cfkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_8mswk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_m8jmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_imold")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_evjbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_dq730")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_jabp2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_ltf7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_d0880")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_shtuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_u0w0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_q750c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_7l0iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_0gcqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_6x2hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_lheba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_i16iv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_p3q4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_u0lek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_hdkxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_18hxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_gbcsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_15sol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_d5gqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_7f4rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_dqcy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_avbhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_2urau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_yhbkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_dbq4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_7bdhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_tqyyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_omhib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_ohbc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_uhg0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_o3tco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_y0rra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_fufrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_6aa03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_m5spu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_l2n7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_i3na4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_bqybm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_f38q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_t45a8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_b1sht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_vg7xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_mr3s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_lv420")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_c1odp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_hm873")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_brg4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_cq4fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_6a012")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_g5fh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_otiop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_06v3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_5ifeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_cqsfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_qllqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_fgpve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_d133u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_kh58r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_twa63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_qp1eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_o1bfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_hunml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_nsfu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_ljgop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_cr3ti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_8e5a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_4qd7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_gj0mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_gwho5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_626qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_5s1md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_dflrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_jbpqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_p5rnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_7prys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_3fqu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_6kx1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_ume28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_wkpys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_8sfnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_155w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_yojmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_s8c7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_tutuq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_5hpkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_n0k2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_f775x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_ohhgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_vy655")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_j5qyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_sm3xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_gohpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_wcdvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_luo7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_ylfxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_1p3ay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_dn4b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_jasma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_qcsok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_ahl8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_yvqq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_geitg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_018wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_c3t31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_qi0f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_h2ps2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_lk63a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_k8f7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("225_gyvio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_nnwhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_t70e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_ash4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_15lgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_14wt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_mdwsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_s23co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("233_ppfap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_tdn85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_shs2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_f0tuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_1hff8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("238_nhrai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("239_vg874")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_qcous")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="spores" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nevfh")
+frame = 48
+frame_progress = 0.9668343

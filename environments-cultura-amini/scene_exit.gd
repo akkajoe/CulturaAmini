@@ -4,14 +4,14 @@ extends Area2D
 @export var next_marker_name: String = "spawn_from_left"
 @export var player_name: String = "player"
 
-@export var inside_time_required: float = 0.02
-@export var spawn_grace_time: float = 0.15
+@export var inside_time_required: float = 0.18
+@export var spawn_grace_time: float = 0.60
 @export var require_leave_after_spawn: bool = true
 
 var _is_transitioning: bool = false
 var _trigger_enabled: bool = false
 var _player_inside: bool = false
-var _has_left_since_spawn: bool = false
+var _armed_after_leave: bool = false
 var _enter_timer_id: int = 0
 var _enter_timer_running: bool = false
 
@@ -26,7 +26,7 @@ func _ready() -> void:
 	_is_transitioning = false
 	_trigger_enabled = false
 	_player_inside = false
-	_has_left_since_spawn = false
+	_armed_after_leave = false
 	_enter_timer_id = 0
 	_enter_timer_running = false
 
@@ -40,16 +40,13 @@ func _ready() -> void:
 		await get_tree().create_timer(spawn_grace_time).timeout
 
 	var player := _find_player_in_scene()
-	var spawned_inside := false
-
 	if player != null:
-		spawned_inside = overlaps_body(player)
-		_player_inside = spawned_inside
+		_player_inside = overlaps_body(player)
 
-	if not require_leave_after_spawn:
-		_has_left_since_spawn = true
+	if require_leave_after_spawn:
+		_armed_after_leave = false
 	else:
-		_has_left_since_spawn = not spawned_inside
+		_armed_after_leave = true
 
 	_trigger_enabled = true
 
@@ -69,9 +66,11 @@ func _physics_process(_delta: float) -> void:
 
 	if inside_now != _player_inside:
 		_player_inside = inside_now
+
 		if not inside_now:
 			_cancel_enter_timer()
-			_has_left_since_spawn = true
+			if require_leave_after_spawn:
+				_armed_after_leave = true
 
 	if not inside_now:
 		return
@@ -102,7 +101,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 	_player_inside = false
 	_cancel_enter_timer()
-	_has_left_since_spawn = true
+
+	if require_leave_after_spawn:
+		_armed_after_leave = true
 
 
 func _can_attempt_transition(player: Node2D) -> bool:
@@ -112,7 +113,7 @@ func _can_attempt_transition(player: Node2D) -> bool:
 	if _is_transitioning:
 		return false
 
-	if require_leave_after_spawn and not _has_left_since_spawn:
+	if require_leave_after_spawn and not _armed_after_leave:
 		return false
 
 	if player != null and player.has_method("is_scene_exit_blocked") and player.is_scene_exit_blocked():
@@ -184,12 +185,6 @@ func go_to_scene() -> void:
 		_is_transitioning = false
 		return
 
-	var packed_scene: PackedScene = load(next_scene_path)
-	if packed_scene == null:
-		push_warning("scene_exit.gd: Could not load scene: " + next_scene_path)
-		_is_transitioning = false
-		return
-
 	GameProgress.next_spawn_marker = next_marker_name
 
 	var old_scene := get_tree().current_scene
@@ -197,11 +192,17 @@ func go_to_scene() -> void:
 		_is_transitioning = false
 		return
 
-	var new_scene := packed_scene.instantiate()
-
 	if old_scene is CanvasItem:
 		(old_scene as CanvasItem).visible = false
 	old_scene.process_mode = Node.PROCESS_MODE_DISABLED
+
+	var packed_scene: PackedScene = SceneCache.get_scene(next_scene_path)
+	if packed_scene == null:
+		push_warning("scene_exit.gd: Could not get scene from SceneCache: " + next_scene_path)
+		_is_transitioning = false
+		return
+
+	var new_scene := packed_scene.instantiate()
 
 	if new_scene is CanvasItem:
 		(new_scene as CanvasItem).visible = false
@@ -209,26 +210,24 @@ func go_to_scene() -> void:
 	get_tree().root.add_child(new_scene)
 	get_tree().current_scene = new_scene
 
-	# Let the new scene and player finish _ready() first.
-	await get_tree().process_frame
-
 	var marker := new_scene.get_node_or_null(next_marker_name) as Node2D
 	var player := new_scene.get_node_or_null(player_name) as Node2D
 
 	if marker != null and player != null:
-		if marker.name == "spawn_from_top" and player.has_method("spawn_off_route_exact"):
+		if marker.is_in_group("off_route_spawn") and player.has_method("spawn_off_route_exact"):
 			player.spawn_off_route_exact(marker.global_position)
-		elif player.has_method("force_spawn_world_position"):
-			player.force_spawn_world_position(marker.global_position)
 		elif player.has_method("set_spawn_world_position"):
 			player.set_spawn_world_position(marker.global_position)
 		else:
 			player.global_position = marker.global_position
+	else:
+		push_warning("scene_exit.gd: marker or player not found in new scene.")
 
-	# Give one more frame for the spawned state to settle before revealing.
-	await get_tree().process_frame
+	var cam := new_scene.get_node_or_null("Camera2D")
+	if cam != null and cam.has_method("snap_to_target_now"):
+		cam.snap_to_target_now()
 
 	if new_scene is CanvasItem:
 		(new_scene as CanvasItem).visible = true
 
-	old_scene.queue_free()
+	old_scene.call_deferred("queue_free")

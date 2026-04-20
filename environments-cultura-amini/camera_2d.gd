@@ -22,6 +22,9 @@ var zoom_zone_offset: Vector2 = Vector2.ZERO
 # Current runtime state
 var current_offset: Vector2 = Vector2.ZERO
 
+# Prevent startup drift after scene transitions / spawn placement
+var _did_initial_snap: bool = false
+
 
 func _ready() -> void:
 	target = get_node_or_null(target_path) as Node2D
@@ -29,10 +32,17 @@ func _ready() -> void:
 		push_warning("Camera2D.gd: target not found.")
 		return
 
-	follow_position = target.global_position
-	global_position = target.global_position
 	zoom = default_zoom
 	current_offset = Vector2.ZERO
+
+	# First rough initialization
+	follow_position = target.global_position
+	global_position = target.global_position
+
+	# Then wait until the scene has finished its first placement/spawn work,
+	# and snap again so there is no visible camera catch-up drift.
+	await get_tree().process_frame
+	_snap_to_target_immediate()
 
 
 func _physics_process(delta: float) -> void:
@@ -40,6 +50,12 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if in_cutscene:
+		return
+
+	# Safety: if we somehow have not done the startup snap yet,
+	# do it once before any smoothing starts.
+	if not _did_initial_snap:
+		_snap_to_target_immediate()
 		return
 
 	var target_pos: Vector2 = target.global_position
@@ -56,6 +72,28 @@ func _physics_process(delta: float) -> void:
 	current_offset = current_offset.lerp(desired_offset, offset_lerp_speed * delta)
 
 	global_position = follow_position + current_offset
+
+
+func _snap_to_target_immediate() -> void:
+	if target == null:
+		return
+
+	var desired_offset: Vector2 = Vector2.ZERO
+	var desired_zoom: Vector2 = default_zoom
+
+	if zoom_zone_active:
+		desired_offset = zoom_zone_offset
+		desired_zoom = zoom_zone_value
+
+	follow_position = target.global_position
+	current_offset = desired_offset
+	global_position = target.global_position + current_offset
+	zoom = desired_zoom
+	_did_initial_snap = true
+
+
+func snap_to_target_now() -> void:
+	_snap_to_target_immediate()
 
 
 func set_zoom_zone(new_zoom: Vector2, new_offset: Vector2 = Vector2.ZERO) -> void:

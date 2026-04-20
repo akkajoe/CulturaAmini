@@ -5,8 +5,8 @@ extends CharacterBody2D
 @export var jump_points_parent_path: NodePath = ^"../traversalJumpPoints"
 @export var start_route_path: NodePath
 
-@export var scene_exit_block_after_spawn: float = 0.55
-@export var scene_exit_block_after_jump: float = 0.35 
+@export var scene_exit_block_after_spawn: float = 1.0
+@export var scene_exit_block_after_jump: float = 1.0
 var _scene_exit_block_until_msec: int = 0
 
 @export var speed: float = 200.0
@@ -82,12 +82,27 @@ var current_jump_point: TraversalJumpPoint = null
 
 
 func _ready() -> void:
+	print("INSIDE READY")
+	var t_ready_0 := Time.get_ticks_msec()
+
+	var t_routes_0 := Time.get_ticks_msec()
 	_load_routes()
+	var t_routes_1 := Time.get_ticks_msec()
+	push_warning("[PLAYER READY TIMING] _load_routes ms: ", t_routes_1 - t_routes_0)
+
+	var t_markers_0 := Time.get_ticks_msec()
 	_load_markers()
+	var t_markers_1 := Time.get_ticks_msec()
+	push_warning("[PLAYER READY TIMING] _load_markers ms: ", t_markers_1 - t_markers_0)
+
+	var t_jumps_0 := Time.get_ticks_msec()
 	_load_jump_points()
+	var t_jumps_1 := Time.get_ticks_msec()
+	push_warning("[PLAYER READY TIMING] _load_jump_points ms: ", t_jumps_1 - t_jumps_0)
 
 	var entering_from_transition := GameProgress.next_spawn_marker != ""
 
+	var t_state_0 := Time.get_ticks_msec()
 	if not entering_from_transition:
 		_set_start_route()
 		_snap_to_active_route(global_position)
@@ -96,7 +111,10 @@ func _ready() -> void:
 		current_offset = 0.0
 		target_offset = 0.0
 		current_jump_point = null
+	var t_state_1 := Time.get_ticks_msec()
+	push_warning("[PLAYER READY TIMING] initial state setup ms: ", t_state_1 - t_state_0)
 
+	var t_visual_0 := Time.get_ticks_msec()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	if sprite.animation != "idle":
@@ -109,6 +127,11 @@ func _ready() -> void:
 		_apply_idle_tangent_tilt()
 
 	_update_hover_cursor()
+	var t_visual_1 := Time.get_ticks_msec()
+	push_warning("[PLAYER READY TIMING] visual/cursor setup ms: ", t_visual_1 - t_visual_0)
+
+	var t_ready_1 := Time.get_ticks_msec()
+	push_warning("[PLAYER READY TIMING] TOTAL _ready ms: ", t_ready_1 - t_ready_0, " entering_from_transition=", entering_from_transition)
 
 func _process(_delta: float) -> void:
 	if cursor != null:
@@ -1548,18 +1571,28 @@ func set_spawn_world_position(world_pos: Vector2) -> void:
 	post_jump_route_offset = 0.0
 
 	current_jump_point = null
-	active_route = _get_closest_route(world_pos)
 
-	if active_route != null and active_route.has_ground_path():
-		current_offset = active_route.get_closest_offset_to_global(world_pos)
-		target_offset = current_offset
+	# IMPORTANT:
+	# First place the player EXACTLY on the spawn marker so there is
+	# no visible drift from marker -> route point.
+	global_position = world_pos
+	velocity = Vector2.ZERO
+
+	# Now bind internal traversal state to the nearest route,
+	# but do not visibly move the player again.
+	var spawn_route: TraversalRoute = _get_closest_route(world_pos)
+
+	if spawn_route != null and spawn_route.has_ground_path():
+		active_route = spawn_route
+
+		var spawn_offset: float = active_route.get_closest_offset_to_global(world_pos)
+
+		current_offset = spawn_offset
+		target_offset = spawn_offset
 	else:
 		active_route = null
 		current_offset = 0.0
 		target_offset = 0.0
-
-	global_position = world_pos
-	velocity = Vector2.ZERO
 
 	if sprite != null:
 		if sprite.animation != "idle":
@@ -1620,6 +1653,9 @@ func spawn_off_route_exact(world_pos: Vector2) -> void:
 	_block_scene_exits_for(scene_exit_block_after_spawn)
 
 	can_move = true
+
+
+
 
 func _block_scene_exits_for(seconds: float) -> void:
 	var ms := int(seconds * 1000.0)

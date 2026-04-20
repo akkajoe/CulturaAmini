@@ -6,6 +6,7 @@ extends Node
 func _ready() -> void:
 	if has_node("bgMusic") and not $bgMusic.playing:
 		$bgMusic.play()
+	SceneCache.warm_scene("res://garden_puzzle.tscn")
 
 	var first_time_here := not GameProgress.crash_site_visited
 

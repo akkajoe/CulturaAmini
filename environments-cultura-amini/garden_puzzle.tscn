@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://18mv8bbljs5v"]
+[gd_scene load_steps=33 format=3 uid="uid://18mv8bbljs5v"]
 
 [ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
 [ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://d2qgcabr3efod" path="res://assets/Prototype Assets/Worm.png" id="23_71sxv"]
 [ext_resource type="Texture2D" uid="uid://vjofv5h17xvg" path="res://assets/Prototype Assets/Morsel - Not Clicked.png" id="24_1b8pk"]
 [ext_resource type="Texture2D" uid="uid://c6p62y17hv3og" path="res://assets/Prototype Assets/Morsel - Clicked.png" id="25_fol8i"]
+[ext_resource type="PackedScene" uid="uid://kj3sxynvlq4e" path="res://spores.tscn" id="26_fol8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
 size = Vector2(924, 532)
@@ -269,7 +270,7 @@ next_marker_name = "spawn"
 position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_48yf5")
 
-[node name="spawn_from_top" type="Marker2D" parent="."]
+[node name="spawn_from_top" type="Marker2D" parent="." groups=["off_route_spawn"]]
 position = Vector2(3718, -158)
 
 [node name="Node2D" parent="." instance=ExtResource("18_vwglx")]
@@ -322,9 +323,18 @@ textures = Array[Texture2D]([ExtResource("24_1b8pk"), ExtResource("25_fol8i")])
 [node name="spawn_from_right" type="Marker2D" parent="."]
 position = Vector2(4003, 826)
 
+[node name="spores" parent="." instance=ExtResource("26_fol8i")]
+position = Vector2(2319, 189)
+
+[node name="AnimatedSprite2D" parent="spores" index="0"]
+position = Vector2(-343, 338)
+frame = 13
+frame_progress = 0.37658754
+
 [connection signal="body_entered" from="ZoomArea" to="ZoomArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 
 [editable path="guide"]
 [editable path="player"]
+[editable path="spores"]

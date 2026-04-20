@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EnvironmentsCulturaAmini"
-run/main_scene="uid://xry0vyl6bt7i"
+run/main_scene="uid://ddv4lluxa00i6"
 run/disable_stdout=true
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 GameProgress="*res://global/game_progress.gd"
 DragManager="*res://DragManager.gd"
+SceneCache="*res://scene_cache.gd"
 
 [display]
 
