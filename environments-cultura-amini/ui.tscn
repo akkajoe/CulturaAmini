@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7symwiqlxn2u"]
+
+[ext_resource type="Script" uid="uid://5wwwkcbvqbf3" path="res://ui.gd" id="1_fyqef"]
+[ext_resource type="Texture2D" uid="uid://c88tpmh2jhfpi" path="res://UI/inventory/Bag icon.png" id="2_m6e0p"]
+[ext_resource type="Texture2D" uid="uid://dqfyoiwajf3a5" path="res://UI/inventory/Vertical bag page.png" id="3_ibotj"]
+[ext_resource type="Texture2D" uid="uid://w2ueupob736b" path="res://assets/symbols/health/symbol_2-9.png" id="3_n5ude"]
+[ext_resource type="Texture2D" uid="uid://dopiy8yrxngp1" path="res://UI/inventory/Delete Icon.png" id="4_n5ude"]
+[ext_resource type="Texture2D" uid="uid://cyq11o365a4kk" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-15.png" id="5_ibotj"]
+
+[node name="GlobalUI" type="CanvasLayer"]
+script = ExtResource("1_fyqef")
+symbol_texture = ExtResource("5_ibotj")
+hidden_symbol_texture = ExtResource("3_n5ude")
+
+[node name="bagButton" type="TextureButton" parent="."]
+offset_left = -9.999998
+offset_top = 851.0
+offset_right = 2038.0
+offset_bottom = 2899.0
+scale = Vector2(0.12, 0.12)
+texture_normal = ExtResource("2_m6e0p")
+
+[node name="inventoryPopup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 973.0
+offset_right = 136.0
+offset_bottom = 1013.0
+
+[node name="ColorRect" type="ColorRect" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = -96.0
+offset_top = -978.0
+offset_right = 1825.0
+offset_bottom = 110.0
+color = Color(0, 0, 0, 0.28627452)
+
+[node name="TextureRect" type="TextureRect" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = -94.0
+offset_top = -969.0
+offset_right = 1826.0
+offset_bottom = 111.0
+texture = ExtResource("3_ibotj")
+
+[node name="CloseButton" type="Button" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = -841.0
+offset_right = 2568.0
+offset_bottom = 1215.0
+scale = Vector2(0.025, 0.025)
+icon = ExtResource("4_n5ude")
+
+[node name="Slot1" type="TextureRect" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = -762.0
+offset_right = 268.0
+offset_bottom = -634.0
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Slot2" type="TextureRect" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = -762.0
+offset_right = 456.0
+offset_bottom = -634.0
+expand_mode = 3
+stretch_mode = 5

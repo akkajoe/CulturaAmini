@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://drrygjnf7eh7u"]
+
+[ext_resource type="Texture2D" uid="uid://d0u2773r4m8l2" path="res://UI/TextBoxBase.png" id="1_nxqfy"]
+[ext_resource type="Script" uid="uid://xiaiwgjb6k7v" path="res://speechBox.gd" id="1_wsgd1"]
+[ext_resource type="Texture2D" uid="uid://bmsh7cogymtso" path="res://UI/Right.png" id="3_bog5s"]
+[ext_resource type="AudioStream" uid="uid://c5b6kbvwxtbaf" path="res://assets/audio/char/Guide_Voice_1.mp3" id="4_kujlc"]
+[ext_resource type="AudioStream" uid="uid://blq0csrvvihkx" path="res://assets/audio/char/Guide_Voice_2.mp3" id="5_owdvn"]
+[ext_resource type="AudioStream" uid="uid://dqkyvkr86wsqg" path="res://assets/audio/char/Guide_Voice_3.mp3" id="6_0dgvo"]
+
+[node name="SpeechBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -20.0
+offset_bottom = -796.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wsgd1")
+metadata/_edit_vertical_guides_ = [1901.0]
+metadata/_edit_horizontal_guides_ = [436.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_right = -65.217285
+offset_bottom = 76.10809
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("1_nxqfy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 129.0
+offset_right = 1860.0
+offset_bottom = 290.0
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="Button" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 1743.0
+offset_top = 133.0
+offset_right = 3799.0
+offset_bottom = 2189.0
+scale = Vector2(0.075, 0.075)
+texture_normal = ExtResource("3_bog5s")
+texture_pressed = ExtResource("3_bog5s")
+texture_hover = ExtResource("3_bog5s")
+texture_disabled = ExtResource("3_bog5s")
+texture_focused = ExtResource("3_bog5s")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TypeSound1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kujlc")
+
+[node name="TypeSound2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_owdvn")
+
+[node name="TypeSound3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0dgvo")

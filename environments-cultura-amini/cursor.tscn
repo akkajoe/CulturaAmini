@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://b04u0quhnrrtx"]
+
+[ext_resource type="Texture2D" uid="uid://b6wiu7luqp8bi" path="res://UI/mouse/walking mouse2.png" id="1_oua8b"]
+[ext_resource type="Texture2D" uid="uid://blefvbddtonn7" path="res://UI/mouse/walking mouse3.png" id="2_6cchd"]
+[ext_resource type="Texture2D" uid="uid://depmoamxf7luu" path="res://UI/mouse/walking mouse4.png" id="3_isvh7"]
+[ext_resource type="Texture2D" uid="uid://brw5yqgd0m3co" path="res://UI/mouse/walking mouse5.png" id="4_rmg5g"]
+[ext_resource type="Texture2D" uid="uid://bdohr3parfyuh" path="res://UI/mouse/walking mouse6.png" id="5_um11w"]
+[ext_resource type="Texture2D" uid="uid://bxd6fykbrnwj8" path="res://UI/mouse/walking mouse7.png" id="6_2gb08"]
+[ext_resource type="Texture2D" uid="uid://kmd5r3vg5we7" path="res://UI/mouse/walking mouse.png" id="7_cwsjd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfa8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oua8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6cchd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_isvh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rmg5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_um11w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2gb08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cwsjd")
+}],
+"loop": true,
+"name": &"hover_path",
+"speed": 10.0
+}]
+
+[node name="cursor" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.025, 0.025)
+sprite_frames = SubResource("SpriteFrames_gfa8q")
+animation = &"hover_path"

@@ -1,0 +1,136 @@
+[gd_scene load_steps=19 format=3 uid="uid://xry0vyl6bt7i"]
+
+[ext_resource type="Script" uid="uid://r1a846dlxooh" path="res://spaceship_scene_1.gd" id="1_08h1v"]
+[ext_resource type="Texture2D" uid="uid://3g4l56s8kdtp" path="res://assets/spaceshipScene/SpaceBackground_Edited_v2.png" id="1_d5wm3"]
+[ext_resource type="Texture2D" uid="uid://cj0na0krexkr5" path="res://assets/spaceshipScene/Scene_00_Ship-Background.png" id="2_0ymgv"]
+[ext_resource type="Texture2D" uid="uid://bhb36mpmdc1en" path="res://assets/spaceshipScene/Scene_00_Ship-Foreground.png" id="3_j0ikv"]
+[ext_resource type="Texture2D" uid="uid://bqwjy8ufwt6ol" path="res://assets/spaceshipScene/Scene_00_Ship_Warning-light.png" id="4_lyrqr"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="5_1iby3"]
+[ext_resource type="Script" uid="uid://bxavltymep7bm" path="res://camera_2dShake.gd" id="5_d1ngo"]
+[ext_resource type="Script" uid="uid://dr0ln65b45p18" path="res://light.gd" id="5_her2e"]
+[ext_resource type="Script" uid="uid://brxmwsqf6vc2u" path="res://puzzle_select.gd" id="7_mnd0c"]
+[ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="7_u23mh"]
+[ext_resource type="Script" uid="uid://ctsd8x2mqpbjf" path="res://traversalMarker.gd" id="8_uhmoj"]
+[ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="10_6esc1"]
+[ext_resource type="AudioStream" uid="uid://dv4sxcsr086cp" path="res://assets/audio/demo_01_ship-emergency_44.1k_16b.wav" id="11_onlgl"]
+[ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="13_u3ba4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhmoj"]
+radius = 24.186773
+
+[sub_resource type="Curve2D" id="Curve2D_d1ngo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 598, 588, 0, 0, 0, 0, 719, 551, 0, 0, 0, 0, 1004, 511, 0, 0, 0, 0, 1099, 535, 0, 0, 0, 0, 1251, 568, 0, 0, 0, 0, 1392, 564)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_u23mh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 730, 546, 0, 0, 0, 0, 869, 471, 0, 0, 0, 0, 982, 428, 0, 0, 0, 0, 1039, 404, 0, 0, 0, 0, 1067, 386)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_uhmoj"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 585.2, 588, 0, 0, 0, 0, 639.40375, 640, 0, 0, 0, 0, 697.6226, 669, 0, 0, 0, 0, 774.9132, 709, 0, 0, 0, 0, 884.3245, 756, 0, 0, 0, 0, 996.74713, 783, 0, 0, 0, 0, 1090.098, 776, 0, 0, 0, 0, 1182.4452, 749, 0, 0, 0, 0, 1290.8528, 661, 0, 0, 0, 0, 1343.0491, 622, 0, 0, 0, 0, 1380.1886, 569)
+}
+point_count = 11
+
+[node name="spaceship" type="Node"]
+script = ExtResource("1_08h1v")
+metadata/_edit_vertical_guides_ = [-3.0, 1916.0]
+metadata/_edit_horizontal_guides_ = [1.0, 1082.0]
+
+[node name="space" type="Sprite2D" parent="."]
+position = Vector2(958, 540)
+scale = Vector2(1.5587393, 1.5587393)
+texture = ExtResource("1_d5wm3")
+
+[node name="shipBg" type="Sprite2D" parent="."]
+position = Vector2(955, 542)
+texture = ExtResource("2_0ymgv")
+
+[node name="light" type="Sprite2D" parent="."]
+position = Vector2(955, 542)
+texture = ExtResource("4_lyrqr")
+script = ExtResource("5_her2e")
+
+[node name="player" parent="." instance=ExtResource("5_1iby3")]
+position = Vector2(665, 552)
+scale = Vector2(0.9, 0.9)
+start_route_path = NodePath("../traversalRoutes/route_a")
+
+[node name="cursor" parent="." instance=ExtResource("13_u3ba4")]
+
+[node name="shipFg" type="Sprite2D" parent="."]
+position = Vector2(955, 542)
+texture = ExtResource("3_j0ikv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(665, 552)
+limit_left = -3
+limit_top = 1
+limit_right = 1916
+limit_bottom = 1082
+script = ExtResource("5_d1ngo")
+
+[node name="puzzleSelect" type="Area2D" parent="."]
+position = Vector2(1244, 461)
+script = ExtResource("7_mnd0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="puzzleSelect"]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_uhmoj")
+
+[node name="WalkTarget" type="Marker2D" parent="puzzleSelect"]
+position = Vector2(-67, 91)
+
+[node name="traversalRoutes" type="Node2D" parent="."]
+
+[node name="route_a" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("7_u23mh")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_a"]
+curve = SubResource("Curve2D_d1ngo")
+
+[node name="route_b" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("7_u23mh")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_b"]
+position = Vector2(-2, 3)
+curve = SubResource("Curve2D_u23mh")
+
+[node name="route_c" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("7_u23mh")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_c"]
+position = Vector2(13, 3)
+scale = Vector2(0.9962406, 1)
+curve = SubResource("Curve2D_uhmoj")
+
+[node name="traversalMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="traversalMarkers"]
+position = Vector2(731, 548)
+script = ExtResource("8_uhmoj")
+route_a_path = NodePath("../../traversalRoutes/route_a")
+route_b_path = NodePath("../../traversalRoutes/route_b")
+
+[node name="Marker2D2" type="Marker2D" parent="traversalMarkers"]
+position = Vector2(598, 589)
+script = ExtResource("8_uhmoj")
+route_a_path = NodePath("../../traversalRoutes/route_a")
+route_b_path = NodePath("../../traversalRoutes/route_c")
+
+[node name="Marker2D3" type="Marker2D" parent="traversalMarkers"]
+position = Vector2(1390, 567)
+script = ExtResource("8_uhmoj")
+route_a_path = NodePath("../../traversalRoutes/route_c")
+route_b_path = NodePath("../../traversalRoutes/route_a")
+
+[node name="GlobalUI" parent="." instance=ExtResource("10_6esc1")]
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_onlgl")
+
+[node name="BlinkTimer" type="Timer" parent="."]

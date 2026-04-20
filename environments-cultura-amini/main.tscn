@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh88kph3er3f8"]
+
+[ext_resource type="Script" uid="uid://b0hkdxqvlv0k8" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cpqtebydvyh2r" path="res://assets/bg/CrashSiteRenderBG.png" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dmrcqckxr5urp" path="res://assets/bg/CrashSiteRenderFG1.png" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://tccbhstujns5" path="res://assets/bg/CrashSiteRenderFG2.png" id="2_272bh"]
+[ext_resource type="Texture2D" uid="uid://b0clsaieq2si6" path="res://assets/bg/CrashSiteRenderFG.png" id="2_lquwl"]
+[ext_resource type="AudioStream" uid="uid://dyg01qicrl1sc" path="res://assets/audio/demo_02_crash-site_44.1k_16b.wav" id="7_272bh"]
+
+[sub_resource type="Curve2D" id="Curve2D_272bh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 388, 752, 0, 0, 0, 0, 445, 749, 0, 0, 0, 0, 485, 752, 0, 0, 0, 0, 518, 738, 0, 0, 0, 0, 558, 732, 0, 0, 0, 0, 598, 740, 0, 0, 0, 0, 644, 756, 0, 0, 0, 0, 693, 737, 0, 0, 0, 0, 719, 719, 0, 0, 0, 0, 749, 711, 0, 0, 0, 0, 771, 713, 0, 0, 0, 0, 782, 719, 0, 0, 0, 0, 806, 725, 0, 0, 0, 0, 854, 741, 0, 0, 0, 0, 976, 771, 0, 0, 0, 0, 1088, 786, 0, 0, 0, 0, 1144, 789, 0, 0, 0, 0, 1257, 788, 0, 0, 0, 0, 1310, 780, 0, 0, 0, 0, 1356, 769, 0, 0, 0, 0, 1419, 758, 0, 0, 0, 0, 1463, 747, 0, 0, 0, 0, 1497, 743, 0, 0, 0, 0, 1535, 726, 0, 0, 0, 0, 1563, 710, 0, 0, 0, 0, 1592, 696, 0, 0, 0, 0, 1615, 696, 0, 0, 0, 0, 1648, 703, 0, 0, 0, 0, 1709, 719, 0, 0, 0, 0, 1769, 735, 0, 0, 0, 0, 1811, 745, 0, 0, 0, 0, 1853, 752, 0, 0, 0, 0, 1898, 765, 0, 0, 0, 0, 1933, 775, 0, 0, 0, 0, 1955, 789, 0, 0, 0, 0, 1977, 793, 0, 0, 0, 0, 2007, 803, 0, 0, 0, 0, 2029, 823, 0, 0, 0, 0, 2045, 838, 0, 0, 0, 0, 2064, 840, 0, 0, 0, 0, 2088, 840, 0, 0, 0, 0, 2102, 838, 0, 0, 0, 0, 2130, 848, 0, 0, 0, 0, 2160, 855, 0, 0, 0, 0, 2188, 851, 0, 0, 0, 0, 2212, 839, 0, 0, 0, 0, 2239, 831, 0, 0, 0, 0, 2259, 831, 0, 0, 0, 0, 2283, 846, 0, 0, 0, 0, 2306, 862, 0, 0, 0, 0, 2344, 866, 0, 0, 0, 0, 2370, 868, 0, 0, 0, 0, 2406, 869, 0, 0, 0, 0, 2438, 859, 0, 0, 0, 0, 2467, 844, 0, 0, 0, 0, 2490, 829, 0, 0, 0, 0, 2524, 825, 0, 0, 0, 0, 2555, 830, 0, 0, 0, 0, 2580, 840, 0, 0, 0, 0, 2625, 840, 0, 0, 0, 0, 2670, 837, 0, 0, 0, 0, 2703, 823, 0, 0, 0, 0, 2730, 805, 0, 0, 0, 0, 2760, 804, 0, 0, 0, 0, 2786, 810, 0, 0, 0, 0, 2805, 810, 0, 0, 0, 0, 2833, 787, 0, 0, 0, 0, 2870, 746, 0, 0, 0, 0, 2909, 716, 0, 0, 0, 0, 2940, 702, 0, 0, 0, 0, 2994, 702, 0, 0, 0, 0, 3048, 692, 0, 0, 0, 0, 3105, 691, 0, 0, 0, 0, 3167, 689, 0, 0, 0, 0, 3216, 680, 0, 0, 0, 0, 3255, 668, 0, 0, 0, 0, 3298, 670, 0, 0, 0, 0, 3338, 682, 0, 0, 0, 0, 3384, 694, 0, 0, 0, 0, 3425, 693, 0, 0, 0, 0, 3483, 691, 0, 0, 0, 0, 3601, 688, 0, 0, 0, 0, 3669, 688, 0, 0, 0, 0, 3759, 687, 0, 0, 0, 0, 3858, 679, 0, 0, 0, 0, 3873, 687, 0, 0, 0, 0, 3899, 694, 0, 0, 0, 0, 3918, 704, 0, 0, 0, 0, 3942, 710, 0, 0, 0, 0, 3989, 713, 0, 0, 0, 0, 4017, 712, 0, 0, 0, 0, 4039, 713, 0, 0, 0, 0, 4058, 711, 0, 0, 0, 0, 4067, 701, 0, 0, 0, 0, 4088, 685, 0, 0, 0, 0, 4116, 669, 0, 0, 0, 0, 4142, 652, 0, 0, 0, 0, 4159, 640, 0, 0, 0, 0, 4181, 629, 0, 0, 0, 0, 4192, 629, 0, 0, 0, 0, 4208, 614, 0, 0, 0, 0, 4239, 594, 0, 0, 0, 0, 4261, 585, 0, 0, 0, 0, 4285, 572)
+}
+point_count = 104
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7mycd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(2561, 867.99994)
+scale = Vector2(0.814, 0.814)
+texture = ExtResource("2_272bh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(1616, 940)
+scale = Vector2(0.814, 0.814)
+texture = ExtResource("2_7mycd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(2167, 586.25)
+scale = Vector2(0.79337275, 0.79337275)
+texture = ExtResource("2_lquwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-315, -148.75014)
+scale = Vector2(0.81424785, 0.81424767)
+texture = ExtResource("2_1bvp3")
+centered = false
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Sprite2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="groundPath" type="Path2D" parent="."]
+position = Vector2(30, -127)
+curve = SubResource("Curve2D_272bh")
+
+[node name="player" parent="." instance=ExtResource("2_0xm2m")]
+z_index = 3
+position = Vector2(493, 624)
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_272bh")
+autoplay = true

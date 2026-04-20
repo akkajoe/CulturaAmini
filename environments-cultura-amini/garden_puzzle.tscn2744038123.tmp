@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://18mv8bbljs5v"]
+
+[ext_resource type="Texture2D" uid="uid://cma2hta4tuulp" path="res://assets/gardenPuzzleScene/scene_03_garden-puzzle_PLACEHOLDER_background.png" id="1_6asa6"]
+[ext_resource type="Texture2D" uid="uid://dodatxadpvnm1" path="res://assets/gardenPuzzleScene/scene_03_garden-puzzle_PLACEHOLDER_foreground.png" id="2_gcn0c"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="2_l0lom"]
+[ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="4_0a2j4"]
+[ext_resource type="PackedScene" uid="uid://cv8au5688djcg" path="res://guide.tscn" id="5_4kmq4"]
+[ext_resource type="Script" uid="uid://bk5l06kp8c6xk" path="res://guide.gd" id="6_njd60"]
+[ext_resource type="Script" uid="uid://loc74odklg0g" path="res://zoom_areaF.gd" id="7_ewlnx"]
+
+[sub_resource type="Curve2D" id="Curve2D_gcn0c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 197, 821, 0, 0, 0, 0, 245, 808, 0, 0, 0, 0, 284, 770, 0, 0, 0, 0, 324, 732, 0, 0, 0, 0, 375, 711, 0, 0, 0, 0, 425, 673, 0, 0, 0, 0, 484, 623, 0, 0, 0, 0, 541, 596, 0, 0, 0, 0, 586, 592, 0, 0, 0, 0, 650, 598, 0, 0, 0, 0, 779, 640, 0, 0, 0, 0, 893, 699, 0, 0, 0, 0, 961, 738, 0, 0, 0, 0, 1049, 794, 0, 0, 0, 0, 1114, 834, 0, 0, 0, 0, 1162, 850, 0, 0, 0, 0, 1295, 860, 0, 0, 0, 0, 1471, 855, 0, 0, 0, 0, 1607, 852, 0, 0, 0, 0, 1681, 853, 0, 0, 0, 0, 2033, 851, 0, 0, 0, 0, 2141, 857, 0, 0, 0, 0, 2369, 858, 0, 0, 0, 0, 2554, 860, 0, 0, 0, 0, 2914, 862, 0, 0, 0, 0, 2947, 855, 0, 0, 0, 0, 3030, 857, 0, 0, 0, 0, 3199, 863, 0, 0, 0, 0, 3445, 852, 0, 0, 0, 0, 3702, 847)
+}
+point_count = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
+size = Vector2(924, 532)
+
+[node name="gardenPuzzle" type="Node"]
+metadata/_edit_vertical_guides_ = [3838.0, 3832.0]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(1924, 546)
+texture = ExtResource("1_6asa6")
+
+[node name="fg" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1922, 545)
+texture = ExtResource("2_gcn0c")
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("2_l0lom")]
+position = Vector2(214, 823)
+
+[node name="groundPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_gcn0c")
+
+[node name="spawn_from_left" type="Marker2D" parent="."]
+position = Vector2(218, 772)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 20
+limit_top = 35
+limit_right = 3832
+limit_bottom = 1050
+script = ExtResource("4_0a2j4")
+target_path = null
+follow_speed = null
+look_ahead_strength = null
+vertical_offset_strength = null
+zoom_lerp_speed = null
+default_zoom = null
+target_zoom = null
+rotation_lerp_speed = null
+max_tilt_degrees = null
+tilt_strength = null
+frame_offset_lerp_speed = null
+default_frame_offset = null
+zoom_zone_frame_offset = null
+
+[node name="jumpPath" type="Path2D" parent="."]
+
+[node name="ground" type="Marker2D" parent="."]
+position = Vector2(2964, 854)
+
+[node name="JumpPoints" type="Node" parent="."]
+
+[node name="jump_0" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3042, 783)
+
+[node name="jump_1" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3153, 669)
+
+[node name="jump_2" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3263, 579)
+
+[node name="jump_3" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3231, 490)
+
+[node name="jump_4" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3411, 380)
+
+[node name="jump_5" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3526, 285)
+
+[node name="jump_6" type="Marker2D" parent="JumpPoints"]
+position = Vector2(3492, 187)
+
+[node name="guide" parent="." instance=ExtResource("5_4kmq4")]
+position = Vector2(2024, 733)
+script = ExtResource("6_njd60")
+
+[node name="ZoomArea" type="Area2D" parent="."]
+script = ExtResource("7_ewlnx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomArea"]
+position = Vector2(2169, 639)
+shape = SubResource("RectangleShape2D_njd60")
+
+[connection signal="body_entered" from="ZoomArea" to="ZoomArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=23 format=3 uid="uid://bwob36l55jj5i"]
+
+[ext_resource type="Script" uid="uid://54afedx2kb0p" path="res://totem_puzzle.gd" id="1_kno2b"]
+[ext_resource type="Texture2D" uid="uid://nqc17u7avtpr" path="res://assets/gardenPuzzleScene/Totem_Base.png" id="2_kno2b"]
+[ext_resource type="Script" uid="uid://b2efqansjuw1u" path="res://totem_slot.gd" id="3_vn0qr"]
+[ext_resource type="Texture2D" uid="uid://dq8orhhgvc1sj" path="res://assets/symbols/corrupt/symbol_8-132.png" id="4_dmfi6"]
+[ext_resource type="Texture2D" uid="uid://d0lllyepogbj7" path="res://assets/symbols/corrupt/color/symbol_8_color-13.png" id="4_vn0qr"]
+[ext_resource type="Texture2D" uid="uid://ckr0r4qojdk1s" path="res://assets/symbols/corrupt/color/symbol_8_color-1.png" id="5_i021a"]
+[ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="5_iq6ji"]
+[ext_resource type="Texture2D" uid="uid://d2nkbovvm4ok7" path="res://assets/symbols/corrupt/color/symbol_8_color-2.png" id="6_dmfi6"]
+[ext_resource type="Texture2D" uid="uid://bc0dhnpfe6vst" path="res://assets/symbols/corrupt/color/symbol_8_color-3.png" id="7_iq6ji"]
+[ext_resource type="Texture2D" uid="uid://bxbmh1o5rga2h" path="res://assets/symbols/corrupt/color/symbol_8_color-4.png" id="8_gwrhm"]
+[ext_resource type="Texture2D" uid="uid://b044uu2861ayb" path="res://assets/symbols/corrupt/color/symbol_8_color-5.png" id="9_0hs6w"]
+[ext_resource type="Texture2D" uid="uid://dgpq75br6t0jk" path="res://assets/symbols/corrupt/color/symbol_8_color-6.png" id="10_chwi7"]
+[ext_resource type="Texture2D" uid="uid://dq1gpb1vcjfq8" path="res://assets/symbols/corrupt/color/symbol_8_color-7.png" id="11_julqc"]
+[ext_resource type="Texture2D" uid="uid://5bfq5jlr4a50" path="res://assets/symbols/corrupt/color/symbol_8_color-8.png" id="12_u3813"]
+[ext_resource type="Texture2D" uid="uid://ccf2rmburrvc3" path="res://assets/symbols/corrupt/color/symbol_8_color-9.png" id="13_x80eg"]
+[ext_resource type="Texture2D" uid="uid://b52iur6grdbii" path="res://assets/symbols/corrupt/color/symbol_8_color-10.png" id="14_26okc"]
+[ext_resource type="Texture2D" uid="uid://db4ij64vnvtxq" path="res://assets/symbols/corrupt/color/symbol_8_color-11.png" id="15_qee71"]
+[ext_resource type="Texture2D" uid="uid://chyalhlx6lvw" path="res://assets/symbols/corrupt/color/symbol_8_color-12.png" id="16_new3c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_new3c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vn0qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i021a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dmfi6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iq6ji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gwrhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0hs6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_chwi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_julqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_u3813")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x80eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_26okc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qee71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_new3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vn0qr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i61g0"]
+size = Vector2(141, 88.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4p4a"]
+size = Vector2(164, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vn0qr"]
+size = Vector2(1099.9999, 862.5)
+
+[node name="totem" type="Node2D"]
+script = ExtResource("1_kno2b")
+
+[node name="Totem" type="Sprite2D" parent="."]
+position = Vector2(-14, 425)
+texture = ExtResource("2_kno2b")
+
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="SlotTop" type="Area2D" parent="Slots"]
+script = ExtResource("3_vn0qr")
+symbol_texture = ExtResource("4_dmfi6")
+hidden_symbol_texture = ExtResource("5_iq6ji")
+
+[node name="DefaultSymbol" type="AnimatedSprite2D" parent="Slots/SlotTop"]
+position = Vector2(352, 254)
+scale = Vector2(0.07, 0.07)
+sprite_frames = SubResource("SpriteFrames_new3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/SlotTop"]
+position = Vector2(354.5, 251)
+shape = SubResource("RectangleShape2D_i61g0")
+
+[node name="SlotMiddle" type="Area2D" parent="Slots"]
+position = Vector2(0, 158)
+script = ExtResource("3_vn0qr")
+symbol_texture = ExtResource("4_dmfi6")
+hidden_symbol_texture = ExtResource("5_iq6ji")
+
+[node name="DefaultSymbol" type="AnimatedSprite2D" parent="Slots/SlotMiddle"]
+position = Vector2(352.99997, 257)
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_new3c")
+frame_progress = 0.081772916
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/SlotMiddle"]
+position = Vector2(354, 248)
+shape = SubResource("RectangleShape2D_i4p4a")
+
+[node name="SlotBottom" type="Area2D" parent="Slots"]
+position = Vector2(0, 328)
+script = ExtResource("3_vn0qr")
+symbol_texture = ExtResource("4_dmfi6")
+hidden_symbol_texture = ExtResource("5_iq6ji")
+
+[node name="DefaultSymbol" type="AnimatedSprite2D" parent="Slots/SlotBottom"]
+position = Vector2(355, 251)
+scale = Vector2(0.095, 0.095)
+sprite_frames = SubResource("SpriteFrames_new3c")
+frame = 13
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/SlotBottom"]
+position = Vector2(357, 248)
+scale = Vector2(0.16, 0.16)
+shape = SubResource("RectangleShape2D_vn0qr")
+
+[node name="InventoryUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 309.0
+offset_top = 208.0
+offset_right = 393.0
+offset_bottom = 295.0

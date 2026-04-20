@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpwwx8ga8lskq"]
+
+[ext_resource type="Texture2D" uid="uid://bt68ldm5hhtcb" path="res://assets/MushroomLanguagePuzzle/Scene_03_mid-ground_2220x1380_300dpi_transparent.png" id="1_g433g"]
+[ext_resource type="Texture2D" uid="uid://3g4l56s8kdtp" path="res://assets/spaceshipScene/SpaceBackground_Edited_v2.png" id="1_riic0"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="2_wc27j"]
+[ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="3_so2bj"]
+[ext_resource type="Script" uid="uid://dypw3fcom7i4p" path="res://traversalJumpPoint.gd" id="4_byn72"]
+[ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="5_4y0as"]
+[ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="6_x0xnu"]
+[ext_resource type="Texture2D" uid="uid://dotxy6gpc1ag6" path="res://assets/char/ToadstoolMushroom/Creature Placeholder.png" id="8_q25mh"]
+
+[sub_resource type="Curve2D" id="Curve2D_byn72"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1384, 1049)
+}
+point_count = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riic0"]
+size = Vector2(122, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idal3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_q25mh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node" type="Node"]
+metadata/_edit_vertical_guides_ = [0.0, 1922.0]
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(853.49994, 389.50003)
+scale = Vector2(1.775, 2.0358167)
+texture = ExtResource("1_riic0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(864, 407)
+texture = ExtResource("1_g433g")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(1385, 1047)
+
+[node name="traversalRoutes" type="Node2D" parent="."]
+
+[node name="route_a" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("3_so2bj")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_a"]
+curve = SubResource("Curve2D_byn72")
+
+[node name="traversalJumpPoints" type="Node2D" parent="."]
+
+[node name="jump_0" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(1284, 855)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["A", "B", "C"])
+entry_from_route_path = NodePath("../../traversalRoutes/route_a")
+
+[node name="jump_1" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(1018, 729)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["A", "C"])
+order = 1
+
+[node name="jump_2" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(941, 594)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["A", "C"])
+order = 2
+
+[node name="jump_3" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(1642, 755)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["B"])
+order = 1
+
+[node name="jump_4" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(1661, 594)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["B"])
+order = 2
+
+[node name="jump_5" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(1331, 364)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["A"])
+order = 3
+
+[node name="jump_6" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(588, 710)
+script = ExtResource("4_byn72")
+chain_ids = Array[String](["C"])
+order = 3
+
+[node name="cursor" parent="." instance=ExtResource("5_4y0as")]
+
+[node name="SceneBack" type="Area2D" parent="."]
+position = Vector2(-50, 20)
+script = ExtResource("6_x0xnu")
+next_scene_path = "uid://18mv8bbljs5v"
+next_marker_name = "spawn_from_top"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
+position = Vector2(1437, 1040)
+shape = SubResource("RectangleShape2D_riic0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(916.00006, 390.00003)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_idal3")
+
+[node name="player" parent="." instance=ExtResource("2_wc27j")]
+start_route_path = NodePath("../traversalRoutes/route_a")
+
+[connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]

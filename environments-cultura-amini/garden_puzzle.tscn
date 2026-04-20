@@ -1,0 +1,330 @@
+[gd_scene load_steps=32 format=3 uid="uid://18mv8bbljs5v"]
+
+[ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
+[ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="2_l0lom"]
+[ext_resource type="Texture2D" uid="uid://bvsi0bexn4uhu" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_mid-ground_4140x1380_300dpi_transparent (1).png" id="3_48yf5"]
+[ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="4_0a2j4"]
+[ext_resource type="Texture2D" uid="uid://xk4jwl8egrlc" path="res://assets/gardenPuzzleScene/Foreground_Version_1_Updated (2).png" id="4_45q0m"]
+[ext_resource type="PackedScene" uid="uid://cv8au5688djcg" path="res://guide.tscn" id="5_4kmq4"]
+[ext_resource type="Script" uid="uid://loc74odklg0g" path="res://zoom_areaF.gd" id="7_ewlnx"]
+[ext_resource type="Script" uid="uid://dypw3fcom7i4p" path="res://traversalJumpPoint.gd" id="8_trnai"]
+[ext_resource type="AudioStream" uid="uid://bykt6f7ddmr1k" path="res://assets/audio/Biome_Demo.mp3" id="11_8dqgj"]
+[ext_resource type="Script" uid="uid://ctsd8x2mqpbjf" path="res://traversalMarker.gd" id="12_rn6j4"]
+[ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="12_unlio"]
+[ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="14_qcogw"]
+[ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="15_5mals"]
+[ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="16_48yf5"]
+[ext_resource type="PackedScene" uid="uid://bwob36l55jj5i" path="res://TotemPuzzle.tscn" id="16_vwglx"]
+[ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="16_xilqs"]
+[ext_resource type="PackedScene" uid="uid://dnl45jmdu7yd4" path="res://clickable_asset.tscn" id="18_vwglx"]
+[ext_resource type="Texture2D" uid="uid://qltlwt71da61" path="res://assets/Prototype Assets/Mushroom - Clicked.png" id="19_xotqs"]
+[ext_resource type="Texture2D" uid="uid://biotyw071883r" path="res://assets/Prototype Assets/Mushroom - Not Clicked.png" id="20_s00dd"]
+[ext_resource type="Texture2D" uid="uid://cvgexg4dwcib4" path="res://assets/Prototype Assets/Snail.png" id="21_s00dd"]
+[ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="22_b0wad"]
+[ext_resource type="Texture2D" uid="uid://d2qgcabr3efod" path="res://assets/Prototype Assets/Worm.png" id="23_71sxv"]
+[ext_resource type="Texture2D" uid="uid://vjofv5h17xvg" path="res://assets/Prototype Assets/Morsel - Not Clicked.png" id="24_1b8pk"]
+[ext_resource type="Texture2D" uid="uid://c6p62y17hv3og" path="res://assets/Prototype Assets/Morsel - Clicked.png" id="25_fol8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
+size = Vector2(924, 532)
+
+[sub_resource type="Curve2D" id="Curve2D_gcn0c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 834, 0, 0, 0, 0, 216, 793, 0, 0, 0, 0, 271, 766, 0, 0, 0, 0, 324, 732, 0, 0, 0, 0, 374, 701, 0, 0, 0, 0, 431, 658, 0, 0, 0, 0, 484, 623, 0, 0, 0, 0, 541, 596, 0, 0, 0, 0, 586, 592, 0, 0, 0, 0, 650, 598, 0, 0, 0, 0, 779, 640, 0, 0, 0, 0, 893, 699, 0, 0, 0, 0, 961, 738, 0, 0, 0, 0, 1049, 794, 0, 0, 0, 0, 1122, 823, 0, 0, 0, 0, 1179, 835, 0, 0, 0, 0, 1308, 849, 0, 0, 0, 0, 1471, 855, 0, 0, 0, 0, 1607, 852, 0, 0, 0, 0, 1818, 855, 0, 0, 0, 0, 1939, 873, 0, 0, 0, 0, 2032, 882, 0, 0, 0, 0, 2291, 874, 0, 0, 0, 0, 2664, 889, 0, 0, 0, 0, 2914, 862, 0, 0, 0, 0, 2947, 855, 0, 0, 0, 0, 3030, 857, 0, 0, 0, 0, 3199, 863, 0, 0, 0, 0, 3445, 852, 0, 0, 0, 0, 3702, 847, 0, 0, 0, 0, 3751, 844, 0, 0, 0, 0, 3803, 850, 0, 0, 0, 0, 3891, 858, 0, 0, 0, 0, 3968, 856, 0, 0, 0, 0, 4010, 856)
+}
+point_count = 35
+
+[sub_resource type="Curve2D" id="Curve2D_unlio"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1004, 756, 0, 0, 0, 0, 1038, 712, 0, 0, 0, 0, 1087, 652, 0, 0, 0, 0, 1162, 605, 0, 0, 0, 0, 1256, 560, 0, 0, 0, 0, 1336, 490)
+}
+point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xilqs"]
+size = Vector2(122, 163.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48yf5"]
+size = Vector2(390, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wad"]
+size = Vector2(45.5, 154.5)
+
+[node name="gardenPuzzle" type="Node"]
+script = ExtResource("1_xilqs")
+metadata/_edit_vertical_guides_ = [3838.0, 3832.0, 4022.0]
+metadata/_edit_horizontal_guides_ = [-160.0]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.35, 0.35)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/background"]
+position = Vector2(1964, 532)
+texture = ExtResource("2_48yf5")
+
+[node name="midGround" type="Sprite2D" parent="."]
+position = Vector2(1962, 529)
+texture = ExtResource("3_48yf5")
+
+[node name="totem" parent="." instance=ExtResource("16_vwglx")]
+position = Vector2(1972, 103)
+
+[node name="guide" parent="." instance=ExtResource("5_4kmq4")]
+position = Vector2(1980, 636)
+move_speed = 120.0
+min_exit_time = 3.0
+progress_flag = 2
+
+[node name="GuideTrigger" parent="guide" index="2"]
+camera_path = NodePath("../../Camera2D")
+popup_path = NodePath("../../CanvasLayer/SpeechBox")
+
+[node name="CollisionShape2D" parent="guide/GuideTrigger" index="0"]
+position = Vector2(232, -42)
+
+[node name="SpeechPoint" type="Marker2D" parent="guide"]
+position = Vector2(-634, 296)
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("2_l0lom")]
+position = Vector2(601, 589)
+start_route_path = NodePath("../traversalRoutes/route_a")
+route_click_radius = 80.0
+
+[node name="CollisionShape2D" parent="player" index="1"]
+position = Vector2(0, -21)
+scale = Vector2(0.73, 0.73)
+
+[node name="spawn_from_left" type="Marker2D" parent="."]
+position = Vector2(-47, 767)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 20
+limit_top = -160
+limit_right = 4022
+limit_bottom = 1050
+script = ExtResource("4_0a2j4")
+target_path = NodePath("../player")
+
+[node name="jumpPath" type="Path2D" parent="."]
+
+[node name="traversalJumpPoints" type="Node2D" parent="."]
+
+[node name="jump_0" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3084, 760)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+entry_from_route_path = NodePath("../../traversalRoutes/route_a")
+
+[node name="jump_1" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3189, 648)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 1
+
+[node name="jump_2" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3330, 569)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 2
+
+[node name="jump_3" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3309, 470)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 3
+
+[node name="jump_4" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3476, 382)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 4
+
+[node name="jump_5" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3631, 278)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 5
+
+[node name="jump_6" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3597, 197)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 6
+
+[node name="jump_7" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3728, 77)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 7
+
+[node name="jump_8" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3620, -71)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 8
+
+[node name="jump_9" type="Marker2D" parent="traversalJumpPoints"]
+position = Vector2(3719, -158)
+script = ExtResource("8_trnai")
+chain_ids = Array[String](["A"])
+order = 9
+
+[node name="ZoomArea" type="Area2D" parent="." groups=["zoom_areas"]]
+script = ExtResource("7_ewlnx")
+zoom_in_value = Vector2(1.2, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomArea"]
+position = Vector2(2169, 639)
+shape = SubResource("RectangleShape2D_njd60")
+
+[node name="ColorRect" type="ColorRect" parent="ZoomArea"]
+visible = false
+modulate = Color(0.37036446, 0.3703645, 0.37036446, 1)
+z_index = 4
+offset_left = 1703.0
+offset_top = 908.0
+offset_right = 2646.0
+offset_bottom = 1039.0
+
+[node name="ColorRect" type="ColorRect" parent="ZoomArea/ColorRect"]
+visible = false
+modulate = Color(0.37036446, 0.3703645, 0.37036446, 1)
+z_index = 4
+layout_mode = 0
+offset_left = 34.0
+offset_top = 19.0
+offset_right = 921.0
+offset_bottom = 115.0
+
+[node name="traversalRoutes" type="Node2D" parent="."]
+
+[node name="route_a" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("12_unlio")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_a"]
+curve = SubResource("Curve2D_gcn0c")
+
+[node name="route_b" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("12_unlio")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_b"]
+curve = SubResource("Curve2D_unlio")
+
+[node name="traversalMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="traversalMarkers"]
+position = Vector2(1002, 757)
+script = ExtResource("12_rn6j4")
+route_a_path = NodePath("../../traversalRoutes/route_a")
+route_b_path = NodePath("../../traversalRoutes/route_b")
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_8dqgj")
+parameters/looping = true
+
+[node name="GlobalUI" parent="." groups=["inventory_ui"] instance=ExtResource("14_qcogw")]
+
+[node name="cursor" parent="." instance=ExtResource("15_5mals")]
+
+[node name="fg" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(1960, 529)
+texture = ExtResource("4_45q0m")
+
+[node name="SceneBack" type="Area2D" parent="."]
+script = ExtResource("16_48yf5")
+next_scene_path = "uid://ddv4lluxa00i6"
+next_marker_name = "spawn_from_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
+position = Vector2(-44, 767.75)
+shape = SubResource("RectangleShape2D_xilqs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpeechBox" parent="CanvasLayer" instance=ExtResource("16_xilqs")]
+visible = false
+anchors_preset = -1
+anchor_left = 0.702
+anchor_top = 0.592
+anchor_bottom = 0.70900005
+offset_left = -1244.8401
+offset_top = 48.640015
+offset_right = 83.0
+offset_bottom = 209.02704
+scale = Vector2(0.57, 0.57)
+guide_path = NodePath("../../guide")
+player_path = NodePath("../../player")
+player_freeze_time = 8.0
+
+[node name="scene_exit" type="Area2D" parent="."]
+position = Vector2(3719, -149)
+script = ExtResource("16_48yf5")
+next_scene_path = "uid://dpwwx8ga8lskq"
+next_marker_name = "spawn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_exit"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_48yf5")
+
+[node name="spawn_from_top" type="Marker2D" parent="."]
+position = Vector2(3718, -158)
+
+[node name="Node2D" parent="." instance=ExtResource("18_vwglx")]
+z_index = 2
+position = Vector2(115.000015, 821.99994)
+rotation = -0.12042772
+textures = Array[Texture2D]([ExtResource("20_s00dd"), ExtResource("19_xotqs")])
+
+[node name="Node2D2" parent="." instance=ExtResource("18_vwglx")]
+z_index = 2
+position = Vector2(1267, 783)
+textures = Array[Texture2D]([ExtResource("20_s00dd"), ExtResource("19_xotqs")])
+
+[node name="Node2D3" parent="." instance=ExtResource("18_vwglx")]
+z_index = 2
+position = Vector2(2125, 1014)
+rotation = -0.17453292
+textures = Array[Texture2D]([ExtResource("21_s00dd"), ExtResource("21_s00dd")])
+
+[node name="Node2D4" parent="." instance=ExtResource("18_vwglx")]
+z_index = 2
+position = Vector2(3592, 989.00006)
+rotation = -0.23736478
+textures = Array[Texture2D]([ExtResource("20_s00dd"), ExtResource("19_xotqs")])
+gives_item = true
+item_name = "hidden_symbol"
+popup_texture = ExtResource("22_b0wad")
+
+[node name="scene_exit2" type="Area2D" parent="."]
+position = Vector2(3839, 812)
+script = ExtResource("16_48yf5")
+next_scene_path = "uid://mcctughmtbmw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_exit2"]
+position = Vector2(168.25, 3)
+shape = SubResource("RectangleShape2D_b0wad")
+
+[node name="Node2D5" parent="." instance=ExtResource("18_vwglx")]
+z_index = 2
+position = Vector2(2703, 966)
+rotation = -1.1379547
+textures = Array[Texture2D]([ExtResource("23_71sxv"), ExtResource("23_71sxv")])
+popup_texture = ExtResource("23_71sxv")
+
+[node name="Node2D6" parent="." instance=ExtResource("18_vwglx")]
+z_index = 2
+position = Vector2(3610, 777)
+textures = Array[Texture2D]([ExtResource("24_1b8pk"), ExtResource("25_fol8i")])
+
+[node name="spawn_from_right" type="Marker2D" parent="."]
+position = Vector2(4003, 826)
+
+[connection signal="body_entered" from="ZoomArea" to="ZoomArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]
+[connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
+
+[editable path="guide"]
+[editable path="player"]

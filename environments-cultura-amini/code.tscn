@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cojg1cm2q74vv"]
+
+[ext_resource type="Script" uid="uid://64hoskd3i1s1" path="res://code.gd" id="1_2das7"]
+[ext_resource type="Texture2D" uid="uid://3g4l56s8kdtp" path="res://assets/spaceshipScene/SpaceBackground_Edited_v2.png" id="1_6h5v0"]
+[ext_resource type="Texture2D" uid="uid://c10xelotd7ey7" path="res://UI/Door lock.png" id="2_2das7"]
+
+[node name="code" type="Node"]
+script = ExtResource("1_2das7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(954, 547)
+scale = Vector2(1.706304, 1.7063036)
+texture = ExtResource("1_6h5v0")
+
+[node name="code" type="Sprite2D" parent="."]
+position = Vector2(957, 546)
+texture = ExtResource("2_2das7")

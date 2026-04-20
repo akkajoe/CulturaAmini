@@ -1,0 +1,125 @@
+[gd_scene load_steps=24 format=3 uid="uid://oentau1l25g0"]
+
+[ext_resource type="Texture2D" uid="uid://dqqudbmdxik0n" path="res://assets/puzzle1Scene/mushroom 1.PNG" id="1_hiqfk"]
+[ext_resource type="Script" uid="uid://4dyt8ehvgff6" path="res://slot.gd" id="1_wo7b1"]
+[ext_resource type="Texture2D" uid="uid://ddp2wdf4gxf0v" path="res://assets/puzzle1Scene/mushroom 2.png" id="2_8ag6o"]
+[ext_resource type="Shader" uid="uid://b5mj8m5ncyspd" path="res://slot.gdshader" id="2_swnr6"]
+[ext_resource type="Texture2D" uid="uid://bim0hhmvl82fa" path="res://assets/puzzle1Scene/mushroom 3.PNG" id="3_uw6ar"]
+[ext_resource type="Texture2D" uid="uid://bea7xrwhfr0no" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-1.png" id="4_isr6q"]
+[ext_resource type="Texture2D" uid="uid://p1nnn08tsc24" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-2.png" id="5_wo7b1"]
+[ext_resource type="Texture2D" uid="uid://baompngc38nr5" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-3.png" id="6_swnr6"]
+[ext_resource type="Texture2D" uid="uid://p88urr1phfbq" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-4.png" id="7_lsvhb"]
+[ext_resource type="Texture2D" uid="uid://df8dfmuetinyg" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-5.png" id="8_fkrvu"]
+[ext_resource type="Texture2D" uid="uid://ctf08iryy65uh" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-6.png" id="9_21unj"]
+[ext_resource type="Texture2D" uid="uid://82c5eyloow7g" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-7.png" id="10_bktrp"]
+[ext_resource type="Texture2D" uid="uid://bqq44ktt64gp2" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-8.png" id="11_wqoju"]
+[ext_resource type="Texture2D" uid="uid://xks85qfskch3" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-9.png" id="12_xq4wl"]
+[ext_resource type="Texture2D" uid="uid://chaosufjvxrn2" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-10.png" id="13_rr3k0"]
+[ext_resource type="Texture2D" uid="uid://csh0tnxvg0um5" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-11.png" id="14_kuogm"]
+[ext_resource type="Texture2D" uid="uid://dt4de8mh1u487" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-12.png" id="15_oxii0"]
+[ext_resource type="Texture2D" uid="uid://b1p01vi1yjnjn" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-13.png" id="16_kr01r"]
+[ext_resource type="Texture2D" uid="uid://6qobii2s0p74" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-14.png" id="17_egp74"]
+[ext_resource type="Texture2D" uid="uid://cyq11o365a4kk" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-15.png" id="18_4ucyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3jfm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsvhb"]
+shader = ExtResource("2_swnr6")
+shader_parameter/glow_color = Color(0.5358264, 0.43932477, 0.4391834, 1)
+shader_parameter/glow_strength = 4.0
+shader_parameter/radius_px = 78.93600374946
+shader_parameter/falloff_pow = 0.6610000313975
+shader_parameter/glow_max_alpha = 0.7070000335825
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f3jfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hiqfk")
+}],
+"loop": true,
+"name": &"idle_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8ag6o")
+}],
+"loop": true,
+"name": &"idle_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uw6ar")
+}],
+"loop": true,
+"name": &"idle_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_isr6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wo7b1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_swnr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lsvhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fkrvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_21unj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bktrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wqoju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xq4wl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rr3k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kuogm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_oxii0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_kr01r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_egp74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4ucyc")
+}],
+"loop": false,
+"name": &"match",
+"speed": 10.0
+}]
+
+[node name="slot" type="Area2D"]
+script = ExtResource("1_wo7b1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_f3jfm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_lsvhb")
+position = Vector2(0, 3)
+scale = Vector2(0.025, 0.025)
+sprite_frames = SubResource("SpriteFrames_f3jfm")
+animation = &"idle_0"
