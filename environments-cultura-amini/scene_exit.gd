@@ -208,7 +208,11 @@ func go_to_scene() -> void:
 	if player != null and player.has_method("on_scene_activated"):
 		player.on_scene_activated()
 
+	if new_scene.has_method("on_scene_activated"):
+		new_scene.on_scene_activated()
+
 	var marker := new_scene.get_node_or_null(next_marker_name) as Node2D
+	
 	if marker != null and player != null:
 		player.global_position = marker.global_position
 		if marker.is_in_group("off_route_spawn") and player.has_method("spawn_off_route_exact"):

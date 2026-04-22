@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://mcctughmtbmw"]
+[gd_scene load_steps=195 format=3 uid="uid://mcctughmtbmw"]
 
 [ext_resource type="Script" uid="uid://cb6hiwvkssss4" path="res://mountain_creature_puzzle.gd" id="1_if0km"]
 [ext_resource type="Texture2D" uid="uid://b6670da3urpww" path="res://assets/mountain_creature_puzzle/Scene_04_background_2220x1380_300dpi_transparent.png" id="1_j5b3p"]
@@ -189,6 +189,7 @@
 [ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="185_841bc"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="186_npv5m"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="188_vwrsa"]
+[ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="190_lbm4b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hs05v"]
 animations = [{
@@ -740,15 +741,20 @@ animations = [{
 
 [sub_resource type="Curve2D" id="Curve2D_841bc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -101, 635, 0, 0, 0, 0, 145, 651, 0, 0, 0, 0, 265, 669, 0, 0, 0, 0, 373, 669, 0, 0, 0, 0, 473, 669, 0, 0, 0, 0, 664, 674, 0, 0, 0, 0, 742, 670, 0, 0, 0, 0, 828, 672, 0, 0, 0, 0, 961, 684, 0, 0, 0, 0, 1003, 684)
+"points": PackedVector2Array(0, 0, 0, 0, -101, 635, 0, 0, 0, 0, 145, 651, 0, 0, 0, 0, 265, 669, 0, 0, 0, 0, 373, 669, 0, 0, 0, 0, 473, 669, 0, 0, 0, 0, 664, 674, 0, 0, 0, 0, 742, 670, 0, 0, 0, 0, 828, 672, 0, 0, 0, 0, 961, 684, 0, 0, 0, 0, 1003, 684, 0, 0, 0, 0, 1152, 691, 0, 0, 0, 0, 1390, 704, 0, 0, 0, 0, 1593, 700, 0, 0, 0, 0, 1721, 702, 0, 0, 0, 0, 1827, 713, 0, 0, 0, 0, 1987, 730, 0, 0, 0, 0, 2059, 737)
 }
-point_count = 10
+point_count = 17
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_if0km"]
 size = Vector2(106.355576, 126.1405)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbm4b"]
+size = Vector2(66.5, 124)
+
 [node name="mountain_creature_puzzle" type="Node2D"]
 script = ExtResource("1_if0km")
+metadata/_edit_vertical_guides_ = [-3.0, 1916.0]
+metadata/_edit_horizontal_guides_ = [-3.0, 1340.0, 993.0]
 
 [node name="starrybg" type="Sprite2D" parent="."]
 position = Vector2(995.5072, 559.5)
@@ -795,15 +801,34 @@ position = Vector2(37, 554)
 [node name="cursor" parent="." instance=ExtResource("186_npv5m")]
 
 [node name="SceneBack" type="Area2D" parent="."]
-position = Vector2(43, 543)
+position = Vector2(81.99999, 564)
 rotation = -0.043633234
 scale = Vector2(0.51, 0.51)
 script = ExtResource("188_vwrsa")
-next_scene_path = "uid://18mv8bbljs5v"
+next_scene_path = "uid://mcctughmtbmw"
 next_marker_name = "spawn_from_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
-position = Vector2(-3.9647102, 23.47229)
+position = Vector2(2.681797, 6.0985107)
 shape = SubResource("RectangleShape2D_if0km")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -3
+limit_right = 1916
+limit_bottom = 979
+script = ExtResource("190_lbm4b")
+target_path = NodePath("../player")
+
+[node name="scene_exit" type="Area2D" parent="."]
+script = ExtResource("188_vwrsa")
+next_scene_path = "uid://i87glh7lq3qu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene_exit"]
+position = Vector2(1823, 623)
+shape = SubResource("RectangleShape2D_lbm4b")
+
+[node name="spawn_from_right" type="Marker2D" parent="."]
+position = Vector2(1778, 632)
 
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]

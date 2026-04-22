@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://i87glh7lq3qu"]
+
+[ext_resource type="Texture2D" uid="uid://dm155mpfgtaou" path="res://final_scene/Scene_05_mid-ground_2220x1380_300dpi_transparent.png" id="1_qj04j"]
+[ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="2_jremd"]
+[ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="3_iu4q0"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="4_4u0mm"]
+[ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="5_4u0mm"]
+
+[sub_resource type="Curve2D" id="Curve2D_vh3px"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -54, 783, 0, 0, 0, 0, 149, 786, 0, 0, 0, 0, 371, 804, 0, 0, 0, 0, 551, 812, 0, 0, 0, 0, 661, 808, 0, 0, 0, 0, 719, 808, 0, 0, 0, 0, 798, 808)
+}
+point_count = 7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdbl0"]
+size = Vector2(106.355576, 126.1405)
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-2.0, 1900.0]
+metadata/_edit_horizontal_guides_ = [6.0, 208.0, 1085.0]
+
+[node name="bg2" type="Sprite2D" parent="."]
+position = Vector2(993.82623, 535)
+scale = Vector2(0.96956533, 0.9695653)
+texture = ExtResource("1_qj04j")
+
+[node name="traversalRoutes" type="Node2D" parent="."]
+
+[node name="route_a" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("2_jremd")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_a"]
+position = Vector2(0, 44)
+curve = SubResource("Curve2D_vh3px")
+
+[node name="spawn_from_left" type="Marker2D" parent="."]
+position = Vector2(5, 750)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -2
+limit_top = 208
+limit_right = 1900
+limit_bottom = 1085
+script = ExtResource("3_iu4q0")
+target_path = NodePath("../player")
+
+[node name="player" parent="." instance=ExtResource("4_4u0mm")]
+
+[node name="SceneBack" type="Area2D" parent="."]
+position = Vector2(43, 543)
+rotation = -0.043633234
+scale = Vector2(0.51, 0.51)
+script = ExtResource("5_4u0mm")
+next_scene_path = "uid://mcctughmtbmw"
+next_marker_name = "spawn_from_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
+position = Vector2(-70.851715, 409.06357)
+shape = SubResource("RectangleShape2D_sdbl0")
+
+[connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]

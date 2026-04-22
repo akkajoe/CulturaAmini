@@ -12,10 +12,12 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(next_scene_path)
 	ResourceLoader.load_threaded_request("res://garden_puzzle.tscn")
 	ResourceLoader.load_threaded_request("res://mushroom_language_puzzle.tscn")
+	ResourceLoader.load_threaded_request("res://mountain_creature_puzzle.tscn")
 	await _play_cutscene()
 	await _wait_for_load()
 	await _ensure_garden_warmed()
 	await _ensure_mushroom_warmed()
+	await _ensure_mountain_warmed()
 	GameProgress.code_scene_seen = true
 	await _go_to_next_scene()
 
@@ -23,7 +25,7 @@ func _play_cutscene() -> void:
 	await get_tree().create_timer(minimum_display_time).timeout
 
 func _wait_for_load() -> void:
-	var paths := [next_scene_path, "res://mushroom_language_puzzle.tscn"]
+	var paths := [next_scene_path, "res://garden_puzzle.tscn", "res://mushroom_language_puzzle.tscn", "res://mountain_creature_puzzle.tscn"]
 	while true:
 		var all_done := true
 		for path in paths:
@@ -31,7 +33,7 @@ func _wait_for_load() -> void:
 			if status == ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 				all_done = false
 			elif status == ResourceLoader.THREAD_LOAD_FAILED:
-				push_warning("cut_scene1.gd: async load FAILED: " + path)
+				push_warning("cut_scene1.gd: load FAILED: " + path)
 		if all_done:
 			return
 		await get_tree().process_frame
@@ -109,3 +111,27 @@ func _go_to_next_scene() -> void:
 	$ColorRect.visible = false
 	if old_scene != null:
 		old_scene.call_deferred("queue_free")
+func _ensure_mountain_warmed() -> void:
+	const MOUNTAIN_PATH := "res://mountain_creature_puzzle.tscn"
+	if SceneCache.has_scene_instance(MOUNTAIN_PATH):
+		push_warning("[CUTSCENE1] mountain already pre-instantiated ✓")
+		return
+	var max_wait_frames := 120
+	var waited := 0
+	while waited < max_wait_frames:
+		var status := ResourceLoader.load_threaded_get_status(MOUNTAIN_PATH)
+		if status == ResourceLoader.THREAD_LOAD_LOADED:
+			break
+		elif status == ResourceLoader.THREAD_LOAD_FAILED:
+			push_warning("[CUTSCENE1] mountain async load FAILED — transition will be cold")
+			return
+		await get_tree().process_frame
+		waited += 1
+	var packed := ResourceLoader.load_threaded_get(MOUNTAIN_PATH) as PackedScene
+	if packed == null:
+		push_warning("[CUTSCENE1] mountain packed scene is null — transition will be cold")
+		return
+	SceneCache._packed_cache[MOUNTAIN_PATH] = packed
+	SceneCache.warm_scene_instance(MOUNTAIN_PATH)
+	push_warning("[CUTSCENE1] mountain pre-instantiated ✓  has_instance=%s" \
+		% str(SceneCache.has_scene_instance(MOUNTAIN_PATH)))
