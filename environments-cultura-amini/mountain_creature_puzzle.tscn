@@ -779,7 +779,7 @@ position = Vector2(995, 640)
 texture = ExtResource("2_2h7dt")
 
 [node name="fg" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 4
 position = Vector2(992, 651)
 texture = ExtResource("3_0mq3d")
 
@@ -796,16 +796,16 @@ curve = SubResource("Curve2D_841bc")
 position = Vector2(0, -44)
 
 [node name="spawn_from_left" type="Marker2D" parent="."]
-position = Vector2(37, 554)
+position = Vector2(97, 562)
 
 [node name="cursor" parent="." instance=ExtResource("186_npv5m")]
 
 [node name="SceneBack" type="Area2D" parent="."]
-position = Vector2(81.99999, 564)
+position = Vector2(40.999992, 563.99994)
 rotation = -0.043633234
 scale = Vector2(0.51, 0.51)
 script = ExtResource("188_vwrsa")
-next_scene_path = "uid://mcctughmtbmw"
+next_scene_path = "uid://18mv8bbljs5v"
 next_marker_name = "spawn_from_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
@@ -813,7 +813,7 @@ position = Vector2(2.681797, 6.0985107)
 shape = SubResource("RectangleShape2D_if0km")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
+limit_left = 3
 limit_top = -3
 limit_right = 1916
 limit_bottom = 979

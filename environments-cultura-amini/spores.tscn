@@ -964,7 +964,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("240_qcous")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -973,5 +973,5 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nevfh")
-frame = 48
-frame_progress = 0.9668343
+frame = 61
+frame_progress = 0.48592496

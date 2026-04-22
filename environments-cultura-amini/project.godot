@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="EnvironmentsCulturaAmini"
-run/main_scene="uid://xry0vyl6bt7i"
+run/main_scene="uid://18mv8bbljs5v"
 run/disable_stdout=true
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"

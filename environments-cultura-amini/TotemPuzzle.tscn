@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bwob36l55jj5i"]
+[gd_scene load_steps=24 format=3 uid="uid://bwob36l55jj5i"]
 
 [ext_resource type="Script" uid="uid://54afedx2kb0p" path="res://totem_puzzle.gd" id="1_kno2b"]
 [ext_resource type="Texture2D" uid="uid://nqc17u7avtpr" path="res://assets/gardenPuzzleScene/Totem_Base.png" id="2_kno2b"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b52iur6grdbii" path="res://assets/symbols/corrupt/color/symbol_8_color-10.png" id="14_26okc"]
 [ext_resource type="Texture2D" uid="uid://db4ij64vnvtxq" path="res://assets/symbols/corrupt/color/symbol_8_color-11.png" id="15_qee71"]
 [ext_resource type="Texture2D" uid="uid://chyalhlx6lvw" path="res://assets/symbols/corrupt/color/symbol_8_color-12.png" id="16_new3c"]
+[ext_resource type="PackedScene" uid="uid://kj3sxynvlq4e" path="res://spores.tscn" id="19_iq6ji"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_new3c"]
 animations = [{
@@ -80,6 +81,7 @@ size = Vector2(1099.9999, 862.5)
 
 [node name="totem" type="Node2D"]
 script = ExtResource("1_kno2b")
+spores_path = NodePath("spores/AnimatedSprite2D")
 
 [node name="Totem" type="Sprite2D" parent="."]
 position = Vector2(-14, 425)
@@ -142,3 +144,12 @@ offset_left = 309.0
 offset_top = 208.0
 offset_right = 393.0
 offset_bottom = 295.0
+
+[node name="spores" parent="." instance=ExtResource("19_iq6ji")]
+
+[node name="AnimatedSprite2D" parent="spores" index="0"]
+position = Vector2(-45, 387)
+frame = 26
+frame_progress = 0.57449454
+
+[editable path="spores"]

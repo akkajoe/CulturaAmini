@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://18mv8bbljs5v"]
+[gd_scene load_steps=38 format=3 uid="uid://18mv8bbljs5v"]
 
 [ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
 [ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ctsd8x2mqpbjf" path="res://traversalMarker.gd" id="12_rn6j4"]
 [ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="12_unlio"]
 [ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="14_qcogw"]
+[ext_resource type="Texture2D" uid="uid://bfga212h1g56m" path="res://assets/symbols/health/symbol_2-15.png" id="14_ywmil"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="15_5mals"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="16_48yf5"]
 [ext_resource type="PackedScene" uid="uid://bwob36l55jj5i" path="res://TotemPuzzle.tscn" id="16_vwglx"]
@@ -26,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://vjofv5h17xvg" path="res://assets/Prototype Assets/Morsel - Not Clicked.png" id="24_1b8pk"]
 [ext_resource type="Texture2D" uid="uid://c6p62y17hv3og" path="res://assets/Prototype Assets/Morsel - Clicked.png" id="25_fol8i"]
 [ext_resource type="PackedScene" uid="uid://kj3sxynvlq4e" path="res://spores.tscn" id="26_fol8i"]
+[ext_resource type="Texture2D" uid="uid://q8ix0brnqn30" path="res://assets/gardenPuzzleScene/ambience/mushroompsych.png" id="28_1m2bg"]
+[ext_resource type="Script" uid="uid://y1y5edqwm21m" path="res://psych_mushroom.gd" id="28_ebjw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
 size = Vector2(924, 532)
@@ -50,6 +53,20 @@ size = Vector2(390, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wad"]
 size = Vector2(45.5, 154.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebjw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_1m2bg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1m2bg"]
+size = Vector2(920, 1180.0017)
 
 [node name="gardenPuzzle" type="Node2D"]
 script = ExtResource("1_xilqs")
@@ -227,7 +244,7 @@ stream = ExtResource("11_8dqgj")
 parameters/looping = true
 
 [node name="GlobalUI" parent="." groups=["inventory_ui"] instance=ExtResource("14_qcogw")]
-visible = false
+hidden_symbol_texture = ExtResource("14_ywmil")
 
 [node name="cursor" parent="." instance=ExtResource("15_5mals")]
 
@@ -327,12 +344,27 @@ textures = Array[Texture2D]([ExtResource("24_1b8pk"), ExtResource("25_fol8i")])
 position = Vector2(4003, 826)
 
 [node name="spores" parent="." instance=ExtResource("26_fol8i")]
+visible = false
 position = Vector2(2319, 189)
 
 [node name="AnimatedSprite2D" parent="spores" index="0"]
 position = Vector2(-343, 338)
 frame = 13
 frame_progress = 0.37658754
+
+[node name="psychMushroom" type="Area2D" parent="."]
+z_index = 2
+position = Vector2(2538, 789)
+scale = Vector2(0.099999994, 0.099999994)
+script = ExtResource("28_ebjw5")
+
+[node name="psych" type="AnimatedSprite2D" parent="psychMushroom"]
+scale = Vector2(1.0000001, 1.0000001)
+sprite_frames = SubResource("SpriteFrames_ebjw5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="psychMushroom"]
+position = Vector2(10, 59.998535)
+shape = SubResource("RectangleShape2D_1m2bg")
 
 [connection signal="body_entered" from="ZoomArea" to="ZoomArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]
