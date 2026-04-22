@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk2fed5o0uhu0"]
+
+[ext_resource type="Script" uid="uid://dtf3npguk8nut" path="res://cut_scene_1.gd" id="1_xks3v"]
+
+[node name="cut_scene1" type="CanvasLayer"]
+script = ExtResource("1_xks3v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

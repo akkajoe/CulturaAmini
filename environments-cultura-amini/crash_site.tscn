@@ -36,8 +36,9 @@ _data = {
 }
 point_count = 1
 
-[node name="crashSite" type="Node"]
+[node name="crashSite" type="Node2D"]
 script = ExtResource("1_2iaja")
+default_spawn_path = NodePath("traversalRoutes/route_a")
 metadata/_edit_vertical_guides_ = [7690.0, -8.0, 9.0, 7672.0, 4110.0, 1586.0, 611.0, 1906.0]
 metadata/_edit_horizontal_guides_ = [5.0, 1072.0, 1069.0, 828.0, 520.0, 480.0]
 
@@ -127,6 +128,9 @@ position = Vector2(1463, 640)
 [node name="guide" parent="." instance=ExtResource("12_ra4w2")]
 position = Vector2(2256, 418)
 progress_flag = 1
+
+[node name="AnimatedSprite2D" parent="guide" index="1"]
+frame_progress = 0.0
 
 [node name="GuideTrigger" parent="guide" index="2"]
 camera_path = NodePath("../../Camera2D")

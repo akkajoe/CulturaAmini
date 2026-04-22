@@ -25,9 +25,11 @@ signal line_started(line_text: String)
 
 @export_multiline var dialogue_text: String = "Greetings."
 @export var dialogue_lines: Array[String] = [
-	"Greetings",
-	"You are not the first to land here.",
-	"I can help you escape."
+	"Greetings..",
+	"You aren’t from around here, yet you seem already so acquainted with this world.",
+	"Luckily you are not the first to land here. Ship malfunction it appears?",
+	"I know what you need to fix your vessel.",
+	"If you follow me, I can show you the way."
 ]
 
 var lines: Array[String] = []

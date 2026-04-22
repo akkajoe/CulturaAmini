@@ -14,55 +14,58 @@ var follow_position: Vector2 = Vector2.ZERO
 var in_cutscene: bool = false
 var cutscene_tween: Tween = null
 
-# Zoom-area state
 var zoom_zone_active: bool = false
 var zoom_zone_value: Vector2 = Vector2.ONE
 var zoom_zone_offset: Vector2 = Vector2.ZERO
 
-# Current runtime state
 var current_offset: Vector2 = Vector2.ZERO
-
-# Prevent startup drift after scene transitions / spawn placement
-var _did_initial_snap: bool = false
+var _snap_lock_frames: int = 0
+var _has_snapped: bool = false
 
 
 func _ready() -> void:
-	target = get_node_or_null(target_path) as Node2D
-	if target == null:
-		push_warning("Camera2D.gd: target not found.")
-		return
-
 	zoom = default_zoom
 	current_offset = Vector2.ZERO
-
-	# First rough initialization
-	follow_position = target.global_position
-	global_position = target.global_position
-
-	# Then wait until the scene has finished its first placement/spawn work,
-	# and snap again so there is no visible camera catch-up drift.
-	await get_tree().process_frame
-	_snap_to_target_immediate()
+	_snap_lock_frames = 0
+	_has_snapped = false
+	# Do nothing else — no position, no snap, no lock.
+	# Transition path: scene_exit calls snap_to_target_now(player).
+	# First load path: _physics_process snaps on first frame.
 
 
 func _physics_process(delta: float) -> void:
-	if target == null:
-		return
+	#push_warning("CAM PROCESS: has_snapped=%s lock=%d cam_pos=%s player_pos=%s" % [
+		#str(_has_snapped),
+		#_snap_lock_frames,
+		#str(global_position),
+		#str(target.global_position if target else "NULL")
+	#])
+	if target == null or not is_instance_valid(target):
+		_resolve_target()
+		if target == null:
+			return
 
 	if in_cutscene:
 		return
 
-	# Safety: if we somehow have not done the startup snap yet,
-	# do it once before any smoothing starts.
-	if not _did_initial_snap:
-		_snap_to_target_immediate()
+	# First load path — snap on first physics frame
+	if not _has_snapped:
+		follow_position = target.global_position
+		global_position = target.global_position
+		_has_snapped = true
 		return
 
-	var target_pos: Vector2 = target.global_position
-	follow_position = follow_position.lerp(target_pos, follow_speed * delta)
+	# Hard lock after snap_to_target_now()
+	if _snap_lock_frames > 0:
+		_snap_lock_frames -= 1
+		follow_position = target.global_position
+		global_position = target.global_position + current_offset
+		return
 
-	var desired_zoom: Vector2 = default_zoom
-	var desired_offset: Vector2 = Vector2.ZERO
+	follow_position = follow_position.lerp(target.global_position, follow_speed * delta)
+
+	var desired_zoom := default_zoom
+	var desired_offset := Vector2.ZERO
 
 	if zoom_zone_active:
 		desired_zoom = zoom_zone_value
@@ -74,27 +77,50 @@ func _physics_process(delta: float) -> void:
 	global_position = follow_position + current_offset
 
 
-func _snap_to_target_immediate() -> void:
-	if target == null:
+func _resolve_target() -> void:
+	if target_path.is_empty():
 		return
 
-	var desired_offset: Vector2 = Vector2.ZERO
-	var desired_zoom: Vector2 = default_zoom
+	var node_name := str(target_path).get_file()
+	if node_name.is_empty():
+		return
 
-	if zoom_zone_active:
-		desired_offset = zoom_zone_offset
-		desired_zoom = zoom_zone_value
+	var found: Node2D = null
+
+	var parent := get_parent()
+	if parent != null:
+		found = parent.get_node_or_null(node_name) as Node2D
+
+	if found == null:
+		var scene_root := get_tree().current_scene
+		if scene_root != null:
+			found = scene_root.get_node_or_null(node_name) as Node2D
+
+	if found != null and is_instance_valid(found):
+		target = found
+
+
+func snap_to_target_now(explicit_target: Node2D = null) -> void:
+	push_warning("SNAP CALLED: target=%s pos=%s lock_before=%d" % [
+		str(explicit_target),
+		str(explicit_target.global_position if explicit_target else "NULL"),
+		_snap_lock_frames
+	])
+
+	if explicit_target != null:
+		target = explicit_target
+
+	if target == null:
+		_resolve_target()
+
+	if target == null:
+		push_warning("snap_to_target_now: no target resolved, snap skipped")
+		return
 
 	follow_position = target.global_position
-	current_offset = desired_offset
 	global_position = target.global_position + current_offset
-	zoom = desired_zoom
-	_did_initial_snap = true
-
-
-func snap_to_target_now() -> void:
-	_snap_to_target_immediate()
-
+	_has_snapped = true
+	_snap_lock_frames = 60
 
 func set_zoom_zone(new_zoom: Vector2, new_offset: Vector2 = Vector2.ZERO) -> void:
 	zoom_zone_active = true
@@ -133,14 +159,14 @@ func exit_dialogue_shot(target_zoom: Vector2, duration: float) -> void:
 		in_cutscene = false
 		return
 
-	var desired_zoom: Vector2 = default_zoom
-	var desired_offset: Vector2 = Vector2.ZERO
+	var desired_zoom := default_zoom
+	var desired_offset := Vector2.ZERO
 
 	if zoom_zone_active:
 		desired_zoom = zoom_zone_value
 		desired_offset = zoom_zone_offset
 
-	var return_pos: Vector2 = target.global_position + desired_offset
+	var return_pos := target.global_position + desired_offset
 
 	cutscene_tween = create_tween()
 	cutscene_tween.set_trans(Tween.TRANS_SINE)
@@ -151,8 +177,9 @@ func exit_dialogue_shot(target_zoom: Vector2, duration: float) -> void:
 
 	cutscene_tween.finished.connect(func():
 		in_cutscene = false
-		follow_position = target.global_position
-		current_offset = desired_offset
-		global_position = target.global_position + current_offset
+		if target != null:
+			follow_position = target.global_position
+			current_offset = desired_offset
+			global_position = target.global_position + current_offset
 		zoom = desired_zoom
 	)

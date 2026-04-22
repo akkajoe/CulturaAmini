@@ -568,6 +568,7 @@ func _finalize_route_plan() -> void:
 
 
 func _update_ground(delta: float) -> void:
+	#push_warning("player pos=%s route_offset=%s" % [str(global_position), str(current_offset)])
 	if active_route == null or not active_route.has_ground_path():
 		if sprite.animation != "idle":
 			sprite.play("idle")
@@ -1571,34 +1572,27 @@ func set_spawn_world_position(world_pos: Vector2) -> void:
 	post_jump_route_offset = 0.0
 
 	current_jump_point = null
-
-	# IMPORTANT:
-	# First place the player EXACTLY on the spawn marker so there is
-	# no visible drift from marker -> route point.
-	global_position = world_pos
 	velocity = Vector2.ZERO
 
-	# Now bind internal traversal state to the nearest route,
-	# but do not visibly move the player again.
 	var spawn_route: TraversalRoute = _get_closest_route(world_pos)
 
 	if spawn_route != null and spawn_route.has_ground_path():
 		active_route = spawn_route
-
-		var spawn_offset: float = active_route.get_closest_offset_to_global(world_pos)
-
+		var spawn_offset := active_route.get_closest_offset_to_global(world_pos)
 		current_offset = spawn_offset
 		target_offset = spawn_offset
+		# Use the actual route point so _update_ground doesn't jump on frame 1
+		global_position = active_route.get_global_point_at_offset(spawn_offset)
 	else:
 		active_route = null
 		current_offset = 0.0
 		target_offset = 0.0
+		global_position = world_pos
 
 	if sprite != null:
 		if sprite.animation != "idle":
 			sprite.play("idle")
 		sprite.rotation = 0.0
-
 		if active_route != null and active_route.has_ground_path():
 			_apply_idle_tangent_tilt()
 
@@ -1700,3 +1694,17 @@ func is_scene_exit_blocked() -> bool:
 		return true
 
 	return false
+
+func on_scene_activated() -> void:
+	routes_parent = get_node_or_null(routes_parent_path)
+	markers_parent = get_node_or_null(markers_parent_path)
+	jump_points_parent = get_node_or_null(jump_points_parent_path)
+	sprite = get_node_or_null(^"AnimatedSprite2D") as AnimatedSprite2D
+	cursor = get_node_or_null(cursor_path) as AnimatedSprite2D
+	_load_routes()
+	_load_markers()
+	_load_jump_points()
+	push_warning("[PLAYER] on_scene_activated: routes=%d markers=%d jumps=%d" % [
+		routes.size(), markers.size(), jump_points.size()
+	])
+ 

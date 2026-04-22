@@ -38,9 +38,9 @@ stretch_mode = 4
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 49.0
-offset_top = 129.0
+offset_top = 103.0
 offset_right = 1860.0
-offset_bottom = 290.0
+offset_bottom = 264.0
 theme_override_font_sizes/normal_font_size = 51
 
 [node name="Button" type="TextureButton" parent="."]

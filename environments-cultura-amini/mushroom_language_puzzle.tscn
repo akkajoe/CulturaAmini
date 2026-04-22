@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpwwx8ga8lskq"]
+[gd_scene load_steps=14 format=3 uid="uid://dpwwx8ga8lskq"]
 
 [ext_resource type="Texture2D" uid="uid://bt68ldm5hhtcb" path="res://assets/MushroomLanguagePuzzle/Scene_03_mid-ground_2220x1380_300dpi_transparent.png" id="1_g433g"]
 [ext_resource type="Script" uid="uid://c5mm8rxqijvsw" path="res://mushroom_language_puzzle.gd" id="1_idal3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="5_4y0as"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="6_x0xnu"]
 [ext_resource type="Texture2D" uid="uid://dotxy6gpc1ag6" path="res://assets/char/ToadstoolMushroom/Creature Placeholder.png" id="8_q25mh"]
+[ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="10_cq8wb"]
 
 [sub_resource type="Curve2D" id="Curve2D_byn72"]
 _data = {
@@ -32,7 +33,8 @@ animations = [{
 
 [node name="Node" type="Node2D"]
 script = ExtResource("1_idal3")
-metadata/_edit_vertical_guides_ = [0.0, 1922.0]
+metadata/_edit_vertical_guides_ = [0.0, 1922.0, -250.0, 1936.0]
+metadata/_edit_horizontal_guides_ = [-319.0, 1093.0]
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(853.49994, 389.50003)
@@ -117,5 +119,14 @@ sprite_frames = SubResource("SpriteFrames_idal3")
 
 [node name="player" parent="." instance=ExtResource("2_wc27j")]
 start_route_path = NodePath("../traversalRoutes/route_a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1391, 1060)
+limit_left = -250
+limit_top = -319
+limit_right = 1936
+limit_bottom = 1093
+script = ExtResource("10_cq8wb")
+target_path = NodePath("../player")
 
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
