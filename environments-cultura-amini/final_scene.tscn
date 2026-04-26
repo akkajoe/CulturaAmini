@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://i87glh7lq3qu"]
+[gd_scene load_steps=10 format=3 uid="uid://i87glh7lq3qu"]
 
 [ext_resource type="Texture2D" uid="uid://dm155mpfgtaou" path="res://final_scene/Scene_05_mid-ground_2220x1380_300dpi_transparent.png" id="1_qj04j"]
 [ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="2_jremd"]
 [ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="3_iu4q0"]
 [ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="4_4u0mm"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="5_4u0mm"]
+[ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="6_sdbl0"]
+[ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="7_7ivoe"]
 
 [sub_resource type="Curve2D" id="Curve2D_vh3px"]
 _data = {
@@ -45,6 +47,7 @@ script = ExtResource("3_iu4q0")
 target_path = NodePath("../player")
 
 [node name="player" parent="." instance=ExtResource("4_4u0mm")]
+cursor_default_path = NodePath("../Node2D/AnimatedSprite2D")
 
 [node name="SceneBack" type="Area2D" parent="."]
 position = Vector2(43, 543)
@@ -58,4 +61,11 @@ next_marker_name = "spawn_from_right"
 position = Vector2(-70.851715, 409.06357)
 shape = SubResource("RectangleShape2D_sdbl0")
 
+[node name="cursor" parent="." instance=ExtResource("6_sdbl0")]
+
+[node name="Node2D" parent="." instance=ExtResource("7_7ivoe")]
+
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
+
+[editable path="cursor"]
+[editable path="Node2D"]

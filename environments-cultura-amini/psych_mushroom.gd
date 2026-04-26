@@ -5,6 +5,7 @@ class_name MushroomPickup
 @onready var sprite: AnimatedSprite2D = $psych
 
 func _ready() -> void:
+	add_to_group("clickable_asset")
 	input_pickable = true
 	if GameProgress.mushroom_picked_up:
 		queue_free()

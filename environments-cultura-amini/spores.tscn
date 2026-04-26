@@ -966,12 +966,12 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="spores" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nevfh")
-frame = 61
-frame_progress = 0.48592496
+frame = 142
+frame_progress = 0.36431146

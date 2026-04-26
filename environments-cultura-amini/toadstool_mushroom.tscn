@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://375e2ralimux"]
+
+[ext_resource type="Texture2D" uid="uid://dotxy6gpc1ag6" path="res://assets/char/ToadstoolMushroom/Creature Placeholder.png" id="1_kqcg0"]
+[ext_resource type="Script" uid="uid://lvi70ka8f7ev" path="res://toadstool_mushroom.gd" id="1_nxoia"]
+[ext_resource type="Script" uid="uid://bmi2kcc11j1n7" path="res://mushroomtoadstool_trigger.gd" id="3_vs1vq"]
+[ext_resource type="PackedScene" uid="uid://2pus3cfe0e85" path="res://popUpToadstoolMushroom.tscn" id="5_xx2u5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg8bu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kqcg0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg8bu"]
+size = Vector2(1072, 812)
+
+[node name="ToadStoolMushroom" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_nxoia")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hg8bu")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_vs1vq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -67)
+shape = SubResource("RectangleShape2D_hg8bu")
+
+[node name="SpeechPoint" type="Marker2D" parent="."]
+position = Vector2(278, -168)
+
+[node name="SpeechCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpeechBox" parent="SpeechCanvasLayer" instance=ExtResource("5_xx2u5")]
+offset_left = -762.0
+offset_top = -1125.5
+offset_right = -782.0
+offset_bottom = -1790.5
+scale = Vector2(0.475, 0.475)
+
+[editable path="SpeechCanvasLayer/SpeechBox"]

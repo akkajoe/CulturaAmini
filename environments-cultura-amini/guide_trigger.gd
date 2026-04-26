@@ -1,5 +1,4 @@
 extends Area2D
-class_name GuideTrigger
 
 @export var trigger_enabled: bool = true
 @export var trigger_once: bool = true
@@ -23,6 +22,21 @@ class_name GuideTrigger
 @export var speech_point_path: NodePath = ^"../SpeechPoint"
 @export var popup_delay: float = 0.0
 
+@export_multiline var dialogue_lines: Array[String] = [
+	"Hello, traveller.",
+	"Follow me."
+]
+
+# Set this in the inspector to tie this trigger to a GameProgress flag.
+# If the flag is already true on _ready, the trigger disables itself.
+enum ProgressGuard {
+	NONE,
+	MOUNTAIN_CREATURE_GUIDE_DONE,
+	GARDEN_INTRO_DONE,
+	GUIDE_DIALOGUE_DONE
+}
+@export var progress_guard: ProgressGuard = ProgressGuard.NONE
+
 var _triggered: bool = false
 var _dialogue_started: bool = false
 var _release_called: bool = false
@@ -33,6 +47,11 @@ var _popup_ref: CanvasItem = null
 
 
 func _ready() -> void:
+	# If this scene was already completed in a previous visit, disable immediately
+	if _is_progress_done():
+		set_trigger_enabled(false)
+		return
+
 	body_entered.connect(_on_body_entered)
 	set_trigger_enabled(trigger_enabled)
 
@@ -43,6 +62,19 @@ func _ready() -> void:
 		_try_connect_popup_close_signals(_popup_ref)
 	elif show_popup:
 		push_warning("GuideTrigger: popup_path is assigned incorrectly or popup node was not found.")
+
+
+func _is_progress_done() -> bool:
+	match progress_guard:
+		ProgressGuard.MOUNTAIN_CREATURE_GUIDE_DONE:
+			return GameProgress.mountain_creature_guide_done
+		ProgressGuard.GARDEN_INTRO_DONE:
+			return GameProgress.garden_intro_done
+		ProgressGuard.GUIDE_DIALOGUE_DONE:
+			return GameProgress.guide_dialogue_done
+		ProgressGuard.NONE:
+			return false
+	return false
 
 
 func set_trigger_enabled(enabled: bool) -> void:
@@ -101,7 +133,9 @@ func _on_body_entered(body: Node) -> void:
 
 	_dialogue_started = true
 
-	if _popup_ref.has_method("start_dialogue"):
+	if not dialogue_lines.is_empty() and _popup_ref.has_method("start_dialogue_lines"):
+		_popup_ref.call("start_dialogue_lines", dialogue_lines)
+	elif _popup_ref.has_method("start_dialogue"):
 		_popup_ref.call("start_dialogue", body, self)
 	else:
 		_popup_ref.show()
@@ -120,7 +154,6 @@ func release_player() -> void:
 	if use_zoom and _camera_ref:
 		_release_cutscene_focus(_camera_ref)
 
-	# Important: after the guide shot ends, let any overlapping zoom areas re-apply themselves
 	_refresh_overlapping_zoom_areas()
 
 
@@ -187,7 +220,6 @@ func _refresh_overlapping_zoom_areas() -> void:
 	if _player_ref == null:
 		return
 
-	# Let transforms/collision states settle first
 	_call_refresh_zoom_areas_deferred()
 
 

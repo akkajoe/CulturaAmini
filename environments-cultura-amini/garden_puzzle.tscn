@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://18mv8bbljs5v"]
+[gd_scene load_steps=69 format=3 uid="uid://18mv8bbljs5v"]
 
 [ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
 [ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
@@ -19,19 +19,47 @@
 [ext_resource type="PackedScene" uid="uid://bwob36l55jj5i" path="res://TotemPuzzle.tscn" id="16_vwglx"]
 [ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="16_xilqs"]
 [ext_resource type="PackedScene" uid="uid://dnl45jmdu7yd4" path="res://clickable_asset.tscn" id="18_vwglx"]
-[ext_resource type="Texture2D" uid="uid://qltlwt71da61" path="res://assets/Prototype Assets/Mushroom - Clicked.png" id="19_xotqs"]
-[ext_resource type="Texture2D" uid="uid://biotyw071883r" path="res://assets/Prototype Assets/Mushroom - Not Clicked.png" id="20_s00dd"]
-[ext_resource type="Texture2D" uid="uid://cvgexg4dwcib4" path="res://assets/Prototype Assets/Snail.png" id="21_s00dd"]
+[ext_resource type="Texture2D" uid="uid://l6m1v2ld1xxc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_10/symbol_10-11.png" id="20_yntci"]
+[ext_resource type="Texture2D" uid="uid://bcvf7ifvd05cp" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-1.png" id="21_ucl4h"]
 [ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="22_b0wad"]
-[ext_resource type="Texture2D" uid="uid://d2qgcabr3efod" path="res://assets/Prototype Assets/Worm.png" id="23_71sxv"]
-[ext_resource type="Texture2D" uid="uid://vjofv5h17xvg" path="res://assets/Prototype Assets/Morsel - Not Clicked.png" id="24_1b8pk"]
-[ext_resource type="Texture2D" uid="uid://c6p62y17hv3og" path="res://assets/Prototype Assets/Morsel - Clicked.png" id="25_fol8i"]
+[ext_resource type="Texture2D" uid="uid://xkfyc5qqcvi8" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-2.png" id="22_yntci"]
+[ext_resource type="Texture2D" uid="uid://5ee1s7e2xvkj" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-3.png" id="23_jtj6t"]
+[ext_resource type="Texture2D" uid="uid://dppdoh8ivxjfr" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-4.png" id="24_40twg"]
+[ext_resource type="Texture2D" uid="uid://ciosvumo6n70g" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-5.png" id="25_hydx1"]
 [ext_resource type="PackedScene" uid="uid://kj3sxynvlq4e" path="res://spores.tscn" id="26_fol8i"]
-[ext_resource type="Texture2D" uid="uid://q8ix0brnqn30" path="res://assets/gardenPuzzleScene/ambience/mushroompsych.png" id="28_1m2bg"]
+[ext_resource type="Texture2D" uid="uid://dcwm2a7hjjpor" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-6.png" id="26_ne5em"]
 [ext_resource type="Script" uid="uid://y1y5edqwm21m" path="res://psych_mushroom.gd" id="28_ebjw5"]
+[ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="28_f1fsx"]
+[ext_resource type="Texture2D" uid="uid://b5nkkoqa2m8uh" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-1.png" id="29_f1fsx"]
+[ext_resource type="Texture2D" uid="uid://crdvmeli2lxj7" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-2.png" id="30_fidvf"]
+[ext_resource type="Texture2D" uid="uid://cn2w5or2hdafh" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-3.png" id="31_ok8m8"]
+[ext_resource type="Texture2D" uid="uid://ly7ervmnfw3j" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-4.png" id="32_hf202"]
+[ext_resource type="Texture2D" uid="uid://c7qoy4prb18fl" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-5.png" id="33_vlwvw"]
+[ext_resource type="Texture2D" uid="uid://glqqjrbypt0n" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-6.png" id="34_4dwh0"]
+[ext_resource type="Texture2D" uid="uid://bjsqbxfsfrts8" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-7.png" id="35_4rec8"]
+[ext_resource type="Texture2D" uid="uid://me7qvg547ngm" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-8.png" id="36_8hy8s"]
+[ext_resource type="Texture2D" uid="uid://biubwlgta7q7" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-9.png" id="37_yrqvo"]
+[ext_resource type="Texture2D" uid="uid://gs2b26vyx10w" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-1.png" id="40_0y1xt"]
+[ext_resource type="Texture2D" uid="uid://bar07mea1tuwc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-2.png" id="41_8yrwd"]
+[ext_resource type="Texture2D" uid="uid://dnga7dgluxt7t" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-3.png" id="42_f1fsx"]
+[ext_resource type="Texture2D" uid="uid://ygli0h0gluwy" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-4.png" id="43_fidvf"]
+[ext_resource type="Texture2D" uid="uid://brh5d7w421668" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-5.png" id="44_ok8m8"]
+[ext_resource type="Texture2D" uid="uid://bqxyj0f27wc71" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-6.png" id="45_hf202"]
+[ext_resource type="Texture2D" uid="uid://dtli8431jjesx" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-7.png" id="46_vlwvw"]
+[ext_resource type="Texture2D" uid="uid://01mcqc7g5n7t" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-8.png" id="47_4dwh0"]
+[ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="47_156oa"]
+[ext_resource type="Texture2D" uid="uid://swt30t4j2wu" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-9.png" id="48_4rec8"]
+[ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="48_iuc63"]
+[ext_resource type="Texture2D" uid="uid://bjwn8ugffulpq" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-10.png" id="49_8hy8s"]
+[ext_resource type="Texture2D" uid="uid://d1eg1jnulucbq" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-11.png" id="50_yrqvo"]
+[ext_resource type="Texture2D" uid="uid://cykmbu4yxjfse" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-12.png" id="51_ggnps"]
+[ext_resource type="Texture2D" uid="uid://don68f1xuiau3" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-13.png" id="52_3810r"]
+[ext_resource type="Texture2D" uid="uid://bagnr703vakav" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-14.png" id="53_g4xql"]
+[ext_resource type="Texture2D" uid="uid://bo2xj7e11vse0" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-15.png" id="54_cfpai"]
+[ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="55_6u8tu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
-size = Vector2(924, 532)
+size = Vector2(941, 532)
 
 [sub_resource type="Curve2D" id="Curve2D_gcn0c"]
 _data = {
@@ -51,16 +79,172 @@ size = Vector2(122, 163.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48yf5"]
 size = Vector2(390, 13)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ucl4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_ucl4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_yntci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jtj6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_40twg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_hydx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ne5em")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_ucl4h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l2cbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_ucl4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_yntci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_jtj6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_40twg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_hydx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ne5em")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_ucl4h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wad"]
 size = Vector2(45.5, 154.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggnps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_f1fsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_fidvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ok8m8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_hf202")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vlwvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4dwh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_4rec8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8hy8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yrqvo")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_f1fsx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebjw5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("28_1m2bg")
+"texture": ExtResource("40_0y1xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_8yrwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_f1fsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_fidvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_ok8m8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_hf202")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_vlwvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_4dwh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_4rec8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_8hy8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_yrqvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ggnps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_3810r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_g4xql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_cfpai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_6u8tu")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -69,6 +253,7 @@ animations = [{
 size = Vector2(920, 1180.0017)
 
 [node name="gardenPuzzle" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_xilqs")
 default_spawn_path = NodePath("spawn_from_left")
 metadata/_edit_vertical_guides_ = [3838.0, 3832.0, 4022.0]
@@ -99,6 +284,7 @@ progress_flag = 2
 [node name="GuideTrigger" parent="guide" index="2"]
 camera_path = NodePath("../../Camera2D")
 popup_path = NodePath("../../CanvasLayer/SpeechBox")
+dialogue_lines = Array[String](["Dominating this world is a mycelium system that connects all living and nonliving organisms. "])
 
 [node name="CollisionShape2D" parent="guide/GuideTrigger" index="0"]
 position = Vector2(232, -42)
@@ -109,7 +295,10 @@ position = Vector2(-634, 296)
 [node name="player" parent="." groups=["player"] instance=ExtResource("2_l0lom")]
 position = Vector2(601, 589)
 start_route_path = NodePath("../traversalRoutes/route_a")
+cursor_default_path = NodePath("../cursor2/CanvasLayer/AnimatedSprite2D")
+cursor_interact_path = NodePath("../clickable_cursor/CanvasLayer/hover_interact")
 route_click_radius = 80.0
+cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
 
 [node name="CollisionShape2D" parent="player" index="1"]
 position = Vector2(0, -21)
@@ -195,7 +384,7 @@ script = ExtResource("7_ewlnx")
 zoom_in_value = Vector2(1.2, 1.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoomArea"]
-position = Vector2(2169, 639)
+position = Vector2(2160.5, 639)
 shape = SubResource("RectangleShape2D_njd60")
 
 [node name="ColorRect" type="ColorRect" parent="ZoomArea"]
@@ -277,6 +466,7 @@ scale = Vector2(0.57, 0.57)
 guide_path = NodePath("../../guide")
 player_path = NodePath("../../player")
 player_freeze_time = 8.0
+metadata/_edit_use_anchors_ = true
 
 [node name="scene_exit" type="Area2D" parent="."]
 position = Vector2(3719, -149)
@@ -296,28 +486,41 @@ z_index = 2
 position = Vector2(115.000015, 821.99994)
 rotation = -0.12042773
 scale = Vector2(0.99999994, 0.99999994)
-textures = Array[Texture2D]([ExtResource("20_s00dd"), ExtResource("19_xotqs")])
 
 [node name="Node2D2" parent="." instance=ExtResource("18_vwglx")]
 z_index = 2
 position = Vector2(1267, 783)
-textures = Array[Texture2D]([ExtResource("20_s00dd"), ExtResource("19_xotqs")])
 
 [node name="Node2D3" parent="." instance=ExtResource("18_vwglx")]
 z_index = 2
 position = Vector2(2125, 1014)
 rotation = -0.17453294
 scale = Vector2(0.99999994, 0.99999994)
-textures = Array[Texture2D]([ExtResource("21_s00dd"), ExtResource("21_s00dd")])
+popup_texture = ExtResource("20_yntci")
+
+[node name="AnimatedSprite2D" parent="Node2D3" index="0"]
+position = Vector2(6.9453125, -39.39258)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_ucl4h")
+animation = &"default"
+
+[node name="Area2D" parent="Node2D3" index="1"]
+position = Vector2(3.6467285, -20.68103)
+
+[node name="CollisionShape2D" parent="Node2D3/Area2D" index="0"]
+position = Vector2(-1.0418701, 5.9088135)
 
 [node name="Node2D4" parent="." instance=ExtResource("18_vwglx")]
 z_index = 2
 position = Vector2(3592, 989.00006)
 rotation = -0.23736477
-textures = Array[Texture2D]([ExtResource("20_s00dd"), ExtResource("19_xotqs")])
-gives_item = true
 item_name = "hidden_symbol"
 popup_texture = ExtResource("22_b0wad")
+
+[node name="AnimatedSprite2D" parent="Node2D4" index="0"]
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_l2cbc")
+animation = &"default"
 
 [node name="scene_exit2" type="Area2D" parent="."]
 position = Vector2(3839, 812)
@@ -332,13 +535,21 @@ shape = SubResource("RectangleShape2D_b0wad")
 z_index = 2
 position = Vector2(2703, 966)
 rotation = -1.1379547
-textures = Array[Texture2D]([ExtResource("23_71sxv"), ExtResource("23_71sxv")])
-popup_texture = ExtResource("23_71sxv")
+item_name = "creature2"
+popup_texture = ExtResource("28_f1fsx")
+
+[node name="AnimatedSprite2D" parent="Node2D5" index="0"]
+position = Vector2(20.134033, 43.578125)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_ggnps")
+animation = &"default"
+
+[node name="Area2D" parent="Node2D5" index="1"]
+position = Vector2(25.442566, 45.52661)
 
 [node name="Node2D6" parent="." instance=ExtResource("18_vwglx")]
 z_index = 2
 position = Vector2(3610, 777)
-textures = Array[Texture2D]([ExtResource("24_1b8pk"), ExtResource("25_fol8i")])
 
 [node name="spawn_from_right" type="Marker2D" parent="."]
 position = Vector2(4003, 826)
@@ -352,19 +563,26 @@ position = Vector2(-343, 338)
 frame = 13
 frame_progress = 0.37658754
 
-[node name="psychMushroom" type="Area2D" parent="."]
+[node name="psychMushroom" type="Area2D" parent="." groups=["clickable_asset"]]
 z_index = 2
 position = Vector2(2538, 789)
 scale = Vector2(0.099999994, 0.099999994)
 script = ExtResource("28_ebjw5")
 
-[node name="psych" type="AnimatedSprite2D" parent="psychMushroom"]
-scale = Vector2(1.0000001, 1.0000001)
+[node name="psych" type="AnimatedSprite2D" parent="psychMushroom" groups=["clickable_asset"]]
+scale = Vector2(0.97, 0.97)
 sprite_frames = SubResource("SpriteFrames_ebjw5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="psychMushroom"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="psychMushroom" groups=["clickable_asset"]]
 position = Vector2(10, 59.998535)
 shape = SubResource("RectangleShape2D_1m2bg")
+
+[node name="cursor2" parent="." instance=ExtResource("47_156oa")]
+
+[node name="clickable_cursor" parent="." instance=ExtResource("48_iuc63")]
+
+[node name="hover_interact" parent="clickable_cursor/CanvasLayer" index="0"]
+scale = Vector2(0.025, 0.025)
 
 [connection signal="body_entered" from="ZoomArea" to="ZoomArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]
@@ -372,4 +590,10 @@ shape = SubResource("RectangleShape2D_1m2bg")
 
 [editable path="guide"]
 [editable path="player"]
+[editable path="cursor"]
+[editable path="Node2D3"]
+[editable path="Node2D4"]
+[editable path="Node2D5"]
 [editable path="spores"]
+[editable path="cursor2"]
+[editable path="clickable_cursor"]

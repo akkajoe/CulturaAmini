@@ -1,5 +1,5 @@
 extends Control
-class_name SpeechBox
+#class_name SpeechBox
 
 signal dialogue_finished
 signal line_started(line_text: String)
@@ -26,7 +26,7 @@ signal line_started(line_text: String)
 @export_multiline var dialogue_text: String = "Greetings."
 @export var dialogue_lines: Array[String] = [
 	"Greetings..",
-	"You aren’t from around here, yet you seem already so acquainted with this world.",
+	"You aren't from around here, yet you seem already so acquainted with this world.",
 	"Luckily you are not the first to land here. Ship malfunction it appears?",
 	"I know what you need to fix your vessel.",
 	"If you follow me, I can show you the way."
@@ -50,6 +50,15 @@ var sentence_pre_delay: float = 1.0
 var sentence_voice_duration: float = 1.0
 
 
+func is_mouse_hovering() -> bool:
+	if not is_inside_tree():
+		return false
+	if next_button == null or not next_button.visible:
+		return false
+	# Use the button's own is_hovered() — Godot handles coords automatically
+	return next_button.is_hovered()
+
+
 func _ready() -> void:
 	hide()
 	next_button.hide()
@@ -63,13 +72,14 @@ func _ready() -> void:
 	text_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	next_button.mouse_filter = Control.MOUSE_FILTER_STOP
 
+	add_to_group("ui_hoverable")
+
 
 func start_dialogue(_body: Node = null, _trigger: Node = null) -> void:
 	if dialogue_lines.is_empty():
 		lines = [dialogue_text]
 	else:
 		lines = dialogue_lines.duplicate()
-
 	current_line_index = 0
 	_start_current_line()
 
@@ -81,10 +91,7 @@ func start_dialogue_text(text: String) -> void:
 
 
 func start_dialogue_lines(new_lines: Array[String]) -> void:
-	lines.clear()
-	for line in new_lines:
-		lines.append(str(line))
-
+	lines = new_lines.duplicate()
 	current_line_index = 0
 	_start_current_line()
 
@@ -125,10 +132,8 @@ func _begin_typing_after_delay() -> void:
 
 	if not visible:
 		return
-
 	if not is_waiting_to_start:
 		return
-
 	if current_line_index != line_id:
 		return
 
@@ -142,17 +147,14 @@ func _begin_typing_after_delay() -> void:
 
 func _randomize_sentence_voice_profile() -> void:
 	var base_pitch := randf_range(0.90, 1.08)
-
 	sentence_pitch_min = max(0.5, base_pitch - randf_range(0.02, 0.05))
 	sentence_pitch_max = min(2.0, base_pitch + randf_range(0.02, 0.06))
-
 	sentence_volume_min = randf_range(-4.0, -1.5)
 	sentence_volume_max = randf_range(-0.5, 1.5)
 
 
 func _randomize_sentence_timing() -> void:
 	var char_count := full_text.length()
-
 	sentence_typing_speed = typing_speed
 
 	if char_count <= 3:
@@ -171,8 +173,7 @@ func _randomize_sentence_timing() -> void:
 	else:
 		chars_per_sound = 3
 
-	sentence_voice_duration = 0.35 + (char_count * 0.045)
-	sentence_voice_duration = clamp(sentence_voice_duration, 0.35, 2.2)
+	sentence_voice_duration = clamp(0.35 + (char_count * 0.045), 0.35, 2.2)
 
 
 func place_at_world_position(world_pos: Vector2) -> void:
@@ -183,10 +184,8 @@ func place_at_world_position(world_pos: Vector2) -> void:
 func _on_timer_timeout() -> void:
 	if char_index < full_text.length():
 		var next_char := full_text[char_index]
-
 		if next_char != " " and char_index % chars_per_sound == 0:
 			_play_random_type_sound()
-
 		char_index += 1
 		text_label.text = full_text.substr(0, char_index)
 	else:
@@ -198,7 +197,6 @@ func _on_timer_timeout() -> void:
 func _play_random_type_sound() -> void:
 	if type_sounds.is_empty():
 		return
-
 	var player := type_sounds[randi() % type_sounds.size()]
 	player.pitch_scale = randf_range(sentence_pitch_min, sentence_pitch_max)
 	player.volume_db = randf_range(sentence_volume_min, sentence_volume_max)
@@ -214,10 +212,8 @@ func _stop_all_type_sounds() -> void:
 
 func _cut_off_speech_later(line_id: int) -> void:
 	await get_tree().create_timer(sentence_voice_duration).timeout
-
 	if current_line_index != line_id:
 		return
-
 	_stop_all_type_sounds()
 
 
@@ -265,6 +261,5 @@ func _finish_dialogue() -> void:
 
 func _reenable_player_after_delay(player: Node) -> void:
 	await get_tree().create_timer(player_freeze_time).timeout
-
 	if player != null and is_instance_valid(player) and player.has_method("set_movement_enabled"):
 		player.set_movement_enabled(true)

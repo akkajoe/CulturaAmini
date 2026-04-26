@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpwwx8ga8lskq"]
+[gd_scene load_steps=21 format=3 uid="uid://dpwwx8ga8lskq"]
 
 [ext_resource type="Texture2D" uid="uid://bt68ldm5hhtcb" path="res://assets/MushroomLanguagePuzzle/Scene_03_mid-ground_2220x1380_300dpi_transparent.png" id="1_g433g"]
 [ext_resource type="Script" uid="uid://c5mm8rxqijvsw" path="res://mushroom_language_puzzle.gd" id="1_idal3"]
@@ -8,8 +8,16 @@
 [ext_resource type="Script" uid="uid://dypw3fcom7i4p" path="res://traversalJumpPoint.gd" id="4_byn72"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="5_4y0as"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="6_x0xnu"]
-[ext_resource type="Texture2D" uid="uid://dotxy6gpc1ag6" path="res://assets/char/ToadstoolMushroom/Creature Placeholder.png" id="8_q25mh"]
 [ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="10_cq8wb"]
+[ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="11_lpqkl"]
+[ext_resource type="PackedScene" uid="uid://375e2ralimux" path="res://toadstool_mushroom.tscn" id="11_prk11"]
+[ext_resource type="Texture2D" uid="uid://l6m1v2ld1xxc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_10/symbol_10-11.png" id="11_qhf1b"]
+[ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="12_prk11"]
+[ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="12_rgkvw"]
+[ext_resource type="PackedScene" uid="uid://b2hfaabebobo2" path="res://ToadstoolSlot.tscn" id="13_1wy8f"]
+[ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="13_bruag"]
+[ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="15_b7qrh"]
+[ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="18_tdv28"]
 
 [sub_resource type="Curve2D" id="Curve2D_byn72"]
 _data = {
@@ -20,21 +28,11 @@ point_count = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riic0"]
 size = Vector2(122, 26)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_idal3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_q25mh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Node" type="Node2D"]
+[node name="Node" type="Node"]
 script = ExtResource("1_idal3")
-metadata/_edit_vertical_guides_ = [0.0, 1922.0, -250.0, 1936.0]
-metadata/_edit_horizontal_guides_ = [-319.0, 1093.0]
+slot_bar_path = NodePath("ToadstoolMushoom/ToadstoolSlotBar")
+metadata/_edit_vertical_guides_ = [0.0, 1922.0, -250.0, 1936.0, 949.0, 949.0]
+metadata/_edit_horizontal_guides_ = [-319.0, 1093.0, 865.0]
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(853.49994, 389.50003)
@@ -101,6 +99,7 @@ chain_ids = Array[String](["C"])
 order = 3
 
 [node name="cursor" parent="." instance=ExtResource("5_4y0as")]
+visible = false
 
 [node name="SceneBack" type="Area2D" parent="."]
 position = Vector2(-50, 20)
@@ -112,21 +111,97 @@ next_marker_name = "spawn_from_top"
 position = Vector2(1437, 1040)
 shape = SubResource("RectangleShape2D_riic0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(916.00006, 390.00003)
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_idal3")
-
-[node name="player" parent="." instance=ExtResource("2_wc27j")]
-start_route_path = NodePath("../traversalRoutes/route_a")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1391, 1060)
 limit_left = -250
-limit_top = -319
+limit_top = -84
 limit_right = 1936
 limit_bottom = 1093
 script = ExtResource("10_cq8wb")
 target_path = NodePath("../player")
 
+[node name="Node2D" parent="." instance=ExtResource("11_lpqkl")]
+
+[node name="ToadstoolMushoom" parent="." node_paths=PackedStringArray("slot_bar", "speech_canvas", "speech_box", "bubble_display", "speech_point", "area", "solved_speech_canvas", "solved_speech_box", "solved_speech_point", "throw_from_point", "throw_to_point") instance=ExtResource("11_prk11")]
+position = Vector2(932, 416)
+scale = Vector2(0.5, 0.5)
+required_symbols = Array[String](["creature1", "creature2", "mushroom"])
+symbol_display_textures = Array[Texture2D]([ExtResource("11_qhf1b"), ExtResource("12_rgkvw"), ExtResource("13_bruag")])
+slot_bar = NodePath("../CanvasLayer/ToadstoolSlotBar")
+speech_canvas = NodePath("SpeechCanvasLayer")
+speech_box = NodePath("SpeechCanvasLayer/SpeechBox")
+bubble_display = NodePath("SpeechCanvasLayer/SpeechBox/symbolDisplay")
+speech_point = NodePath("SpeechPoint")
+area = NodePath("Area2D")
+solved_speech_canvas = NodePath("../CanvasLayer2")
+solved_speech_box = NodePath("../CanvasLayer2/SpeechBox")
+solved_speech_point = NodePath("../speechspawnpoint")
+throw_symbol_texture = ExtResource("12_rgkvw")
+throw_from_point = NodePath("../throw_from_point")
+throw_to_point = NodePath("../throw_to_point")
+thrown_item_name = "death_symbol"
+
+[node name="Area2D" parent="ToadstoolMushoom" index="1"]
+script = null
+
+[node name="CollisionShape2D" parent="ToadstoolMushoom/Area2D" index="0"]
+position = Vector2(4, -120)
+
+[node name="SpeechBox" parent="ToadstoolMushoom/SpeechCanvasLayer" index="0"]
+offset_top = -258.5
+offset_bottom = -923.5
+scale = Vector2(0.245, 0.245)
+
+[node name="symbolDisplay" parent="ToadstoolMushoom/SpeechCanvasLayer/SpeechBox" index="3"]
+offset_top = -116.32654
+offset_bottom = 512.24493
+expand_mode = 3
+stretch_mode = 5
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("2_wc27j")]
+start_route_path = NodePath("../traversalRoutes/route_a")
+cursor_default_path = NodePath("../Node2D/CanvasLayer/AnimatedSprite2D")
+cursor_interact_path = NodePath("../clickabl_cursor/CanvasLayer/hover_interact")
+cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
+
+[node name="clickabl_cursor" parent="." instance=ExtResource("12_prk11")]
+
+[node name="hover_interact" parent="clickabl_cursor/CanvasLayer" index="0"]
+scale = Vector2(0.025, 0.025)
+
+[node name="slot_marker" type="Marker2D" parent="."]
+position = Vector2(946, 865)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ToadstoolSlotBar" parent="CanvasLayer" instance=ExtResource("13_1wy8f")]
+
+[node name="GlobalUI" parent="." instance=ExtResource("15_b7qrh")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="SpeechBox" parent="CanvasLayer2" instance=ExtResource("18_tdv28")]
+offset_left = 119.99997
+offset_top = -622.0
+offset_right = 100.0
+offset_bottom = -1418.0001
+scale = Vector2(0.515, 0.515)
+
+[node name="speechspawnpoint" type="Marker2D" parent="."]
+position = Vector2(721, 697)
+
+[node name="throw_from_point" type="Marker2D" parent="."]
+position = Vector2(944, 205)
+
+[node name="throw_to_point" type="Marker2D" parent="."]
+position = Vector2(944, 604)
+
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
+
+[editable path="cursor"]
+[editable path="Node2D"]
+[editable path="ToadstoolMushoom"]
+[editable path="ToadstoolMushoom/SpeechCanvasLayer/SpeechBox"]
+[editable path="clickabl_cursor"]
+[editable path="CanvasLayer/ToadstoolSlotBar"]

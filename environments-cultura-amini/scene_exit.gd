@@ -238,9 +238,9 @@ func go_to_scene() -> void:
 	if cam != null and cam.has_method("snap_to_target_now"):
 		cam.snap_to_target_now(player)
 
-	GameProgress.next_spawn_marker = ""
-	old_scene.call_deferred("queue_free")
-	push_warning("oLDDDd_scene visible=%s new_scene visible=%s" % [
-	str((old_scene as CanvasItem).visible),
-	str((new_scene as CanvasItem).visible)
-])
+	#GameProgress.next_spawn_marker = ""
+	#old_scene.call_deferred("queue_free")
+	#push_warning("oLDDDd_scene visible=%s new_scene visible=%s" % [
+	#str((old_scene as CanvasItem).visible),
+	#str((new_scene as CanvasItem).visible)
+#])

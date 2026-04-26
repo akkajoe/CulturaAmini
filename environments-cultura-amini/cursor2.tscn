@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://oqrm0tvppwyw"]
+
+[ext_resource type="Texture2D" uid="uid://brxgiv45yu8wf" path="res://UI/mouse/nothingCursor/move cursor icon.png" id="1_1gm88"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2w1pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1gm88")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+z_index = 6
+scale = Vector2(0.015, 0.015)
+sprite_frames = SubResource("SpriteFrames_2w1pf")

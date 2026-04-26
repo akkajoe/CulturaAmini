@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hfaabebobo2"]
+
+[ext_resource type="Script" uid="uid://dh8tyh6kphdyr" path="res://toadstool_slot.gd" id="1_1wsqr"]
+
+[node name="ToadstoolSlotBar" type="CanvasLayer"]
+script = ExtResource("1_1wsqr")
+slot_nodes = Array[NodePath]([NodePath("Control/Panel/HBoxContainer/Slot1"), NodePath("Control/Panel/HBoxContainer/Slot2"), NodePath("Control/Panel/HBoxContainer/Slot3")])
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 612.0
+offset_top = 693.0
+offset_right = 1252.0
+offset_bottom = 847.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 646.0
+offset_bottom = 147.0
+
+[node name="Slot1" type="TextureRect" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Slot2" type="TextureRect" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+
+[node name="Slot3" type="TextureRect" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2

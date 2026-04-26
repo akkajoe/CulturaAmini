@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://2pus3cfe0e85"]
+
+[ext_resource type="Texture2D" uid="uid://co3eg4vcqtte1" path="res://assets/MushroomLanguagePuzzle/ChatBubble.png" id="2_i30v6"]
+
+[node name="SpeechBox" type="Control" groups=["ui_hoverable"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -20.0
+offset_bottom = -665.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [1901.0]
+metadata/_edit_horizontal_guides_ = [436.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -481.0
+offset_top = -1383.0
+offset_right = 3790.981
+offset_bottom = 1144.5942
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.035, 1.035)
+texture = ExtResource("2_i30v6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 28.0
+offset_right = 1860.0
+offset_bottom = 401.0
+theme_override_font_sizes/normal_font_size = 51
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="symbolDisplay" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1901.0
+offset_bottom = 439.0

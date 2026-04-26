@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://blq0csrvvihkx" path="res://assets/audio/char/Guide_Voice_2.mp3" id="5_owdvn"]
 [ext_resource type="AudioStream" uid="uid://dqkyvkr86wsqg" path="res://assets/audio/char/Guide_Voice_3.mp3" id="6_0dgvo"]
 
-[node name="SpeechBox" type="Control"]
+[node name="SpeechBox" type="Control" groups=["ui_hoverable"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +43,7 @@ offset_right = 1860.0
 offset_bottom = 264.0
 theme_override_font_sizes/normal_font_size = 51
 
-[node name="Button" type="TextureButton" parent="."]
+[node name="Button" type="TextureButton" parent="." groups=["clickable_asset"]]
 z_index = 1
 layout_mode = 0
 offset_left = 1743.0

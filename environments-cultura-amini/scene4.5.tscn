@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmocpqbjdu6k6"]
+
+[ext_resource type="Texture2D" uid="uid://rlnedoikw6b7" path="res://assets/scene4.5/Scene_4.5_midground_2220x1380_300dpi.jpg" id="1_phpln"]
+[ext_resource type="Texture2D" uid="uid://b45eeerxlgt0q" path="res://assets/scene4.5/Scene_4.5_foreground_2220x1380_300dpi_transparent.png" id="2_p7r12"]
+[ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="3_503xe"]
+[ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="4_kouag"]
+[ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="5_4nwge"]
+[ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="6_i0vdm"]
+[ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="7_wfgpo"]
+[ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="8_vbuic"]
+
+[sub_resource type="Curve2D" id="Curve2D_i0vdm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -87, 532, 0, 0, 0, 0, 189, 526, 0, 0, 0, 0, 681, 551, 0, 0, 0, 0, 977, 545, 0, 0, 0, 0, 1256, 545, 0, 0, 0, 0, 1661, 542, 0, 0, 0, 0, 1858, 545, 0, 0, 0, 0, 1931, 545)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfgpo"]
+size = Vector2(106.355576, 126.1405)
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [4.0, 1915.0]
+metadata/_edit_horizontal_guides_ = [-8.0, 1066.0]
+
+[node name="midground" type="Sprite2D" parent="."]
+position = Vector2(972, 538)
+texture = ExtResource("1_phpln")
+
+[node name="fg" type="Sprite2D" parent="."]
+position = Vector2(974, 538)
+texture = ExtResource("2_p7r12")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 4
+limit_top = -8
+limit_right = 1915
+limit_bottom = 1066
+script = ExtResource("3_503xe")
+
+[node name="player" parent="." instance=ExtResource("4_kouag")]
+position = Vector2(181, 540)
+cursor_default_path = NodePath("../Node2D/AnimatedSprite2D")
+
+[node name="traversalRoutes" type="Node2D" parent="."]
+
+[node name="route_a" type="Node2D" parent="traversalRoutes"]
+script = ExtResource("5_4nwge")
+
+[node name="groundPath" type="Path2D" parent="traversalRoutes/route_a"]
+position = Vector2(0, 44)
+curve = SubResource("Curve2D_i0vdm")
+
+[node name="spawn_from_left" type="Marker2D" parent="."]
+position = Vector2(84, 518)
+
+[node name="SceneBack" type="Area2D" parent="."]
+position = Vector2(25.999992, 511.0001)
+rotation = -0.043633234
+scale = Vector2(0.51, 0.51)
+script = ExtResource("6_i0vdm")
+next_scene_path = "uid://mcctughmtbmw"
+next_marker_name = "spawn_from_mouth"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneBack"]
+position = Vector2(11.154829, 14.225469)
+shape = SubResource("RectangleShape2D_wfgpo")
+
+[node name="cursor" parent="." instance=ExtResource("7_wfgpo")]
+
+[node name="Node2D" parent="." instance=ExtResource("8_vbuic")]
+
+[connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
+
+[editable path="cursor"]
+[editable path="Node2D"]

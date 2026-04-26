@@ -3,7 +3,8 @@ extends CharacterBody2D
 enum ProgressFlag {
 	NONE,
 	CRASH_SITE_GUIDE_DONE,
-	GARDEN_INTRO_DONE
+	GARDEN_INTRO_DONE,
+	MOUNTAIN_CREATURE_GUIDE_DONE
 }
 
 @export var move_speed: float = 100.0
@@ -24,6 +25,24 @@ func _ready() -> void:
 	if sprite is AnimatedSprite2D:
 		(sprite as AnimatedSprite2D).play("idle")
 
+	if _is_progress_done():
+		hide()
+		set_collision_layer(0)
+		set_collision_mask(0)
+
+
+func _is_progress_done() -> bool:
+	match progress_flag:
+		ProgressFlag.CRASH_SITE_GUIDE_DONE:
+			return GameProgress.guide_dialogue_done
+		ProgressFlag.GARDEN_INTRO_DONE:
+			return GameProgress.garden_intro_done
+		ProgressFlag.MOUNTAIN_CREATURE_GUIDE_DONE:
+			return GameProgress.mountain_creature_guide_done
+		ProgressFlag.NONE:
+			return false
+	return false
+
 
 func _physics_process(_delta: float) -> void:
 	if not is_exiting:
@@ -34,7 +53,6 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 	var elapsed := (Time.get_ticks_msec() / 1000.0) - exit_start_time
-
 	if elapsed >= min_exit_time and _is_outside_camera_view():
 		hide()
 		velocity = Vector2.ZERO
@@ -46,10 +64,8 @@ func start_exit() -> void:
 		return
 
 	_mark_progress_done()
-
 	is_exiting = true
 	exit_start_time = Time.get_ticks_msec() / 1000.0
-
 	set_collision_layer(0)
 	set_collision_mask(0)
 
@@ -66,10 +82,10 @@ func _mark_progress_done() -> void:
 	match progress_flag:
 		ProgressFlag.CRASH_SITE_GUIDE_DONE:
 			GameProgress.guide_dialogue_done = true
-
 		ProgressFlag.GARDEN_INTRO_DONE:
 			GameProgress.garden_intro_done = true
-
+		ProgressFlag.MOUNTAIN_CREATURE_GUIDE_DONE:
+			GameProgress.mountain_creature_guide_done = true
 		ProgressFlag.NONE:
 			pass
 
@@ -87,7 +103,6 @@ func _get_camera_world_rect() -> Rect2:
 	var viewport_size: Vector2 = get_viewport_rect().size
 	var visible_size := viewport_size * camera.zoom
 	var top_left := camera.get_screen_center_position() - (visible_size * 0.5)
-
 	return Rect2(
 		top_left - Vector2(offscreen_margin, offscreen_margin),
 		visible_size + Vector2(offscreen_margin * 2.0, offscreen_margin * 2.0)
@@ -103,7 +118,6 @@ func _get_guide_world_rect() -> Rect2:
 			if tex != null:
 				var size := tex.get_size() * s.scale
 				return Rect2(s.global_position - size * 0.5, size)
-
 	elif sprite is Sprite2D:
 		var s2 := sprite as Sprite2D
 		if s2.texture != null:

@@ -39,7 +39,9 @@ animations = [{
 
 [node name="cursor" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 scale = Vector2(0.025, 0.025)
 sprite_frames = SubResource("SpriteFrames_gfa8q")
 animation = &"hover_path"

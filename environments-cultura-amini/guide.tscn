@@ -132,7 +132,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1kyu"]
-size = Vector2(832, 652)
+size = Vector2(760, 652)
 
 [node name="guide" type="CharacterBody2D"]
 script = ExtResource("1_cxhpx")

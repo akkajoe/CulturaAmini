@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddv4lluxa00i6"]
+[gd_scene load_steps=44 format=3 uid="uid://ddv4lluxa00i6"]
 
 [ext_resource type="Script" uid="uid://cva45h370r3h8" path="res://crash_site.gd" id="1_2iaja"]
 [ext_resource type="Texture2D" uid="uid://cb12ep2hck2sa" path="res://assets/crashSiteScene/Scene_01_mid-ground_4140x1380_300dpi_transparent.png" id="2_kgs3k"]
@@ -12,8 +12,32 @@
 [ext_resource type="AudioStream" uid="uid://dyg01qicrl1sc" path="res://assets/audio/demo_02_crash-site_44.1k_16b.wav" id="9_f0vxg"]
 [ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="10_kgs3k"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="11_eswo1"]
+[ext_resource type="Texture2D" uid="uid://dd6he3c0iojik" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant00.png" id="12_jftcp"]
 [ext_resource type="PackedScene" uid="uid://cv8au5688djcg" path="res://guide.tscn" id="12_ra4w2"]
+[ext_resource type="Texture2D" uid="uid://c4jau3kksxlxt" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant01.png" id="13_im1yb"]
 [ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="14_2s40n"]
+[ext_resource type="Texture2D" uid="uid://pavt5l2rhskc" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant02.png" id="14_bt5al"]
+[ext_resource type="Texture2D" uid="uid://caro6k4tw8h22" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant03.png" id="15_g5sri"]
+[ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="15_im4nv"]
+[ext_resource type="Texture2D" uid="uid://bkpgtltsqsy8l" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant04.png" id="16_0rlta"]
+[ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="16_2myp4"]
+[ext_resource type="Texture2D" uid="uid://bwwc5uf63ik5a" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant05.png" id="17_bqm7s"]
+[ext_resource type="Texture2D" uid="uid://cg27f2alj5715" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant06.png" id="18_atjh8"]
+[ext_resource type="Texture2D" uid="uid://ctmsrcqdifv30" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant07.png" id="19_yc27d"]
+[ext_resource type="Texture2D" uid="uid://dbmujsfpla8xd" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant08.png" id="20_dgssq"]
+[ext_resource type="Texture2D" uid="uid://b6n23bmth7e7x" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant09.png" id="21_olo1i"]
+[ext_resource type="Texture2D" uid="uid://dxhk66rd8yv4p" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant10.png" id="22_r68mc"]
+[ext_resource type="Texture2D" uid="uid://b4i6deyqt6ic0" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant11.png" id="23_tltfy"]
+[ext_resource type="Texture2D" uid="uid://cfeuhu17b4fd3" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant12.png" id="24_77i6y"]
+[ext_resource type="Texture2D" uid="uid://63g011gjmre5" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant13.png" id="25_2bkpv"]
+[ext_resource type="Texture2D" uid="uid://d33p2tkv821x6" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant14.png" id="26_86jfr"]
+[ext_resource type="Texture2D" uid="uid://buuao2q3wtmp7" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant15.png" id="27_a7kf1"]
+[ext_resource type="Texture2D" uid="uid://qwj3hn1eeohp" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant16.png" id="28_emy05"]
+[ext_resource type="Texture2D" uid="uid://3pa0dntrvq5u" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant17.png" id="29_uiw21"]
+[ext_resource type="Texture2D" uid="uid://befrb5l77ghhm" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant18.png" id="30_skwf4"]
+[ext_resource type="Texture2D" uid="uid://bpfy8d48sqfp8" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant19.png" id="31_d4ixv"]
+[ext_resource type="Texture2D" uid="uid://60bd78ceo74g" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant20.png" id="32_lwv78"]
+[ext_resource type="Texture2D" uid="uid://bv36xxvgb2o4i" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant21.png" id="33_i7pee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iaja"]
 size = Vector2(156, 149)
@@ -36,6 +60,80 @@ _data = {
 }
 point_count = 1
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_nsmgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jftcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_im1yb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bt5al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g5sri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0rlta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bqm7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_atjh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yc27d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dgssq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_olo1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_r68mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_tltfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_77i6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2bkpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_86jfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_a7kf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_emy05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_uiw21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_skwf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_d4ixv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_lwv78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_i7pee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="crashSite" type="Node2D"]
 script = ExtResource("1_2iaja")
 default_spawn_path = NodePath("traversalRoutes/route_a")
@@ -55,11 +153,6 @@ texture = ExtResource("2_kgs3k")
 z_index = 2
 position = Vector2(2065, 393)
 texture = ExtResource("3_eswo1")
-
-[node name="player" parent="." groups=["player"] instance=ExtResource("3_g7u24")]
-position = Vector2(115, 659)
-start_route_path = NodePath("../traversalRoutes/route_a")
-route_click_radius = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = 20
@@ -125,6 +218,11 @@ position = Vector2(1906, 437)
 [node name="traversalJumpPoints" type="Node2D" parent="."]
 position = Vector2(1463, 640)
 
+[node name="moving_grass" type="AnimatedSprite2D" parent="."]
+position = Vector2(2072, 399)
+sprite_frames = SubResource("SpriteFrames_nsmgx")
+autoplay = "default"
+
 [node name="guide" parent="." instance=ExtResource("12_ra4w2")]
 position = Vector2(2256, 418)
 progress_flag = 1
@@ -135,9 +233,22 @@ frame_progress = 0.0
 [node name="GuideTrigger" parent="guide" index="2"]
 camera_path = NodePath("../../Camera2D")
 popup_path = NodePath("../../CanvasLayer/SpeechBox")
+dialogue_lines = Array[String](["Greetings..
+", "You aren’t from around here, yet you seem already so acquainted with this world.
+", "Luckily you are not the first to land here. Ship malfunction it appears?
+", "I know what you need to fix your vessel. If you follow me, I can show you the way.
+"])
 
 [node name="SpeechPoint" type="Marker2D" parent="guide"]
 position = Vector2(-577, 323)
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("3_g7u24")]
+position = Vector2(115, 659)
+start_route_path = NodePath("../traversalRoutes/route_a")
+cursor_default_path = NodePath("../cursor2/CanvasLayer/AnimatedSprite2D")
+cursor_interact_path = NodePath("../clickable_cursor/CanvasLayer/hover_interact")
+route_click_radius = 100.0
+cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -153,10 +264,25 @@ offset_bottom = 209.02704
 scale = Vector2(0.57, 0.57)
 guide_path = NodePath("../../guide")
 player_path = NodePath("../../player")
+dialogue_text = "Greetings"
 
 [node name="spawn_from_right" type="Marker2D" parent="."]
 position = Vector2(4012, 611)
 
+[node name="cursor2" parent="." instance=ExtResource("15_im4nv")]
+
+[node name="clickable_cursor" parent="." instance=ExtResource("16_2myp4")]
+position = Vector2(1205, -194)
+scale = Vector2(0.085, 0.085)
+
+[node name="hover_interact" parent="clickable_cursor/CanvasLayer" index="0"]
+position = Vector2(303.99997, 246.99998)
+scale = Vector2(0.025, 0.025)
+
 [connection signal="body_entered" from="scene_exit" to="scene_exit" method="_on_body_entered"]
 
+[editable path="cursor"]
 [editable path="guide"]
+[editable path="CanvasLayer/SpeechBox"]
+[editable path="cursor2"]
+[editable path="clickable_cursor"]

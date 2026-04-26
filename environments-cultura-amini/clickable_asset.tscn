@@ -1,6 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnl45jmdu7yd4"]
+[gd_scene load_steps=4 format=3 uid="uid://dnl45jmdu7yd4"]
 
 [ext_resource type="Script" uid="uid://81almnsw5ox" path="res://clickable_asset.gd" id="1_882a0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_882a0"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_882a0"]
 size = Vector2(240, 186.66666)
@@ -11,8 +24,10 @@ popup_offset = Vector2(0, -100)
 popup_start_scale = Vector2(0.01, 0.01)
 popup_peak_scale = Vector2(0.1, 0.1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_882a0")
+animation = &"clicked"
 
 [node name="Area2D" type="Area2D" parent="." groups=["clickable_asset"]]
 

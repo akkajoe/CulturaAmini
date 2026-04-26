@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://xry0vyl6bt7i"]
+[gd_scene load_steps=20 format=3 uid="uid://xry0vyl6bt7i"]
 
 [ext_resource type="Script" uid="uid://r1a846dlxooh" path="res://spaceship_scene_1.gd" id="1_08h1v"]
 [ext_resource type="Texture2D" uid="uid://3g4l56s8kdtp" path="res://assets/spaceshipScene/SpaceBackground_Edited_v2.png" id="1_d5wm3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="10_6esc1"]
 [ext_resource type="AudioStream" uid="uid://dv4sxcsr086cp" path="res://assets/audio/demo_01_ship-emergency_44.1k_16b.wav" id="11_onlgl"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="13_u3ba4"]
+[ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="15_swwqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uhmoj"]
 radius = 24.186773
@@ -59,6 +60,7 @@ script = ExtResource("5_her2e")
 position = Vector2(665, 552)
 scale = Vector2(0.9, 0.9)
 start_route_path = NodePath("../traversalRoutes/route_a")
+cursor_default_path = NodePath("../Node2D/AnimatedSprite2D")
 
 [node name="cursor" parent="." instance=ExtResource("13_u3ba4")]
 
@@ -134,3 +136,7 @@ route_b_path = NodePath("../../traversalRoutes/route_a")
 stream = ExtResource("11_onlgl")
 
 [node name="BlinkTimer" type="Timer" parent="."]
+
+[node name="Node2D" parent="." instance=ExtResource("15_swwqw")]
+
+[editable path="Node2D"]
