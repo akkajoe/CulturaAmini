@@ -7,18 +7,20 @@ var _required: Array[String] = []
 var _filled: Array[bool] = []
 var _puzzle: Node = null
 var _setup_done: bool = false
+var _symbol_textures: Array[Texture2D] = []  # NEW — store puzzle textures for restore
 
 
 func _ready() -> void:
 	follow_viewport_enabled = false
 
 
-func setup(required_symbols: Array[String], puzzle_node: Node) -> void:
+func setup(required_symbols: Array[String], symbol_textures: Array[Texture2D], puzzle_node: Node) -> void:
 	if _setup_done:
 		return
 
 	_setup_done = true
 	_required = required_symbols
+	_symbol_textures = symbol_textures  # NEW
 	_puzzle = puzzle_node
 
 	_filled.resize(_required.size())
@@ -28,24 +30,43 @@ func setup(required_symbols: Array[String], puzzle_node: Node) -> void:
 
 	for i in range(slot_nodes.size()):
 		var slot := get_node_or_null(slot_nodes[i]) as TextureRect
-
 		if slot == null:
 			push_warning("ToadstoolSlotBar: slot %d not found" % i)
 			continue
-
 		_slots.append(slot)
 		slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	_style_slots()
 
+	# Defer restore so reparented panels have settled
+	call_deferred("_restore_filled_slots")
+
+
+func _restore_filled_slots() -> void:
+	var saved_step: int = GameProgress.toadstool_current_step
+
+	if saved_step == 0:
+		return
+
+	for i in range(mini(saved_step, _slots.size())):
+		_filled[i] = true
+		_slots[i].visible = true
+		# Restore the texture that was shown in this slot
+		# Slots show the symbol_display_textures entry for that step
+		if i < _symbol_textures.size():
+			_slots[i].texture = _symbol_textures[i]
+			_slots[i].modulate = Color.WHITE
+		else:
+			_slots[i].modulate = Color(0.7, 0.85, 0.7, 1.0)  # fallback tint
+
+	push_warning("ToadstoolSlotBar restored %d filled slots." % saved_step)
+
 
 func _input(event: InputEvent) -> void:
 	if not DragManager.is_dragging:
 		return
-
 	if not (event is InputEventMouseButton):
 		return
-
 	if event.button_index != MOUSE_BUTTON_LEFT or event.pressed:
 		return
 
@@ -64,14 +85,11 @@ func _get_slot_under_mouse(mouse_pos: Vector2) -> int:
 		var slot := _slots[i]
 		if slot == null:
 			continue
-
 		var rect := slot.get_global_rect()
 		push_warning("Checking slot %d rect=%s mouse=%s" % [i + 1, str(rect), str(mouse_pos)])
-
 		if rect.has_point(mouse_pos):
 			push_warning("Mouse is over slot %d" % (i + 1))
 			return i
-
 	return -1
 
 
@@ -81,18 +99,15 @@ func _try_drop_on_slot(slot_index: int) -> void:
 	if slot_index < 0 or slot_index >= _filled.size():
 		push_warning("Invalid slot index: %d" % slot_index)
 		return
-
 	if _filled[slot_index]:
 		push_warning("Slot %d is already filled." % (slot_index + 1))
 		return
-
 	if slot_index != _get_current_step():
 		push_warning("Wrong slot order. Tried slot %d, but current step is slot %d." % [
 			slot_index + 1,
 			_get_current_step() + 1
 		])
 		return
-
 	if slot_index >= _required.size():
 		push_warning("Slot index is outside required symbols array.")
 		return
@@ -105,14 +120,10 @@ func _try_drop_on_slot(slot_index: int) -> void:
 	push_warning("Dropped texture is null: %s" % str(dropped_tex == null))
 
 	if dropped_name != _required[slot_index]:
-		push_warning("Wrong item. Dropped '%s', expected '%s'." % [
-			dropped_name,
-			_required[slot_index]
-		])
+		push_warning("Wrong item. Dropped '%s', expected '%s'." % [dropped_name, _required[slot_index]])
 		return
 
 	var accepted := true
-
 	if _puzzle and _puzzle.has_method("on_symbol_dropped"):
 		accepted = _puzzle.on_symbol_dropped(dropped_name)
 		push_warning("Puzzle accepted drop: %s" % str(accepted))
@@ -143,7 +154,6 @@ func _try_drop_on_slot(slot_index: int) -> void:
 
 func _style_slots() -> void:
 	var hbox := get_node_or_null("Panel/HBoxContainer") as HBoxContainer
-
 	if hbox:
 		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
 		hbox.add_theme_constant_override("separation", 40)
@@ -183,5 +193,4 @@ func _get_current_step() -> int:
 	for i in range(_filled.size()):
 		if not _filled[i]:
 			return i
-
 	return _filled.size()

@@ -162,7 +162,6 @@ func _is_valid_player(body: Node2D) -> bool:
 
 
 func go_to_scene() -> void:
-	
 	if next_scene_path == "":
 		push_warning("scene_exit.gd: next_scene_path is empty.")
 		_is_transitioning = false
@@ -171,7 +170,6 @@ func go_to_scene() -> void:
 	GameProgress.next_spawn_marker = next_marker_name
 
 	var old_scene := get_tree().current_scene
-	
 	if old_scene == null:
 		_is_transitioning = false
 		return
@@ -203,7 +201,6 @@ func go_to_scene() -> void:
 	get_tree().current_scene = new_scene
 	new_scene.process_mode = Node.PROCESS_MODE_INHERIT
 
-	# Re-init player so @onready vars resolve correctly after reparent
 	var player := new_scene.get_node_or_null(player_name) as Node2D
 	if player != null and player.has_method("on_scene_activated"):
 		player.on_scene_activated()
@@ -212,7 +209,6 @@ func go_to_scene() -> void:
 		new_scene.on_scene_activated()
 
 	var marker := new_scene.get_node_or_null(next_marker_name) as Node2D
-	
 	if marker != null and player != null:
 		player.global_position = marker.global_position
 		if marker.is_in_group("off_route_spawn") and player.has_method("spawn_off_route_exact"):
@@ -222,7 +218,6 @@ func go_to_scene() -> void:
 	else:
 		push_warning("scene_exit.gd: marker '%s' or player '%s' not found." % [next_marker_name, player_name])
 
-	# Pass player directly — camera locks onto it for 60 frames
 	var cam := new_scene.get_node_or_null("Camera2D")
 	if cam is Camera2D:
 		(cam as Camera2D).make_current()
@@ -233,14 +228,11 @@ func go_to_scene() -> void:
 		(new_scene as CanvasItem).visible = true
 
 	await get_tree().physics_frame
+
 	if cam is Camera2D:
 		(cam as Camera2D).make_current()
 	if cam != null and cam.has_method("snap_to_target_now"):
 		cam.snap_to_target_now(player)
 
-	#GameProgress.next_spawn_marker = ""
-	#old_scene.call_deferred("queue_free")
-	#push_warning("oLDDDd_scene visible=%s new_scene visible=%s" % [
-	#str((old_scene as CanvasItem).visible),
-	#str((new_scene as CanvasItem).visible)
-#])
+	# Free the old scene so cursors and CanvasLayers don't persist
+	old_scene.call_deferred("queue_free")

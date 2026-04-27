@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://18mv8bbljs5v"]
+[gd_scene load_steps=87 format=3 uid="uid://18mv8bbljs5v"]
 
 [ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
 [ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
@@ -40,23 +40,41 @@
 [ext_resource type="Texture2D" uid="uid://me7qvg547ngm" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-8.png" id="36_8hy8s"]
 [ext_resource type="Texture2D" uid="uid://biubwlgta7q7" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-9.png" id="37_yrqvo"]
 [ext_resource type="Texture2D" uid="uid://gs2b26vyx10w" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-1.png" id="40_0y1xt"]
+[ext_resource type="Texture2D" uid="uid://brh7dnagvwuv1" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-1.png" id="40_palgf"]
 [ext_resource type="Texture2D" uid="uid://bar07mea1tuwc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-2.png" id="41_8yrwd"]
+[ext_resource type="Texture2D" uid="uid://cxft8pobimdex" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-2.png" id="41_xxskn"]
 [ext_resource type="Texture2D" uid="uid://dnga7dgluxt7t" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-3.png" id="42_f1fsx"]
+[ext_resource type="Texture2D" uid="uid://cwo7l1t3a3jkd" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-3.png" id="42_itbwr"]
 [ext_resource type="Texture2D" uid="uid://ygli0h0gluwy" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-4.png" id="43_fidvf"]
+[ext_resource type="Texture2D" uid="uid://c88aqmkiotq0w" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-4.png" id="43_vty26"]
 [ext_resource type="Texture2D" uid="uid://brh5d7w421668" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-5.png" id="44_ok8m8"]
+[ext_resource type="Texture2D" uid="uid://coypgydpjmskp" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-5.png" id="44_utckq"]
+[ext_resource type="Texture2D" uid="uid://0wfuxchuqae2" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-6.png" id="45_cm6us"]
 [ext_resource type="Texture2D" uid="uid://bqxyj0f27wc71" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-6.png" id="45_hf202"]
+[ext_resource type="Texture2D" uid="uid://clhe1gc6ova6w" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-7.png" id="46_i4qtp"]
 [ext_resource type="Texture2D" uid="uid://dtli8431jjesx" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-7.png" id="46_vlwvw"]
 [ext_resource type="Texture2D" uid="uid://01mcqc7g5n7t" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-8.png" id="47_4dwh0"]
+[ext_resource type="Texture2D" uid="uid://q8x6m71qtmlp" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-8.png" id="47_76bxc"]
 [ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="47_156oa"]
 [ext_resource type="Texture2D" uid="uid://swt30t4j2wu" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-9.png" id="48_4rec8"]
 [ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="48_iuc63"]
+[ext_resource type="Texture2D" uid="uid://22pr8b55c5qj" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-9.png" id="48_jaexd"]
 [ext_resource type="Texture2D" uid="uid://bjwn8ugffulpq" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-10.png" id="49_8hy8s"]
+[ext_resource type="Texture2D" uid="uid://c70ajaktulxhs" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-10.png" id="49_blgpl"]
+[ext_resource type="Texture2D" uid="uid://pueble80le1o" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-11.png" id="50_8q2s1"]
 [ext_resource type="Texture2D" uid="uid://d1eg1jnulucbq" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-11.png" id="50_yrqvo"]
+[ext_resource type="Texture2D" uid="uid://badnole0i3slb" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-12.png" id="51_23vec"]
 [ext_resource type="Texture2D" uid="uid://cykmbu4yxjfse" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-12.png" id="51_ggnps"]
 [ext_resource type="Texture2D" uid="uid://don68f1xuiau3" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-13.png" id="52_3810r"]
+[ext_resource type="Texture2D" uid="uid://b2si2xf3gv8ff" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-13.png" id="52_hmsxe"]
 [ext_resource type="Texture2D" uid="uid://bagnr703vakav" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-14.png" id="53_g4xql"]
+[ext_resource type="Texture2D" uid="uid://bgf775cbrnjjr" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-14.png" id="53_k3g3c"]
 [ext_resource type="Texture2D" uid="uid://bo2xj7e11vse0" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-15.png" id="54_cfpai"]
+[ext_resource type="Texture2D" uid="uid://baihkh1p1mcjg" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-15.png" id="54_nqgtr"]
 [ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="55_6u8tu"]
+[ext_resource type="Texture2D" uid="uid://lr31157o2ldx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-16.png" id="55_vtgau"]
+[ext_resource type="Texture2D" uid="uid://cuxp3twl85xvj" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-17.png" id="56_x8om5"]
+[ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="57_jsa6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
 size = Vector2(941, 532)
@@ -195,6 +213,65 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebjw5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_palgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_xxskn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_itbwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_vty26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_utckq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_cm6us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_i4qtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_76bxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_jaexd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_blgpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_8q2s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_23vec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_hmsxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_k3g3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_nqgtr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_vtgau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_x8om5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_jsa6y")
+}],
+"loop": false,
+"name": &"bad_mushroom",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("40_0y1xt")
@@ -434,6 +511,7 @@ parameters/looping = true
 
 [node name="GlobalUI" parent="." groups=["inventory_ui"] instance=ExtResource("14_qcogw")]
 hidden_symbol_texture = ExtResource("14_ywmil")
+bad_mushroom = ExtResource("57_jsa6y")
 
 [node name="cursor" parent="." instance=ExtResource("15_5mals")]
 
@@ -588,6 +666,8 @@ scale = Vector2(0.025, 0.025)
 [connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 
+[editable path="totem"]
+[editable path="totem/spores"]
 [editable path="guide"]
 [editable path="player"]
 [editable path="cursor"]

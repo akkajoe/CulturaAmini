@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpwwx8ga8lskq"]
+[gd_scene load_steps=24 format=3 uid="uid://dpwwx8ga8lskq"]
 
 [ext_resource type="Texture2D" uid="uid://bt68ldm5hhtcb" path="res://assets/MushroomLanguagePuzzle/Scene_03_mid-ground_2220x1380_300dpi_transparent.png" id="1_g433g"]
 [ext_resource type="Script" uid="uid://c5mm8rxqijvsw" path="res://mushroom_language_puzzle.gd" id="1_idal3"]
@@ -16,8 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="12_rgkvw"]
 [ext_resource type="PackedScene" uid="uid://b2hfaabebobo2" path="res://ToadstoolSlot.tscn" id="13_1wy8f"]
 [ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="13_bruag"]
+[ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="14_3mmla"]
 [ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="15_b7qrh"]
+[ext_resource type="Texture2D" uid="uid://bfga212h1g56m" path="res://assets/symbols/health/symbol_2-15.png" id="18_4f28j"]
 [ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="18_tdv28"]
+[ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="19_v8kpe"]
 
 [sub_resource type="Curve2D" id="Curve2D_byn72"]
 _data = {
@@ -125,8 +128,8 @@ target_path = NodePath("../player")
 [node name="ToadstoolMushoom" parent="." node_paths=PackedStringArray("slot_bar", "speech_canvas", "speech_box", "bubble_display", "speech_point", "area", "solved_speech_canvas", "solved_speech_box", "solved_speech_point", "throw_from_point", "throw_to_point") instance=ExtResource("11_prk11")]
 position = Vector2(932, 416)
 scale = Vector2(0.5, 0.5)
-required_symbols = Array[String](["creature1", "creature2", "mushroom"])
-symbol_display_textures = Array[Texture2D]([ExtResource("11_qhf1b"), ExtResource("12_rgkvw"), ExtResource("13_bruag")])
+required_symbols = Array[String](["creature1", "creature2", "mushroom", "creature4"])
+symbol_display_textures = Array[Texture2D]([ExtResource("11_qhf1b"), ExtResource("12_rgkvw"), ExtResource("13_bruag"), ExtResource("14_3mmla")])
 slot_bar = NodePath("../CanvasLayer/ToadstoolSlotBar")
 speech_canvas = NodePath("SpeechCanvasLayer")
 speech_box = NodePath("SpeechCanvasLayer/SpeechBox")
@@ -176,8 +179,15 @@ position = Vector2(946, 865)
 visible = false
 
 [node name="ToadstoolSlotBar" parent="CanvasLayer" instance=ExtResource("13_1wy8f")]
+slot_nodes = Array[NodePath]([NodePath("Control/Panel/HBoxContainer/Slot1"), NodePath("Control/Panel/HBoxContainer/Slot2"), NodePath("Control/Panel/HBoxContainer/Slot3"), NodePath("Control/Panel/HBoxContainer/Slot4")])
+
+[node name="Slot4" type="TextureRect" parent="CanvasLayer/ToadstoolSlotBar/Control/Panel/HBoxContainer" index="3"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
 
 [node name="GlobalUI" parent="." instance=ExtResource("15_b7qrh")]
+hidden_symbol_texture = ExtResource("18_4f28j")
+bad_mushroom = ExtResource("19_v8kpe")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 

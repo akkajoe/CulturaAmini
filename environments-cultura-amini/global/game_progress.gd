@@ -32,6 +32,13 @@ var mountain_creature_fed: bool = false
 var mountain_creature_openmouth: bool = false
 
 # =========================================================
+# Toadstool puzzle state
+# =========================================================
+var toadstool_puzzle_complete: bool = false
+var toadstool_current_step: int = 0
+var toadstool_filled_items: Array[String] = []
+
+# =========================================================
 # Pending spawn marker
 # =========================================================
 var next_spawn_marker: String = ""
@@ -40,10 +47,8 @@ var next_spawn_marker: String = ""
 func register_puzzle_solve() -> void:
 	if has_symbol:
 		return
-
 	puzzle_solve_count += 1
 	print("Puzzle solves:", puzzle_solve_count)
-
 	if puzzle_solve_count >= 3:
 		add_inventory_item("symbol")
 		print("Added puzzle reward symbol to inventory after 3 solves.")
@@ -53,9 +58,7 @@ func add_inventory_item(item_name: String) -> void:
 	if inventory_items.has(item_name):
 		print("Item already in inventory:", item_name)
 		return
-
 	inventory_items.append(item_name)
-
 	match item_name:
 		"symbol":
 			has_symbol = true
@@ -63,34 +66,31 @@ func add_inventory_item(item_name: String) -> void:
 			has_hidden_symbol = true
 		"mushroom":
 			mushroom_picked_up = true
+		"bad_mushroom":
+			pass
 		"creature_fed":
 			mountain_creature_fed = true
 			mountain_creature_openmouth = true
 			mountain_creature_symbol_thrown = true
-
 	print("Inventory now:", inventory_items)
-
 	_refresh_inventory_ui()
 
 
 func remove_inventory_item(item_name: String) -> void:
 	if inventory_items.has(item_name):
 		inventory_items.erase(item_name)
-
 	match item_name:
 		"symbol":
 			has_symbol = inventory_items.has("symbol")
 		"hidden_symbol":
 			has_hidden_symbol = inventory_items.has("hidden_symbol")
-		"mushroom":
-			mushroom_picked_up = inventory_items.has("mushroom")
+		"mushroom", "bad_mushroom":
+			mushroom_picked_up = inventory_items.has("mushroom") or inventory_items.has("bad_mushroom")
 		"creature_fed":
 			mountain_creature_fed = inventory_items.has("creature_fed")
 			mountain_creature_openmouth = mountain_creature_fed
 			mountain_creature_symbol_thrown = mountain_creature_fed
-
 	print("Inventory after removal:", inventory_items)
-
 	_refresh_inventory_ui()
 
 
@@ -102,10 +102,8 @@ func mark_mountain_creature_fed() -> void:
 	mountain_creature_fed = true
 	mountain_creature_openmouth = true
 	mountain_creature_symbol_thrown = true
-
 	if not inventory_items.has("creature_fed"):
 		inventory_items.append("creature_fed")
-
 	print("Mountain creature state saved: openmouth")
 
 
@@ -124,22 +122,20 @@ func reset_progress() -> void:
 	has_symbol = false
 	has_hidden_symbol = false
 	inventory_items.clear()
-
 	crash_site_visited = false
 	guide_dialogue_done = false
 	code_scene_seen = false
-
 	garden_puzzle_visited = false
 	garden_intro_done = false
 	mushroom_picked_up = false
-
 	mountain_creature_visited = false
 	mountain_creature_guide_done = false
 	mountain_creature_symbol_thrown = false
 	mountain_creature_fed = false
 	mountain_creature_openmouth = false
-
+	toadstool_puzzle_complete = false
+	toadstool_current_step = 0
+	toadstool_filled_items.clear()
 	next_spawn_marker = ""
-
 	print("Progress reset.")
 	_refresh_inventory_ui()

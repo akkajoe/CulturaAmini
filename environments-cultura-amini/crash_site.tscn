@@ -219,7 +219,7 @@ position = Vector2(1906, 437)
 position = Vector2(1463, 640)
 
 [node name="moving_grass" type="AnimatedSprite2D" parent="."]
-position = Vector2(2072, 399)
+position = Vector2(2064, 395)
 sprite_frames = SubResource("SpriteFrames_nsmgx")
 autoplay = "default"
 

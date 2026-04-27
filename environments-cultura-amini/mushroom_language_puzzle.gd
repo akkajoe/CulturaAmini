@@ -1,6 +1,6 @@
 extends Node
 
-@export var required_symbols: Array[String] = ["symbol_1", "symbol_2", "symbol_3"]
+@export var required_symbols: Array[String] = ["symbol_1", "symbol_2", "symbol_3", "symbol_4"]
 @export var symbol_display_textures: Array[Texture2D] = []
 @export var slot_bar_path: NodePath
 
