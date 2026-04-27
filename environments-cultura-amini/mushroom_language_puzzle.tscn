@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dpwwx8ga8lskq"]
+[gd_scene load_steps=35 format=3 uid="uid://dpwwx8ga8lskq"]
 
 [ext_resource type="Texture2D" uid="uid://bt68ldm5hhtcb" path="res://assets/MushroomLanguagePuzzle/Scene_03_mid-ground_2220x1380_300dpi_transparent.png" id="1_g433g"]
 [ext_resource type="Script" uid="uid://c5mm8rxqijvsw" path="res://mushroom_language_puzzle.gd" id="1_idal3"]
@@ -21,6 +21,16 @@
 [ext_resource type="Texture2D" uid="uid://bfga212h1g56m" path="res://assets/symbols/health/symbol_2-15.png" id="18_4f28j"]
 [ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="18_tdv28"]
 [ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="19_v8kpe"]
+[ext_resource type="PackedScene" uid="uid://dnl45jmdu7yd4" path="res://clickable_asset.tscn" id="22_crjah"]
+[ext_resource type="Texture2D" uid="uid://b5nkkoqa2m8uh" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-1.png" id="23_006wh"]
+[ext_resource type="Texture2D" uid="uid://crdvmeli2lxj7" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-2.png" id="24_bs7ot"]
+[ext_resource type="Texture2D" uid="uid://cn2w5or2hdafh" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-3.png" id="25_eurn6"]
+[ext_resource type="Texture2D" uid="uid://ly7ervmnfw3j" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-4.png" id="26_qnf4k"]
+[ext_resource type="Texture2D" uid="uid://c7qoy4prb18fl" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-5.png" id="27_eaqd4"]
+[ext_resource type="Texture2D" uid="uid://glqqjrbypt0n" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-6.png" id="28_3lnen"]
+[ext_resource type="Texture2D" uid="uid://bjsqbxfsfrts8" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-7.png" id="29_kdbvy"]
+[ext_resource type="Texture2D" uid="uid://me7qvg547ngm" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-8.png" id="30_12n77"]
+[ext_resource type="Texture2D" uid="uid://biubwlgta7q7" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-9.png" id="31_tswj3"]
 
 [sub_resource type="Curve2D" id="Curve2D_byn72"]
 _data = {
@@ -30,6 +40,49 @@ point_count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riic0"]
 size = Vector2(122, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxsvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_006wh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bs7ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_eurn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_qnf4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_eaqd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3lnen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_kdbvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_12n77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_tswj3")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_006wh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_idal3")
@@ -129,7 +182,8 @@ target_path = NodePath("../player")
 position = Vector2(932, 416)
 scale = Vector2(0.5, 0.5)
 required_symbols = Array[String](["creature1", "creature2", "mushroom", "creature4"])
-symbol_display_textures = Array[Texture2D]([ExtResource("11_qhf1b"), ExtResource("12_rgkvw"), ExtResource("13_bruag"), ExtResource("14_3mmla")])
+symbol_display_textures = Array[Texture2D]([ExtResource("11_qhf1b"), ExtResource("12_rgkvw"), ExtResource("13_bruag"), ExtResource("14_3mmla"), ExtResource("19_v8kpe")])
+final_symbol_texture = ExtResource("19_v8kpe")
 slot_bar = NodePath("../CanvasLayer/ToadstoolSlotBar")
 speech_canvas = NodePath("SpeechCanvasLayer")
 speech_box = NodePath("SpeechCanvasLayer/SpeechBox")
@@ -187,7 +241,6 @@ layout_mode = 2
 
 [node name="GlobalUI" parent="." instance=ExtResource("15_b7qrh")]
 hidden_symbol_texture = ExtResource("18_4f28j")
-bad_mushroom = ExtResource("19_v8kpe")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -207,11 +260,23 @@ position = Vector2(944, 205)
 [node name="throw_to_point" type="Marker2D" parent="."]
 position = Vector2(944, 604)
 
+[node name="clickable_asset1" parent="." instance=ExtResource("22_crjah")]
+position = Vector2(1813, 89)
+rotation = -0.7853982
+item_name = "creature4"
+popup_texture = ExtResource("14_3mmla")
+
+[node name="AnimatedSprite2D" parent="clickable_asset1" index="0"]
+scale = Vector2(0.065, 0.065)
+sprite_frames = SubResource("SpriteFrames_fxsvj")
+
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 
 [editable path="cursor"]
 [editable path="Node2D"]
 [editable path="ToadstoolMushoom"]
 [editable path="ToadstoolMushoom/SpeechCanvasLayer/SpeechBox"]
+[editable path="player"]
 [editable path="clickabl_cursor"]
 [editable path="CanvasLayer/ToadstoolSlotBar"]
+[editable path="clickable_asset1"]

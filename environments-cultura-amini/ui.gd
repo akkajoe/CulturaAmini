@@ -17,6 +17,7 @@ extends CanvasLayer
 @export var creature1: Texture2D
 @export var creature2: Texture2D
 @export var creature3: Texture2D
+@export var creature4: Texture2D
 @export var death_symbol: Texture2D
 
 var _is_hovered: bool = false
@@ -117,10 +118,25 @@ func _get_texture_for_item(item_name: String) -> Texture2D:
 			return creature2
 		"creature3":
 			return creature3
+		"creature4":
+			return creature4
 		"death_symbol":
 			return death_symbol
 		_:
 			return null
+
+
+func get_item_name_for_texture(tex: Texture2D) -> String:
+	if tex == symbol_texture: return "symbol"
+	if tex == hidden_symbol_texture: return "hidden_symbol"
+	if tex == mushroom: return "mushroom"
+	if tex == bad_mushroom: return "bad_mushroom"
+	if tex == creature1: return "creature1"
+	if tex == creature2: return "creature2"
+	if tex == creature3: return "creature3"
+	if tex == creature4: return "creature4"
+	if tex == death_symbol: return "death_symbol"
+	return ""
 
 
 func refresh_inventory_ui() -> void:

@@ -35,6 +35,7 @@ var mountain_creature_openmouth: bool = false
 # Toadstool puzzle state
 # =========================================================
 var toadstool_puzzle_complete: bool = false
+var toadstool_slots_complete: bool = false
 var toadstool_current_step: int = 0
 var toadstool_filled_items: Array[String] = []
 
@@ -134,6 +135,7 @@ func reset_progress() -> void:
 	mountain_creature_fed = false
 	mountain_creature_openmouth = false
 	toadstool_puzzle_complete = false
+	toadstool_slots_complete = false
 	toadstool_current_step = 0
 	toadstool_filled_items.clear()
 	next_spawn_marker = ""

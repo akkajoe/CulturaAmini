@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7symwiqlxn2u"]
+[gd_scene load_steps=12 format=3 uid="uid://b7symwiqlxn2u"]
 
 [ext_resource type="Script" uid="uid://5wwwkcbvqbf3" path="res://ui.gd" id="1_fyqef"]
 [ext_resource type="Texture2D" uid="uid://c88tpmh2jhfpi" path="res://UI/inventory/Bag icon.png" id="2_m6e0p"]
@@ -6,18 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://w2ueupob736b" path="res://assets/symbols/health/symbol_2-9.png" id="3_n5ude"]
 [ext_resource type="Texture2D" uid="uid://dopiy8yrxngp1" path="res://UI/inventory/Delete Icon.png" id="4_n5ude"]
 [ext_resource type="Texture2D" uid="uid://cyq11o365a4kk" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-15.png" id="5_ibotj"]
+[ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="5_irxef"]
 [ext_resource type="Texture2D" uid="uid://l6m1v2ld1xxc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_10/symbol_10-11.png" id="5_waa4j"]
 [ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="6_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="7_irxef"]
+[ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="8_e2l4f"]
 
 [node name="GlobalUI" type="CanvasLayer" groups=["clickable_asset", "ui_hoverable"]]
 script = ExtResource("1_fyqef")
 symbol_texture = ExtResource("5_ibotj")
 hidden_symbol_texture = ExtResource("3_n5ude")
 mushroom = ExtResource("7_irxef")
+bad_mushroom = ExtResource("5_irxef")
 creature1 = ExtResource("5_waa4j")
 creature2 = ExtResource("6_ok7cu")
 creature3 = ExtResource("7_irxef")
+creature4 = ExtResource("8_e2l4f")
 death_symbol = ExtResource("6_ok7cu")
 
 [node name="bagButton" type="TextureButton" parent="."]

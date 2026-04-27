@@ -2,6 +2,7 @@ extends Node2D
 
 @export var required_symbols: Array[String] = ["creature1", "creature2", "creature3", "creature4"]
 @export var symbol_display_textures: Array[Texture2D] = []
+@export var final_symbol_texture: Texture2D
 @export var slot_bar: CanvasLayer
 @export var speech_canvas: CanvasLayer
 @export var speech_box: Control
@@ -21,21 +22,25 @@ extends Node2D
 @export var spin_speed: float = 180.0
 @export var symbol_scale: Vector2 = Vector2(0.1, 0.1)
 @export var thrown_item_name: String = "toadstool_symbol"
+@export var drop_radius: float = 64.0
 
 var current_step: int = 0
+var slots_complete: bool = false
 var puzzle_complete: bool = false
+var _player_in_zone: bool = false
 
 
 func _ready() -> void:
 	puzzle_complete = GameProgress.toadstool_puzzle_complete
 	current_step = GameProgress.toadstool_current_step
+	slots_complete = GameProgress.toadstool_slots_complete
 
 	if area:
 		area.body_entered.connect(_on_player_entered)
 		area.body_exited.connect(_on_player_exited)
 
 	if slot_bar and slot_bar.has_method("setup"):
-		slot_bar.setup(required_symbols, symbol_display_textures, self)  # PASS TEXTURES
+		slot_bar.setup(required_symbols, symbol_display_textures, self)
 
 	if speech_canvas:
 		speech_canvas.visible = false
@@ -68,17 +73,78 @@ func _process(_delta: float) -> void:
 		speech_canvas.offset = Vector2i(int(screen_pos.x), int(screen_pos.y))
 
 
+func _get_name_for_texture(tex: Texture2D) -> String:
+	for node in get_tree().get_nodes_in_group("inventory_ui"):
+		if node.has_method("get_item_name_for_texture"):
+			return node.get_item_name_for_texture(tex)
+	push_warning("Could not resolve texture to item name — no inventory_ui node found.")
+	return ""
+
+
+func _input(event: InputEvent) -> void:
+	if puzzle_complete or not slots_complete or not _player_in_zone:
+		return
+	if not DragManager.is_dragging:
+		return
+	if not (event is InputEventMouseButton):
+		return
+	if event.button_index != MOUSE_BUTTON_LEFT or event.pressed:
+		return
+
+	var dropped_name: String = DragManager.dragged_item_name
+	var expected_name := _get_name_for_texture(final_symbol_texture)
+
+	if expected_name == "":
+		push_warning("final_symbol_texture not assigned or not recognised in inventory.")
+		return
+
+	if dropped_name != expected_name:
+		push_warning("Dropped '%s' but need '%s'." % [dropped_name, expected_name])
+		return
+
+	var mouse_pos := get_viewport().get_mouse_position()
+	if not _mouse_over_player(mouse_pos):
+		push_warning("Correct item but not dropped on player — ignoring.")
+		return
+
+	push_warning("Final symbol '%s' dropped on player — puzzle complete." % dropped_name)
+	DragManager.accept_drop()
+	GameProgress.inventory_items.erase(dropped_name)
+	for node in get_tree().get_nodes_in_group("inventory_ui"):
+		if node.has_method("refresh_inventory_ui"):
+			node.refresh_inventory_ui()
+
+	_on_puzzle_complete()
+
+
+func _mouse_over_player(mouse_pos: Vector2) -> bool:
+	var players := get_tree().get_nodes_in_group("player")
+	if players.is_empty():
+		push_warning("No node in group 'player' found.")
+		return false
+
+	var player := players[0]
+	if not player is Node2D:
+		push_warning("Player node is not a Node2D — cannot check position.")
+		return false
+
+	var screen_pos := get_viewport().get_canvas_transform() * (player as Node2D).global_position
+	return mouse_pos.distance_to(screen_pos) <= drop_radius
+
+
 func _on_player_entered(body: Node) -> void:
 	if body.is_in_group("player") and not puzzle_complete:
+		_player_in_zone = true
 		if speech_canvas:
 			speech_canvas.visible = true
-		if slot_bar:
+		if slot_bar and not slots_complete:
 			slot_bar.visible = true
 			slot_bar.offset = Vector2.ZERO
 
 
 func _on_player_exited(body: Node) -> void:
 	if body.is_in_group("player") and not puzzle_complete:
+		_player_in_zone = false
 		if speech_canvas:
 			speech_canvas.visible = false
 		if slot_bar:
@@ -86,7 +152,7 @@ func _on_player_exited(body: Node) -> void:
 
 
 func on_symbol_dropped(symbol_name: String) -> bool:
-	if puzzle_complete:
+	if puzzle_complete or slots_complete:
 		return false
 	if current_step >= required_symbols.size():
 		return false
@@ -100,7 +166,7 @@ func on_symbol_dropped(symbol_name: String) -> bool:
 	_update_bubble()
 
 	if current_step >= required_symbols.size():
-		_on_puzzle_complete()
+		_on_slots_complete()
 
 	return true
 
@@ -112,6 +178,18 @@ func _update_bubble() -> void:
 		bubble_display.texture = symbol_display_textures[current_step]
 	else:
 		bubble_display.texture = null
+
+
+func _on_slots_complete() -> void:
+	slots_complete = true
+	GameProgress.toadstool_slots_complete = true
+
+	if slot_bar:
+		slot_bar.visible = false
+
+	_update_bubble()
+
+	push_warning("All slots filled. Waiting for player to drag final symbol onto themselves.")
 
 
 func _on_puzzle_complete() -> void:
@@ -170,11 +248,8 @@ func _throw_to_player() -> void:
 	symbol.queue_free()
 
 	if thrown_item_name != "":
-		push_warning("Before add: %s" % str(GameProgress.inventory_items))
 		GameProgress.inventory_items.append(thrown_item_name)
-		push_warning("After add: %s" % str(GameProgress.inventory_items))
 		for node in get_tree().get_nodes_in_group("inventory_ui"):
-			push_warning("Found inventory_ui node: %s" % node.name)
 			if node.has_method("refresh_inventory_ui"):
 				node.refresh_inventory_ui()
 		push_warning("Added %s to inventory" % thrown_item_name)
