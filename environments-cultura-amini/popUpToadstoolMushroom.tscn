@@ -19,9 +19,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -481.0
+offset_left = -3040.0
 offset_top = -1383.0
-offset_right = 3790.981
+offset_right = 1231.981
 offset_bottom = 1144.5942
 grow_horizontal = 2
 grow_vertical = 2
@@ -29,6 +29,7 @@ scale = Vector2(1.035, 1.035)
 texture = ExtResource("2_i30v6")
 expand_mode = 1
 stretch_mode = 4
+flip_h = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0

@@ -1,16 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7symwiqlxn2u"]
+[gd_scene load_steps=22 format=3 uid="uid://b7symwiqlxn2u"]
 
 [ext_resource type="Script" uid="uid://5wwwkcbvqbf3" path="res://ui.gd" id="1_fyqef"]
-[ext_resource type="Texture2D" uid="uid://c88tpmh2jhfpi" path="res://UI/inventory/Bag icon.png" id="2_m6e0p"]
-[ext_resource type="Texture2D" uid="uid://dqfyoiwajf3a5" path="res://UI/inventory/Vertical bag page.png" id="3_ibotj"]
 [ext_resource type="Texture2D" uid="uid://w2ueupob736b" path="res://assets/symbols/health/symbol_2-9.png" id="3_n5ude"]
-[ext_resource type="Texture2D" uid="uid://dopiy8yrxngp1" path="res://UI/inventory/Delete Icon.png" id="4_n5ude"]
 [ext_resource type="Texture2D" uid="uid://cyq11o365a4kk" path="res://assets/puzzle1Scene/puzzleAimation/µ£¬σæ╜σÉìΣ╜£σôü-15.png" id="5_ibotj"]
 [ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="5_irxef"]
 [ext_resource type="Texture2D" uid="uid://l6m1v2ld1xxc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_10/symbol_10-11.png" id="5_waa4j"]
 [ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="6_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="7_irxef"]
 [ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="8_e2l4f"]
+[ext_resource type="Texture2D" uid="uid://dtfgi5nqoha1u" path="res://UI/inventory/Bag page (1).png" id="9_ok7cu"]
+[ext_resource type="Texture2D" uid="uid://cmfu0ep4ermus" path="res://UI/Left.png" id="10_e2l4f"]
+[ext_resource type="Texture2D" uid="uid://bmsh7cogymtso" path="res://UI/Right.png" id="11_n5rqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e2l4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nvb2n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_os5c7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b2p7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkygq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n5rqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs482"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxd00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etlur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rqds"]
 
 [node name="GlobalUI" type="CanvasLayer" groups=["clickable_asset", "ui_hoverable"]]
 script = ExtResource("1_fyqef")
@@ -24,80 +44,93 @@ creature3 = ExtResource("7_irxef")
 creature4 = ExtResource("8_e2l4f")
 death_symbol = ExtResource("6_ok7cu")
 
-[node name="bagButton" type="TextureButton" parent="."]
-offset_left = -9.999998
-offset_top = 851.0
-offset_right = 2038.0
-offset_bottom = 2899.0
-scale = Vector2(0.12, 0.12)
-texture_normal = ExtResource("2_m6e0p")
-
 [node name="inventoryPopup" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 96.0
-offset_top = 973.0
-offset_right = 136.0
-offset_bottom = 1013.0
+offset_left = -50.999878
+offset_top = -26.999989
+offset_right = 2253.1094
+offset_bottom = 1059.575
+scale = Vector2(0.31, 0.31)
 
 [node name="ColorRect" type="ColorRect" parent="inventoryPopup"]
+visible = false
 layout_mode = 0
-offset_left = -96.0
-offset_top = -978.0
-offset_right = 1825.0
-offset_bottom = 110.0
+offset_left = 345.09595
+offset_top = 65.83533
+offset_right = 2266.096
+offset_bottom = 1153.8353
 color = Color(0, 0, 0, 0.28627452)
 
 [node name="TextureRect" type="TextureRect" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = -94.0
-offset_top = -969.0
-offset_right = 1826.0
-offset_bottom = 111.0
-texture = ExtResource("3_ibotj")
-
-[node name="CloseButton" type="Button" parent="inventoryPopup" groups=["clickable_asset", "ui_hoverable"]]
-z_index = 2
-layout_mode = 0
-offset_left = 512.0
-offset_top = -841.0
-offset_right = 2568.0
-offset_bottom = 1215.0
-scale = Vector2(0.025, 0.025)
-icon = ExtResource("4_n5ude")
+offset_left = -510.9043
+offset_top = -28.16394
+offset_right = 4817.0957
+offset_bottom = 2019.836
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("9_ok7cu")
 
 [node name="Slot1" type="TextureRect" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = -37.0
-offset_top = -788.0
-offset_right = 363.0
-offset_bottom = -462.0
+offset_left = 471.09595
+offset_top = 422.83545
+offset_right = 871.09595
+offset_bottom = 748.83545
 expand_mode = 3
 stretch_mode = 5
 
 [node name="Slot2" type="TextureRect" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = -789.0
-offset_right = 633.0
-offset_bottom = -464.0
+offset_left = 883.09595
+offset_top = 430.83557
+offset_right = 1283.096
+offset_bottom = 755.8356
 expand_mode = 3
 stretch_mode = 5
 
 [node name="Slot3" type="TextureRect" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = -37.0
-offset_top = -467.0
-offset_right = 363.0
-offset_bottom = -139.0
+offset_left = 1309.096
+offset_top = 425.83545
+offset_right = 1709.096
+offset_bottom = 753.83545
 expand_mode = 3
 stretch_mode = 5
 
 [node name="Slot4" type="TextureRect" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = 233.0
-offset_top = -467.0
-offset_right = 633.0
-offset_bottom = -139.0
+offset_left = 1711.096
+offset_top = 432.83545
+offset_right = 2111.096
+offset_bottom = 760.83545
 expand_mode = 3
 stretch_mode = 5
+
+[node name="LeftButton" type="Button" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = 393.54794
+offset_top = 664.51605
+offset_right = 2449.5479
+offset_bottom = 2720.516
+scale = Vector2(0.055, 0.055)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e2l4f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nvb2n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_os5c7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_b2p7n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vkygq")
+icon = ExtResource("10_e2l4f")
+
+[node name="RightButton" type="Button" parent="inventoryPopup"]
+layout_mode = 0
+offset_left = 2016.1285
+offset_top = 670.96765
+offset_right = 4072.1284
+offset_bottom = 2726.9678
+scale = Vector2(0.055, 0.055)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n5rqp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gs482")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cxd00")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_etlur")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7rqds")
+icon = ExtResource("11_n5rqp")

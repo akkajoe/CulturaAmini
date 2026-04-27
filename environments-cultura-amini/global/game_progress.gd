@@ -73,6 +73,7 @@ func add_inventory_item(item_name: String) -> void:
 			mountain_creature_fed = true
 			mountain_creature_openmouth = true
 			mountain_creature_symbol_thrown = true
+			_notify_route_unlock()
 	print("Inventory now:", inventory_items)
 	_refresh_inventory_ui()
 
@@ -105,11 +106,18 @@ func mark_mountain_creature_fed() -> void:
 	mountain_creature_symbol_thrown = true
 	if not inventory_items.has("creature_fed"):
 		inventory_items.append("creature_fed")
+	_notify_route_unlock()
 	print("Mountain creature state saved: openmouth")
 
 
 func should_restore_mountain_creature_openmouth() -> bool:
 	return mountain_creature_openmouth or mountain_creature_fed or inventory_items.has("creature_fed")
+
+
+func _notify_route_unlock() -> void:
+	for node in get_tree().get_nodes_in_group("mountain_puzzle"):
+		if node.has_method("unlock_route_a2"):
+			node.unlock_route_a2()
 
 
 func _refresh_inventory_ui() -> void:

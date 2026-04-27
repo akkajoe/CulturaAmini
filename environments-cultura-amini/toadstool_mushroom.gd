@@ -109,7 +109,7 @@ func _input(event: InputEvent) -> void:
 
 	push_warning("Final symbol '%s' dropped on player — puzzle complete." % dropped_name)
 	DragManager.accept_drop()
-	GameProgress.inventory_items.erase(dropped_name)
+	#GameProgress.inventory_items.erase(dropped_name)
 	for node in get_tree().get_nodes_in_group("inventory_ui"):
 		if node.has_method("refresh_inventory_ui"):
 			node.refresh_inventory_ui()

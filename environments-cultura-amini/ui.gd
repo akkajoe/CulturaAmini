@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var bag_button: TextureButton = $bagButton
 @onready var inventory_popup: Control = $inventoryPopup
-@onready var close_button: Button = $inventoryPopup/CloseButton
+@onready var left_button: Button = $inventoryPopup/LeftButton
+@onready var right_button: Button = $inventoryPopup/RightButton
 @onready var slots: Array[TextureRect] = [
 	get_node_or_null("inventoryPopup/Slot1") as TextureRect,
 	get_node_or_null("inventoryPopup/Slot2") as TextureRect,
@@ -21,20 +21,21 @@ extends CanvasLayer
 @export var death_symbol: Texture2D
 
 var _is_hovered: bool = false
+var scroll_offset: int = 0
 
 
 func _ready() -> void:
 	add_to_group("inventory_ui")
 	add_to_group("ui_hoverable")
 	inventory_popup.hide()
-	bag_button.pressed.connect(_on_bag_button_pressed)
-	close_button.pressed.connect(_on_close_pressed)
-	bag_button.mouse_entered.connect(func() -> void: _is_hovered = true)
-	bag_button.mouse_exited.connect(func() -> void: _is_hovered = false)
-	close_button.mouse_entered.connect(func() -> void: _is_hovered = true)
-	close_button.mouse_exited.connect(func() -> void: _is_hovered = false)
 	inventory_popup.mouse_entered.connect(func() -> void: _is_hovered = true)
 	inventory_popup.mouse_exited.connect(func() -> void: _is_hovered = false)
+	left_button.pressed.connect(_on_left_pressed)
+	right_button.pressed.connect(_on_right_pressed)
+	left_button.mouse_entered.connect(func() -> void: _is_hovered = true)
+	left_button.mouse_exited.connect(func() -> void: _is_hovered = false)
+	right_button.mouse_entered.connect(func() -> void: _is_hovered = true)
+	right_button.mouse_exited.connect(func() -> void: _is_hovered = false)
 	for i in range(slots.size()):
 		var slot := slots[i]
 		if slot == null:
@@ -55,29 +56,46 @@ func is_mouse_hovering() -> bool:
 	return _is_hovered
 
 
-func _on_bag_button_pressed() -> void:
-	inventory_popup.visible = not inventory_popup.visible
+func toggle_inventory() -> void:
 	if inventory_popup.visible:
+		inventory_popup.hide()
+		_is_hovered = false
+	else:
+		inventory_popup.show()
 		_refresh_inventory()
 
 
-func _on_close_pressed() -> void:
-	inventory_popup.hide()
-	_is_hovered = false
+func _on_left_pressed() -> void:
+	scroll_offset = max(0, scroll_offset - 1)
+	_refresh_inventory()
+
+
+func _on_right_pressed() -> void:
+	var max_offset: int = max(0, GameProgress.inventory_items.size() - slots.size())
+	scroll_offset = min(max_offset, scroll_offset + 1)
+	_refresh_inventory()
 
 
 func _refresh_inventory() -> void:
+	var max_scroll: int = max(0, GameProgress.inventory_items.size() - slots.size())
+	left_button.disabled = scroll_offset <= 0
+	right_button.disabled = scroll_offset >= max_scroll
+
 	for slot in slots:
 		if slot == null:
 			continue
 		slot.texture = null
 		slot.visible = false
 		slot.scale = Vector2.ONE
-	for i in range(min(GameProgress.inventory_items.size(), slots.size())):
+
+	for i in range(slots.size()):
+		var inventory_index: int = scroll_offset + i
+		if inventory_index >= GameProgress.inventory_items.size():
+			break
 		var slot := slots[i]
 		if slot == null:
 			continue
-		var item_name: String = GameProgress.inventory_items[i]
+		var item_name: String = GameProgress.inventory_items[inventory_index]
 		var tex := _get_texture_for_item(item_name)
 		if tex != null:
 			slot.texture = tex
@@ -88,18 +106,19 @@ func _refresh_inventory() -> void:
 
 
 func _on_slot_gui_input(event: InputEvent, slot_index: int) -> void:
-	if slot_index < 0 or slot_index >= GameProgress.inventory_items.size():
+	var inventory_index: int = scroll_offset + slot_index
+	if inventory_index < 0 or inventory_index >= GameProgress.inventory_items.size():
 		return
 	if slots[slot_index] == null or slots[slot_index].texture == null:
 		return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			var item_name: String = GameProgress.inventory_items[slot_index]
+			var item_name: String = GameProgress.inventory_items[inventory_index]
 			var tex := _get_texture_for_item(item_name)
 			if tex == null:
 				push_warning("Cannot drag item because texture is missing: " + item_name)
 				return
-			DragManager.start_drag(item_name, tex, slot_index)
+			DragManager.start_drag(item_name, tex, inventory_index)
 
 
 func _get_texture_for_item(item_name: String) -> Texture2D:

@@ -8,8 +8,10 @@ extends Area2D
 @export var throw_duration: float = 1.2
 @export var symbol_scale: Vector2 = Vector2(0.15, 0.15)
 @export var spin_speed: float = 180.0
+@export var route_a2: NodePath
 
 var _already_fed: bool = false
+
 
 func _ready() -> void:
 	input_pickable = true
@@ -21,6 +23,16 @@ func _ready() -> void:
 	if GameProgress.should_restore_mountain_creature_openmouth():
 		_already_fed = true
 		_set_creature_fed_pose()
+	_apply_route_state()
+
+
+func _apply_route_state() -> void:
+	var route := get_node_or_null(route_a2) as TraversalRoute
+	if route == null:
+		push_warning("creature_feed_area: route_a2 node not found")
+		return
+	route.enabled = GameProgress.mountain_creature_fed
+
 
 func _input(event: InputEvent) -> void:
 	if not (event is InputEventMouseButton):
@@ -69,9 +81,11 @@ func _input(event: InputEvent) -> void:
 	GameProgress.remove_inventory_item(accepted_item_name)
 	_already_fed = true
 	GameProgress.mark_mountain_creature_fed()
+	_apply_route_state()
 	await _throw_arc(tex)
 	if creature:
 		creature.play(open_mouth_animation)
+
 
 func _throw_arc(tex: Texture2D) -> void:
 	if player == null or creature == null:
@@ -98,6 +112,7 @@ func _throw_arc(tex: Texture2D) -> void:
 		await get_tree().process_frame
 	symbol.global_position = end
 	symbol.queue_free()
+
 
 func _set_creature_fed_pose() -> void:
 	if creature == null:

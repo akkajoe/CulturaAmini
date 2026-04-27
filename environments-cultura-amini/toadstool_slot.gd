@@ -135,7 +135,7 @@ func _try_drop_on_slot(slot_index: int) -> void:
 		return
 
 	DragManager.accept_drop()
-	GameProgress.inventory_items.erase(dropped_name)
+	#GameProgress.inventory_items.erase(dropped_name)
 
 	var slot := _slots[slot_index]
 	slot.texture = dropped_tex

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv0jvlpb0qw70"]
+
+[ext_resource type="VideoStream" uid="uid://ceg0tqb0i0bhe" path="res://assets/cutscenes/CACutscene2.ogv" id="1_b8r0m"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -1920.0
+offset_top = -1187.0
+offset_right = 1936.0
+offset_bottom = 1246.9451
+stream = ExtResource("1_b8r0m")
+autoplay = true
+loop = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.495, 0.495)

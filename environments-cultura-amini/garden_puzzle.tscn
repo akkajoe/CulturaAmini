@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://18mv8bbljs5v"]
+[gd_scene load_steps=90 format=3 uid="uid://18mv8bbljs5v"]
 
 [ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
 [ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
@@ -75,6 +75,11 @@
 [ext_resource type="Texture2D" uid="uid://lr31157o2ldx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-16.png" id="55_vtgau"]
 [ext_resource type="Texture2D" uid="uid://cuxp3twl85xvj" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-17.png" id="56_x8om5"]
 [ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="57_jsa6y"]
+[ext_resource type="Texture2D" uid="uid://q8ix0brnqn30" path="res://assets/gardenPuzzleScene/ambience/mushroompsych.png" id="76_xxskn"]
+[ext_resource type="Script" uid="uid://bagidrpp61ewe" path="res://inventory_area.gd" id="77_itbwr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itbwr"]
+size = Vector2(1160, 1088)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
 size = Vector2(941, 532)
@@ -352,6 +357,19 @@ texture = ExtResource("3_48yf5")
 [node name="totem" parent="." instance=ExtResource("16_vwglx")]
 position = Vector2(1972, 103)
 
+[node name="inventory" type="Sprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+position = Vector2(1795, 749)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("76_xxskn")
+
+[node name="Area2D" type="Area2D" parent="inventory"]
+position = Vector2(16, -8)
+script = ExtResource("77_itbwr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_itbwr")
+
 [node name="guide" parent="." instance=ExtResource("5_4kmq4")]
 position = Vector2(1980, 636)
 move_speed = 120.0
@@ -511,7 +529,6 @@ parameters/looping = true
 
 [node name="GlobalUI" parent="." groups=["inventory_ui"] instance=ExtResource("14_qcogw")]
 hidden_symbol_texture = ExtResource("14_ywmil")
-bad_mushroom = ExtResource("57_jsa6y")
 
 [node name="cursor" parent="." instance=ExtResource("15_5mals")]
 
@@ -567,7 +584,7 @@ scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Node2D2" parent="." instance=ExtResource("18_vwglx")]
 z_index = 2
-position = Vector2(1267, 783)
+position = Vector2(1818, 1014)
 
 [node name="Node2D3" parent="." instance=ExtResource("18_vwglx")]
 z_index = 2

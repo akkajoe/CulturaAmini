@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dpwwx8ga8lskq"]
+[gd_scene load_steps=38 format=3 uid="uid://dpwwx8ga8lskq"]
 
 [ext_resource type="Texture2D" uid="uid://bt68ldm5hhtcb" path="res://assets/MushroomLanguagePuzzle/Scene_03_mid-ground_2220x1380_300dpi_transparent.png" id="1_g433g"]
 [ext_resource type="Script" uid="uid://c5mm8rxqijvsw" path="res://mushroom_language_puzzle.gd" id="1_idal3"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://dypw3fcom7i4p" path="res://traversalJumpPoint.gd" id="4_byn72"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="5_4y0as"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="6_x0xnu"]
+[ext_resource type="Texture2D" uid="uid://q8ix0brnqn30" path="res://assets/gardenPuzzleScene/ambience/mushroompsych.png" id="10_bs7ot"]
 [ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="10_cq8wb"]
+[ext_resource type="Script" uid="uid://bagidrpp61ewe" path="res://inventory_area.gd" id="11_eurn6"]
 [ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="11_lpqkl"]
 [ext_resource type="PackedScene" uid="uid://375e2ralimux" path="res://toadstool_mushroom.tscn" id="11_prk11"]
 [ext_resource type="Texture2D" uid="uid://l6m1v2ld1xxc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_10/symbol_10-11.png" id="11_qhf1b"]
@@ -40,6 +42,9 @@ point_count = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riic0"]
 size = Vector2(122, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnf4k"]
+size = Vector2(1160, 1088)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fxsvj"]
 animations = [{
@@ -177,6 +182,19 @@ script = ExtResource("10_cq8wb")
 target_path = NodePath("../player")
 
 [node name="Node2D" parent="." instance=ExtResource("11_lpqkl")]
+
+[node name="inventory" type="Sprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+position = Vector2(495, 983)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("10_bs7ot")
+
+[node name="Area2D" type="Area2D" parent="inventory"]
+position = Vector2(16, -8)
+script = ExtResource("11_eurn6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_qnf4k")
 
 [node name="ToadstoolMushoom" parent="." node_paths=PackedStringArray("slot_bar", "speech_canvas", "speech_box", "bubble_display", "speech_point", "area", "solved_speech_canvas", "solved_speech_box", "solved_speech_point", "throw_from_point", "throw_to_point") instance=ExtResource("11_prk11")]
 position = Vector2(932, 416)

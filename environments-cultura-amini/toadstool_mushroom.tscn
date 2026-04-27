@@ -39,9 +39,9 @@ position = Vector2(278, -168)
 [node name="SpeechCanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SpeechBox" parent="SpeechCanvasLayer" instance=ExtResource("5_xx2u5")]
-offset_left = -762.0
+offset_left = 79.00003
 offset_top = -1125.5
-offset_right = -782.0
+offset_right = 59.0
 offset_bottom = -1790.5
 scale = Vector2(0.475, 0.475)
 

@@ -17,8 +17,10 @@ signal symbol_landed
 @export var guide_trigger_path: NodePath = ^"guide/GuideTrigger"
 
 @export var speech_box: Control
+@export var route_a2_path: NodePath = ^"traversalRoutes/route_a2"
 
 var _symbol: Sprite2D = null
+
 
 func _ready() -> void:
 	GameProgress.mountain_creature_visited = true
@@ -29,10 +31,12 @@ func _ready() -> void:
 	_restore_state()
 	_connect_dialogue()
 
+
 func on_scene_activated() -> void:
 	GameProgress.mountain_creature_visited = true
 	_restore_state()
 	_connect_dialogue()
+
 
 func _restore_state() -> void:
 	if GameProgress.mountain_creature_guide_done:
@@ -42,9 +46,20 @@ func _restore_state() -> void:
 		var trigger := get_node_or_null(guide_trigger_path)
 		if trigger != null:
 			trigger.queue_free()
-	# Only restore idle/default — openmouth is handled by Area2D
 	if GameProgress.mountain_creature_symbol_thrown and not GameProgress.mountain_creature_fed:
 		_play_restore_animation()
+	_update_route_a2()
+
+
+func _update_route_a2() -> void:
+	var route := get_node_or_null(route_a2_path)
+	if route == null:
+		push_warning("SymbolThrow: route_a2 not found at path: %s" % str(route_a2_path))
+		return
+	if route is TraversalRoute:
+		route.enabled = GameProgress.mountain_creature_fed
+	else:
+		push_warning("SymbolThrow: route_a2 is not a TraversalRoute")
 
 func _play_restore_animation() -> void:
 	await get_tree().process_frame
@@ -58,6 +73,7 @@ func _play_restore_animation() -> void:
 		await get_tree().process_frame
 		s.pause()
 		s.frame = s.sprite_frames.get_frame_count(restore_animation) - 1
+
 
 func _connect_dialogue() -> void:
 	if GameProgress.mountain_creature_guide_done:
@@ -76,10 +92,12 @@ func _connect_dialogue() -> void:
 	else:
 		push_warning("speech_box has no dialogue_finished signal!")
 
+
 func _on_dialogue_finished() -> void:
 	push_warning("dialogue finished - throwing symbol now!")
 	GameProgress.mountain_creature_guide_done = true
 	throw_symbol()
+
 
 func throw_symbol() -> void:
 	if symbol_texture == null:
@@ -103,6 +121,7 @@ func throw_symbol() -> void:
 	symbol_landed.emit()
 	push_warning("symbol throw complete")
 
+
 func _animate_arc(sprite: Sprite2D, start: Vector2, end: Vector2) -> void:
 	var elapsed := 0.0
 	while elapsed < throw_duration:
@@ -115,3 +134,7 @@ func _animate_arc(sprite: Sprite2D, start: Vector2, end: Vector2) -> void:
 		await get_tree().process_frame
 	sprite.global_position = end
 	sprite.rotation_degrees = 0.0
+
+
+func unlock_route_a2() -> void:
+	_update_route_a2()
