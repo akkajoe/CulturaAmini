@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-# Autoload this as "Transition" in Project > Project Settings > Autoload.
-# Points to this script directly (no .tscn needed).
 
 @export var fade_duration: float = 0.35
 

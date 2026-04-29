@@ -55,7 +55,6 @@ func is_mouse_hovering() -> bool:
 		return false
 	if next_button == null or not next_button.visible:
 		return false
-	# Use the button's own is_hovered() — Godot handles coords automatically
 	return next_button.is_hovered()
 
 

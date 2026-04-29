@@ -4,24 +4,20 @@ extends Node
 @export var default_spawn_path: NodePath = ^"defaultSpawn"
 
 func _ready() -> void:
-	if has_node("bgMusic") and not $bgMusic.playing:
-		$bgMusic.play()
-
 	SceneCache.warm_all_async(["res://garden_puzzle.tscn"])
-
 	var first_time_here := not GameProgress.crash_site_visited
 	if GameProgress.crash_site_visited:
 		_restore_state()
 	else:
 		GameProgress.crash_site_visited = true
-
-	# scene_exit.gd owns next_spawn_marker — do NOT clear it here.
 	if GameProgress.next_spawn_marker != "":
 		return
-
 	await get_tree().process_frame
 	_apply_spawn(first_time_here)
 
+func on_scene_activated() -> void:
+	if has_node("bgMusic") and not $bgMusic.playing:
+		$bgMusic.play()
 
 func _restore_state() -> void:
 	if GameProgress.guide_dialogue_done:
@@ -32,7 +28,6 @@ func _restore_state() -> void:
 	if GameProgress.code_scene_seen:
 		if has_node("code"):
 			$code.hide()
-
 
 func _apply_spawn(first_time_here: bool) -> void:
 	var player: Node2D = get_node_or_null(player_path) as Node2D

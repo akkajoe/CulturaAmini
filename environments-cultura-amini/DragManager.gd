@@ -5,24 +5,32 @@ var dragged_item_name: String = ""
 var dragged_texture: Texture2D = null
 var dragged_from_slot: int = -1
 var preview: TextureRect = null
-var drop_was_accepted: bool = false  # ADD THIS
+var drop_was_accepted: bool = false
+
 
 func _ready() -> void:
 	layer = 100
 	_create_preview()
 
+
 func _process(_delta: float) -> void:
 	if is_dragging and preview != null:
 		preview.global_position = get_viewport().get_mouse_position() - preview.size * 0.5
 
-# ADD THIS FUNCTION
+
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		push_warning("MOUSE RELEASED is_dragginganfoishf: %s item: %s group: %s" % [is_dragging, dragged_item_name, str(get_tree().get_nodes_in_group("seed_drop_targets"))])
+	
 	if not is_dragging:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		var mouse_pos := get_viewport().get_mouse_position()
+		get_tree().call_group("seed_drop_targets", "try_accept_drop", mouse_pos)
 		if not drop_was_accepted:
-			stop_drag()  # Released on nothing — disappear
-		drop_was_accepted = false  # Always reset
+			stop_drag()
+		drop_was_accepted = false
+
 
 func _create_preview() -> void:
 	preview = TextureRect.new()
@@ -33,6 +41,7 @@ func _create_preview() -> void:
 	preview.custom_minimum_size = Vector2(128, 128)
 	add_child(preview)
 
+
 func start_drag(item_name: String, tex: Texture2D, from_slot: int = -1) -> void:
 	if item_name == "" or tex == null:
 		return
@@ -40,12 +49,13 @@ func start_drag(item_name: String, tex: Texture2D, from_slot: int = -1) -> void:
 	dragged_item_name = item_name
 	dragged_texture = tex
 	dragged_from_slot = from_slot
-	drop_was_accepted = false  # ADD THIS — reset on every new drag
+	drop_was_accepted = false
 	if preview != null:
 		preview.texture = tex
 		preview.visible = true
 		preview.global_position = get_viewport().get_mouse_position() - preview.size * 0.5
 	print("DRAG STARTED:", item_name)
+
 
 func stop_drag() -> void:
 	is_dragging = false
@@ -57,7 +67,7 @@ func stop_drag() -> void:
 		preview.visible = false
 	print("DRAG STOPPED")
 
-# ADD THIS — call from any valid drop target before handling the drop
+
 func accept_drop() -> void:
 	drop_was_accepted = true
 	stop_drag()

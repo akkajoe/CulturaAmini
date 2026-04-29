@@ -30,6 +30,14 @@ func _ready() -> void:
 	push_warning("speech_box: %s" % str(speech_box))
 	_restore_state()
 	_connect_dialogue()
+	_try_play_music()
+	
+func _try_play_music() -> void:
+	if has_node("bgMusic"):
+		var bg := $bgMusic
+		if not bg.playing:
+			bg.play()
+
 
 
 func on_scene_activated() -> void:
@@ -83,7 +91,7 @@ func _connect_dialogue() -> void:
 		push_warning("symbol already thrown, skipping connection")
 		return
 	if speech_box == null:
-		push_warning("SymbolThrow: speech_box is null - drag it in the Inspector!")
+		push_warning("SymbolThrow: speech_box is null drag it in the Inspector!")
 		return
 	push_warning("Connecting to dialogue_finished on: %s" % str(speech_box))
 	if speech_box.has_signal("dialogue_finished"):

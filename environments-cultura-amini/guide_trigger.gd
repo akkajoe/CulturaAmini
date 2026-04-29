@@ -23,17 +23,16 @@ extends Area2D
 @export var popup_delay: float = 0.0
 
 @export_multiline var dialogue_lines: Array[String] = [
-	"Hello, traveller.",
-	"Follow me."
+	"Hello, traveller",
+	"Follow me"
 ]
 
-# Set this in the inspector to tie this trigger to a GameProgress flag.
-# If the flag is already true on _ready, the trigger disables itself.
 enum ProgressGuard {
 	NONE,
 	MOUNTAIN_CREATURE_GUIDE_DONE,
 	GARDEN_INTRO_DONE,
-	GUIDE_DIALOGUE_DONE
+	GUIDE_DIALOGUE_DONE,
+	FINAL_SCENE_DONE
 }
 @export var progress_guard: ProgressGuard = ProgressGuard.NONE
 
@@ -47,7 +46,6 @@ var _popup_ref: CanvasItem = null
 
 
 func _ready() -> void:
-	# If this scene was already completed in a previous visit, disable immediately
 	if _is_progress_done():
 		set_trigger_enabled(false)
 		return
@@ -61,7 +59,7 @@ func _ready() -> void:
 	if _popup_ref:
 		_try_connect_popup_close_signals(_popup_ref)
 	elif show_popup:
-		push_warning("GuideTrigger: popup_path is assigned incorrectly or popup node was not found.")
+		push_warning("GuideTrigger: popup_path is assigned incorrectl")
 
 
 func _is_progress_done() -> bool:
@@ -72,6 +70,8 @@ func _is_progress_done() -> bool:
 			return GameProgress.garden_intro_done
 		ProgressGuard.GUIDE_DIALOGUE_DONE:
 			return GameProgress.guide_dialogue_done
+		ProgressGuard.FINAL_SCENE_DONE:
+			return GameProgress.final_scene_done
 		ProgressGuard.NONE:
 			return false
 	return false
@@ -206,7 +206,7 @@ func _try_connect_popup_close_signals(popup: CanvasItem) -> void:
 		if not popup.dialogue_finished.is_connected(_on_popup_closed):
 			popup.dialogue_finished.connect(_on_popup_closed)
 	else:
-		push_warning("GuideTrigger: popup does not have a dialogue_finished signal.")
+		push_warning("GuideTrigger: popup does not have a dialogue_finished signa")
 
 
 func _on_popup_closed() -> void:

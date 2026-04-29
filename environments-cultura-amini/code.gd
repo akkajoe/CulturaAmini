@@ -1,22 +1,20 @@
 extends Node
 
 @export var display_time: float = 10.0
-@export_file("*.tscn") var next_scene_path: String = "res://cut_scene1.tscn"
+@export_file("*.tscn") var next_scene_path: String = "res://cutscene1.tscn"
 
 func _ready() -> void:
 	if next_scene_path != "":
 		ResourceLoader.load_threaded_request(next_scene_path)
-
 	await get_tree().create_timer(display_time).timeout
-
 	GameProgress.code_scene_seen = true
-
 	await _go_to_next_scene()
 
 func _go_to_next_scene() -> void:
 	if next_scene_path.is_empty():
 		push_warning("CodeScene.gd: next_scene_path is empty.")
 		return
+	push_warning(next_scene_path)
 
 	var old_scene := get_tree().current_scene
 	if old_scene == null:
@@ -52,8 +50,7 @@ func _go_to_next_scene() -> void:
 		push_warning("CodeScene.gd: failed to instantiate next scene.")
 		return
 
-	if old_scene is CanvasItem:
-		(old_scene as CanvasItem).visible = false
+	old_scene.set("visible", false)
 	old_scene.process_mode = Node.PROCESS_MODE_DISABLED
 
 	if new_scene.get_parent() == null:
@@ -63,9 +60,7 @@ func _go_to_next_scene() -> void:
 
 	get_tree().current_scene = new_scene
 	new_scene.process_mode = Node.PROCESS_MODE_INHERIT
-
-	if new_scene is CanvasItem:
-		(new_scene as CanvasItem).visible = true
+	new_scene.set("visible", true)
 
 	if new_scene.has_method("on_scene_activated"):
 		new_scene.on_scene_activated()

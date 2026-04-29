@@ -2,6 +2,7 @@ extends Node2D
 
 @export var required_symbols: Array[String] = ["creature1", "creature2", "creature3", "creature4"]
 @export var symbol_display_textures: Array[Texture2D] = []
+@export var slot_fill_textures: Array[Texture2D] = []
 @export var final_symbol_texture: Texture2D
 @export var slot_bar: CanvasLayer
 @export var speech_canvas: CanvasLayer
@@ -29,6 +30,8 @@ var slots_complete: bool = false
 var puzzle_complete: bool = false
 var _player_in_zone: bool = false
 
+@onready var _anim: AnimatedSprite2D = get_node_or_null("AnimatedSprite2D")
+
 
 func _ready() -> void:
 	puzzle_complete = GameProgress.toadstool_puzzle_complete
@@ -40,7 +43,7 @@ func _ready() -> void:
 		area.body_exited.connect(_on_player_exited)
 
 	if slot_bar and slot_bar.has_method("setup"):
-		slot_bar.setup(required_symbols, symbol_display_textures, self)
+		slot_bar.setup(required_symbols, symbol_display_textures, slot_fill_textures, self)
 
 	if speech_canvas:
 		speech_canvas.visible = false
@@ -54,6 +57,11 @@ func _ready() -> void:
 		_apply_solved_state()
 	else:
 		_update_bubble()
+
+
+func _set_anim(anim_name: String) -> void:
+	if _anim and _anim.sprite_frames and _anim.sprite_frames.has_animation(anim_name):
+		_anim.play(anim_name)
 
 
 func _apply_solved_state() -> void:
@@ -109,7 +117,6 @@ func _input(event: InputEvent) -> void:
 
 	push_warning("Final symbol '%s' dropped on player — puzzle complete." % dropped_name)
 	DragManager.accept_drop()
-	#GameProgress.inventory_items.erase(dropped_name)
 	for node in get_tree().get_nodes_in_group("inventory_ui"):
 		if node.has_method("refresh_inventory_ui"):
 			node.refresh_inventory_ui()
@@ -221,9 +228,11 @@ func _show_solved_speech() -> void:
 		if solved_speech_box.has_signal("dialogue_finished"):
 			if not solved_speech_box.dialogue_finished.is_connected(_on_solved_dialogue_finished):
 				solved_speech_box.dialogue_finished.connect(_on_solved_dialogue_finished)
+	_set_anim("talking")
 
 
 func _on_solved_dialogue_finished() -> void:
+	_set_anim("default")
 	if solved_speech_canvas:
 		solved_speech_canvas.visible = false
 	await get_tree().create_timer(0.3).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://mcctughmtbmw"]
+[gd_scene load_steps=150 format=3 uid="uid://mcctughmtbmw"]
 
 [ext_resource type="Script" uid="uid://cb6hiwvkssss4" path="res://mountain_creature_puzzle.gd" id="1_if0km"]
 [ext_resource type="Texture2D" uid="uid://b6670da3urpww" path="res://assets/mountain_creature_puzzle/Scene_04_background_2220x1380_300dpi_transparent.png" id="1_j5b3p"]
@@ -120,7 +120,6 @@
 [ext_resource type="Texture2D" uid="uid://bv0mff4ek8m6m" path="res://assets/mountain_creature_puzzle/open/AnimsGlow28.png" id="115_cywqn"]
 [ext_resource type="Texture2D" uid="uid://cel0s228lldn4" path="res://assets/mountain_creature_puzzle/open/AnimsGlow29.png" id="116_l2fdm"]
 [ext_resource type="Script" uid="uid://bifaqqeosgoh0" path="res://area_2d_mountain.gd" id="118_bpo7h"]
-[ext_resource type="Texture2D" uid="uid://q8ix0brnqn30" path="res://assets/gardenPuzzleScene/ambience/mushroompsych.png" id="120_8wb2v"]
 [ext_resource type="Script" uid="uid://bagidrpp61ewe" path="res://inventory_area.gd" id="121_cwwar"]
 [ext_resource type="PackedScene" uid="uid://cv8au5688djcg" path="res://guide.tscn" id="124_cn8ol"]
 [ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="125_sqdwx"]
@@ -128,6 +127,15 @@
 [ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="128_hyvne"]
 [ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="129_yqexm"]
 [ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="131_wi340"]
+[ext_resource type="Texture2D" uid="uid://bt5en0r0jgaty" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_closed.png" id="134_68ov8"]
+[ext_resource type="AudioStream" uid="uid://1pludxswdx2p" path="res://assets/audio/env_bg/levelMusic_Mountain_Creature.mp3" id="134_cwwar"]
+[ext_resource type="Texture2D" uid="uid://7xwaej43xq63" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_Up.png" id="135_hkujc"]
+[ext_resource type="AudioStream" uid="uid://dfkqfabn6fob5" path="res://assets/audio/mountain_creature/SFX_Rock_Jaw.mp3" id="135_pxf7v"]
+[ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="137_iva3q"]
+[ext_resource type="Texture2D" uid="uid://bsagsyx666j1m" path="res://assets/audio/symbol_2-15 (1).png" id="138_l7odq"]
+[ext_resource type="Texture2D" uid="uid://v3gt22qyuoir" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-12.png" id="138_vrwd8"]
+[ext_resource type="Texture2D" uid="uid://dq8orhhgvc1sj" path="res://assets/symbols/corrupt/symbol_8-132.png" id="139_l7odq"]
+[ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="140_atwl4"]
 [ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="184_cnaan"]
 [ext_resource type="PackedScene" uid="uid://dp0nw5jitt3yv" path="res://player.tscn" id="185_841bc"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="186_npv5m"]
@@ -489,7 +497,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqexm"]
 size = Vector2(981.3012, 808.89764)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxf7v"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nek58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("134_68ov8")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("135_hkujc")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6npp8"]
 size = Vector2(1160, 1088)
 
 [sub_resource type="Curve2D" id="Curve2D_841bc"]
@@ -547,14 +574,18 @@ position = Vector2(23.106567, -95.80231)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_yqexm")
 
+[node name="creature_openmouth" type="AudioStreamPlayer" parent="MountainCreature/Area2D"]
+stream = ExtResource("135_pxf7v")
+
 [node name="midground" type="Sprite2D" parent="."]
 position = Vector2(995, 640)
 texture = ExtResource("2_2h7dt")
 
-[node name="inventory" type="Sprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
-position = Vector2(378, 534)
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("120_8wb2v")
+[node name="inventory" type="AnimatedSprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+position = Vector2(286.99997, 528)
+scale = Vector2(0.265, 0.265)
+sprite_frames = SubResource("SpriteFrames_nek58")
+animation = &"close"
 
 [node name="Area2D" type="Area2D" parent="inventory"]
 position = Vector2(16, -8)
@@ -562,7 +593,7 @@ script = ExtResource("121_cwwar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
 position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_pxf7v")
+shape = SubResource("RectangleShape2D_6npp8")
 
 [node name="traversalRoutes" type="Node2D" parent="."]
 position = Vector2(0, -44)
@@ -634,11 +665,10 @@ progress_flag = 3
 camera_path = NodePath("../../Camera2D")
 popup_path = NodePath("../../CanvasLayer/SpeechBox")
 speech_point_path = NodePath("../../SpeechPoint")
-dialogue_lines = Array[String](["I'm going to throw in this mushroom
-"])
+dialogue_lines = Array[String](["Here is one of the very creatures benefitting from such a system. ", "The mycelium channels that lie underground carry nutrients that both sentient and nonsentient beings alike profit from. ", "To ensure that the balance of this world remains stilled, my guidely self controls what is and isn’t consumed.", "Onward, your truth is just beyond the pass."])
 
 [node name="CollisionShape2D" parent="guide/GuideTrigger" index="0"]
-position = Vector2(40, -34.5)
+position = Vector2(77.5, -34.5)
 
 [node name="SpeechPoint" type="Marker2D" parent="."]
 position = Vector2(503, 721)
@@ -693,7 +723,16 @@ position = Vector2(1187, 570)
 [node name="hover_interact" parent="Node2D2/CanvasLayer" index="0"]
 scale = Vector2(0.025, 0.025)
 
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("134_cwwar")
+parameters/looping = true
+
 [node name="GlobalUI" parent="." instance=ExtResource("131_wi340")]
+symbol_texture = ExtResource("137_iva3q")
+hidden_symbol_texture = ExtResource("138_l7odq")
+creature2 = ExtResource("138_vrwd8")
+creature4 = ExtResource("139_l7odq")
+death_symbol = ExtResource("140_atwl4")
 
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 

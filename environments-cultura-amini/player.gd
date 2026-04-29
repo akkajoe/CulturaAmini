@@ -799,14 +799,12 @@ func _apply_idle_tangent_tilt() -> void:
 	sprite.rotation = lerp_angle(sprite.rotation, target_tilt, 0.2)
 
 
-# ─── Cursor / Hover ──────────────────────────────────────────────────────────
-
 func _is_hovering_ui() -> bool:
 	for node in get_tree().get_nodes_in_group("ui_hoverable"):
 		if node.has_method("is_mouse_hovering") and node.is_mouse_hovering():
 			return true
 	return false
-
+ # Cursor stuff
 
 func _update_hover_cursor() -> void:
 	var mouse_pos: Vector2 = get_global_mouse_position()
@@ -819,7 +817,6 @@ func _update_hover_cursor() -> void:
 	if cursor_interact != null:
 		cursor_interact.visible = false
 
-	# Priority 1: over interactable UI or clickable asset → interact cursor
 	if _is_hovering_ui() or _is_hovering_clickable_asset(mouse_pos):
 		if cursor_interact != null:
 			cursor_interact.visible = true
@@ -827,7 +824,6 @@ func _update_hover_cursor() -> void:
 				cursor_interact.play("default")
 		return
 
-	# Priority 2: over walkable path / jump point / marker → path cursor
 	if _is_hover_valid(mouse_pos):
 		if cursor != null:
 			cursor.visible = true
@@ -835,7 +831,6 @@ func _update_hover_cursor() -> void:
 				cursor.play("hover_path")
 		return
 
-	# Priority 3: everything else → default cursor
 	if cursor_default != null:
 		cursor_default.visible = true
 		if not cursor_default.is_playing():
@@ -844,7 +839,6 @@ func _update_hover_cursor() -> void:
 func _is_hover_valid(mouse_pos: Vector2) -> bool:
 	if mode == Mode.JUMP:
 		return false
-	# Don't double-check UI/asset here — caller already handled those
 	if _get_clicked_jump_point(mouse_pos) != null:
 		return true
 	if _get_best_reachable_route(mouse_pos) != null:

@@ -6,7 +6,7 @@
 
 [node name="code" type="Node"]
 script = ExtResource("1_2das7")
-next_scene_path = "uid://bk2fed5o0uhu0"
+next_scene_path = "uid://cv0jvlpb0qw70"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(954, 547)

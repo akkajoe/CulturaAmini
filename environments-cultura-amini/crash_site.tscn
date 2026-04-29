@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://ddv4lluxa00i6"]
+[gd_scene load_steps=173 format=3 uid="uid://ddv4lluxa00i6"]
 
 [ext_resource type="Script" uid="uid://cva45h370r3h8" path="res://crash_site.gd" id="1_2iaja"]
 [ext_resource type="Texture2D" uid="uid://cb12ep2hck2sa" path="res://assets/crashSiteScene/Scene_01_mid-ground_4140x1380_300dpi_transparent.png" id="2_kgs3k"]
@@ -38,6 +38,127 @@
 [ext_resource type="Texture2D" uid="uid://bpfy8d48sqfp8" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant19.png" id="31_d4ixv"]
 [ext_resource type="Texture2D" uid="uid://60bd78ceo74g" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant20.png" id="32_lwv78"]
 [ext_resource type="Texture2D" uid="uid://bv36xxvgb2o4i" path="res://assets/crashSiteScene/MovingGrass/MovingGrass/Scene01MovingPlant21.png" id="33_i7pee"]
+[ext_resource type="Texture2D" uid="uid://dw6q4nla11eu5" path="res://assets/gardenPuzzleScene/ambience/Seed2.png" id="38_covrg"]
+[ext_resource type="Script" uid="uid://bt4tmwsmccq1n" path="res://seed.gd" id="40_bt5al"]
+[ext_resource type="Texture2D" uid="uid://bt5en0r0jgaty" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_closed.png" id="41_bqm7s"]
+[ext_resource type="Texture2D" uid="uid://7xwaej43xq63" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_Up.png" id="42_atjh8"]
+[ext_resource type="Script" uid="uid://bagidrpp61ewe" path="res://inventory_area.gd" id="43_yc27d"]
+[ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="44_dgssq"]
+[ext_resource type="Texture2D" uid="uid://rd8obwocujoe" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_2-15 (1).png" id="45_e51m1"]
+[ext_resource type="Texture2D" uid="uid://dq8orhhgvc1sj" path="res://assets/symbols/corrupt/symbol_8-132.png" id="45_olo1i"]
+[ext_resource type="Texture2D" uid="uid://c4ujh5toh4s3i" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-132.png" id="46_gblet"]
+[ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="46_r68mc"]
+[ext_resource type="PackedScene" uid="uid://dnl45jmdu7yd4" path="res://clickable_asset.tscn" id="47_i7pee"]
+[ext_resource type="Texture2D" uid="uid://dvqg62j8ivrj5" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_00.png" id="48_nsmgx"]
+[ext_resource type="Texture2D" uid="uid://cdqq71a07aylc" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_01.png" id="49_w3h8k"]
+[ext_resource type="Texture2D" uid="uid://b34ckcctiq4l7" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_02.png" id="50_vo8bg"]
+[ext_resource type="Texture2D" uid="uid://c0o2u1p3m63i" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_03.png" id="51_ptq6r"]
+[ext_resource type="Texture2D" uid="uid://blyolrlcysyxw" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_04.png" id="52_mesqt"]
+[ext_resource type="Texture2D" uid="uid://c6v4k5ceyxqvh" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_05.png" id="53_n6cq7"]
+[ext_resource type="Texture2D" uid="uid://c8oi26wwi7oqa" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_06.png" id="54_xqwko"]
+[ext_resource type="Texture2D" uid="uid://ct83alplibykb" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_07.png" id="55_iusnb"]
+[ext_resource type="Texture2D" uid="uid://besndd7s2x6hh" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_08.png" id="56_27vlq"]
+[ext_resource type="Texture2D" uid="uid://oh6m3o5qol2w" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_09.png" id="57_bjc46"]
+[ext_resource type="Texture2D" uid="uid://qqgf1rvqfcrf" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_10.png" id="58_5x6nn"]
+[ext_resource type="Texture2D" uid="uid://6d08mpc0twub" path="res://assets/gardenPuzzleScene/ambience/root_creature/root_creature_11.png" id="59_4tb8d"]
+[ext_resource type="Texture2D" uid="uid://bgyreujuryip5" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_00.png" id="60_s772p"]
+[ext_resource type="Texture2D" uid="uid://bsagsyx666j1m" path="res://assets/audio/symbol_2-15 (1).png" id="61_fd53d"]
+[ext_resource type="Texture2D" uid="uid://v3gt22qyuoir" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-12.png" id="61_lrv3v"]
+[ext_resource type="Texture2D" uid="uid://d27wyl6d1y2mk" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_01.png" id="61_yf783"]
+[ext_resource type="Texture2D" uid="uid://dujkyudry0cl4" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_02.png" id="62_r2aop"]
+[ext_resource type="Texture2D" uid="uid://bj7dtj8kitcqj" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_03.png" id="63_7h0bk"]
+[ext_resource type="Texture2D" uid="uid://c0l0n4qat4jxe" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_04.png" id="64_i2ecb"]
+[ext_resource type="Texture2D" uid="uid://op4oohm80wyb" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_05.png" id="65_j1wex"]
+[ext_resource type="Texture2D" uid="uid://bj28ufeeufis4" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_06.png" id="66_26mqx"]
+[ext_resource type="Texture2D" uid="uid://co4121mfdm06o" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_07.png" id="67_5ni6p"]
+[ext_resource type="Texture2D" uid="uid://cx3so7m7k8uoi" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_08.png" id="68_0njo5"]
+[ext_resource type="Texture2D" uid="uid://bfot5u5kfvvhp" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_09.png" id="69_8awl6"]
+[ext_resource type="Texture2D" uid="uid://d02mor8k367pl" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_10.png" id="70_d0aw5"]
+[ext_resource type="Texture2D" uid="uid://domeb2yi2w3an" path="res://assets/gardenPuzzleScene/ambience/spider_drop/spider_drop_11.png" id="71_567wv"]
+[ext_resource type="Texture2D" uid="uid://ded0nk1bsyiy7" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_00.png" id="72_qloee"]
+[ext_resource type="Texture2D" uid="uid://d0xexsx0qbwnk" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_01.png" id="73_2jfjj"]
+[ext_resource type="Texture2D" uid="uid://io1b8omk3fxe" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_02.png" id="74_vp6da"]
+[ext_resource type="Texture2D" uid="uid://73k3r1ypjijx" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_03.png" id="75_qs67h"]
+[ext_resource type="Texture2D" uid="uid://bfhoixf0363bi" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_04.png" id="76_ojrrr"]
+[ext_resource type="Texture2D" uid="uid://bhop7jiyqgyg3" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_05.png" id="77_qfxyx"]
+[ext_resource type="Texture2D" uid="uid://cf3fgs6q37mlw" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_06.png" id="78_stl5o"]
+[ext_resource type="Texture2D" uid="uid://eegxlym434vp" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_07.png" id="79_vb2s4"]
+[ext_resource type="Texture2D" uid="uid://b74px365lsyi7" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_08.png" id="80_v8sy3"]
+[ext_resource type="Texture2D" uid="uid://b5vt3bjhxo6c3" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_09.png" id="81_vg4hf"]
+[ext_resource type="Texture2D" uid="uid://d3y6ok3xaeokf" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_10.png" id="82_kpe0n"]
+[ext_resource type="Texture2D" uid="uid://b64f5tqggqgxl" path="res://assets/gardenPuzzleScene/ambience/spider_idle/spider_idle_11.png" id="83_xvqjj"]
+[ext_resource type="Texture2D" uid="uid://cfg6lllq20ftj" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_00.png" id="84_7p4nx"]
+[ext_resource type="Texture2D" uid="uid://d3ieepcg61rb3" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_01.png" id="85_o3q3t"]
+[ext_resource type="Texture2D" uid="uid://wa0lb2vkqshq" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_02.png" id="86_16new"]
+[ext_resource type="Texture2D" uid="uid://biak26p7inm50" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_03.png" id="87_wdwng"]
+[ext_resource type="Texture2D" uid="uid://bamvg3e8mp5ic" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_04.png" id="88_6pmkd"]
+[ext_resource type="Texture2D" uid="uid://b25x5skqj8732" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_05.png" id="89_yn0me"]
+[ext_resource type="Texture2D" uid="uid://dhokwgiia3cl4" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_06.png" id="90_j345w"]
+[ext_resource type="Texture2D" uid="uid://byvnqkdkjw61p" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_07.png" id="91_330hl"]
+[ext_resource type="Texture2D" uid="uid://cn6wqg27ff66j" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_08.png" id="92_j8fjs"]
+[ext_resource type="Texture2D" uid="uid://cecpv5qa5kix2" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_09.png" id="93_47a4s"]
+[ext_resource type="Texture2D" uid="uid://bor3gtcbdywrb" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_10.png" id="94_qnvkw"]
+[ext_resource type="Texture2D" uid="uid://b12i7b6n25dsa" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_11.png" id="95_fjhya"]
+[ext_resource type="Texture2D" uid="uid://thgs7qy2e7is" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_12.png" id="96_jeanr"]
+[ext_resource type="Texture2D" uid="uid://4vcbbgjmrele" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_13.png" id="97_25jvr"]
+[ext_resource type="Texture2D" uid="uid://cwo4v7n6akkeg" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_14.png" id="98_ukpkh"]
+[ext_resource type="Texture2D" uid="uid://cgvanxmlbxfcx" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_15.png" id="99_pdbpr"]
+[ext_resource type="Texture2D" uid="uid://db3s3ihsbrvjs" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_16.png" id="100_spu86"]
+[ext_resource type="Texture2D" uid="uid://dof3x32a7glec" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_17.png" id="101_4a70u"]
+[ext_resource type="Texture2D" uid="uid://c3myoir1uscf0" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_18.png" id="102_cx2q7"]
+[ext_resource type="Texture2D" uid="uid://ck1jllc75pwra" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_19.png" id="103_1vb0x"]
+[ext_resource type="Texture2D" uid="uid://ktfbdbep0m4s" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_20.png" id="104_ho637"]
+[ext_resource type="Texture2D" uid="uid://c7xgg31c1o435" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_21.png" id="105_gggfn"]
+[ext_resource type="Texture2D" uid="uid://8s1oc6lwfiea" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_22.png" id="106_wkxn5"]
+[ext_resource type="Texture2D" uid="uid://crq1221vf111g" path="res://assets/gardenPuzzleScene/ambience/floating_object_01/floating_object_01_23.png" id="107_l6hea"]
+[ext_resource type="Texture2D" uid="uid://xak2ft6k1asf" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_00.png" id="108_hnvc6"]
+[ext_resource type="Texture2D" uid="uid://b2kq5a1nlwx1k" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_01.png" id="109_yyydd"]
+[ext_resource type="Texture2D" uid="uid://b6a1a52kmxx5n" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_02.png" id="110_vbuhl"]
+[ext_resource type="Texture2D" uid="uid://begya1i5nind6" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_03.png" id="111_qkdt4"]
+[ext_resource type="Texture2D" uid="uid://cu3vdolvrnbd3" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_04.png" id="112_08rim"]
+[ext_resource type="Texture2D" uid="uid://dxcsqfxgv0pa1" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_05.png" id="113_8p3ak"]
+[ext_resource type="Texture2D" uid="uid://cv4bqj72isbvd" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_06.png" id="114_hw43g"]
+[ext_resource type="Texture2D" uid="uid://lecq0cdyla5e" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_07.png" id="115_aqh71"]
+[ext_resource type="Texture2D" uid="uid://b8oag8mkbms4e" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_08.png" id="116_m6q3l"]
+[ext_resource type="Texture2D" uid="uid://cwp66gc7hrtxg" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_09.png" id="117_i0cb1"]
+[ext_resource type="Texture2D" uid="uid://bkhjpvmejtyc0" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_10.png" id="118_nep6x"]
+[ext_resource type="Texture2D" uid="uid://bs1k5d8ncp2gj" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_11.png" id="119_3tkl7"]
+[ext_resource type="Texture2D" uid="uid://du8rfydqhiwl0" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_12.png" id="120_jol6o"]
+[ext_resource type="Texture2D" uid="uid://b5ndl8a7ms88o" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_13.png" id="121_r2ial"]
+[ext_resource type="Texture2D" uid="uid://bxk8ti8wydbwn" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_14.png" id="122_16vgt"]
+[ext_resource type="Texture2D" uid="uid://dfhijo7hbrgfe" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_15.png" id="123_lx82x"]
+[ext_resource type="Texture2D" uid="uid://b8ss0a6w708r6" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_16.png" id="124_oqdmg"]
+[ext_resource type="Texture2D" uid="uid://dkkokaqnbmes1" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_17.png" id="125_r4x5l"]
+[ext_resource type="Texture2D" uid="uid://djwf2f0sb4rk8" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_18.png" id="126_wn6qv"]
+[ext_resource type="Texture2D" uid="uid://c4ib6ymkopnyr" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_19.png" id="127_107vw"]
+[ext_resource type="Texture2D" uid="uid://bdtje8y40ymc3" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_20.png" id="128_qf2ee"]
+[ext_resource type="Texture2D" uid="uid://d0ni7oivgnn7s" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_21.png" id="129_bshcv"]
+[ext_resource type="Texture2D" uid="uid://b37dajydl4snp" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_22.png" id="130_htiym"]
+[ext_resource type="Texture2D" uid="uid://b2w4hm2p78woi" path="res://assets/gardenPuzzleScene/ambience/floating_objects_02/floating_objects_02_23.png" id="131_qvk2x"]
+[ext_resource type="Texture2D" uid="uid://cy38ihb0fffeg" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_00.png" id="132_covrg"]
+[ext_resource type="Texture2D" uid="uid://dfs5oj5dveho7" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_01.png" id="133_e51m1"]
+[ext_resource type="Texture2D" uid="uid://ce3xsog0quugh" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_02.png" id="134_lrv3v"]
+[ext_resource type="Texture2D" uid="uid://eiduv6864ekq" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_03.png" id="135_fd53d"]
+[ext_resource type="Texture2D" uid="uid://oe0q04iulmjp" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_04.png" id="136_gblet"]
+[ext_resource type="Texture2D" uid="uid://eqixp8n5qplx" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_05.png" id="137_kvxll"]
+[ext_resource type="Texture2D" uid="uid://crritajc10uns" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_06.png" id="138_8subd"]
+[ext_resource type="Texture2D" uid="uid://c1517xep4fssk" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_07.png" id="139_n4pq0"]
+[ext_resource type="Texture2D" uid="uid://b8j6784nbmels" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_08.png" id="140_r8cxd"]
+[ext_resource type="Texture2D" uid="uid://bguxa5ktq1js3" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_09.png" id="141_y6gvq"]
+[ext_resource type="Texture2D" uid="uid://b74tbhwsd4jxf" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_10.png" id="142_rxd7s"]
+[ext_resource type="Texture2D" uid="uid://bj7fmydcgcdl7" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_11.png" id="143_wgu3h"]
+[ext_resource type="Texture2D" uid="uid://m5dngcrjc7ch" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_12.png" id="144_1qgnj"]
+[ext_resource type="Texture2D" uid="uid://cd634u4wouyil" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_13.png" id="145_40rnx"]
+[ext_resource type="Texture2D" uid="uid://b3da23s34pw06" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_14.png" id="146_4cm2c"]
+[ext_resource type="Texture2D" uid="uid://cdpl70gmrquui" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_15.png" id="147_awg2s"]
+[ext_resource type="Texture2D" uid="uid://ov6772018bx0" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_16.png" id="148_r36cn"]
+[ext_resource type="Texture2D" uid="uid://dnu2o3nksnn20" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_17.png" id="149_0uxhm"]
+[ext_resource type="Texture2D" uid="uid://cygbrb1i1m0ev" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_18.png" id="150_bxvnm"]
+[ext_resource type="Texture2D" uid="uid://cg1325tcavd6c" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_19.png" id="151_sap5p"]
+[ext_resource type="Texture2D" uid="uid://ptqo7dmre5cx" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_20.png" id="152_b2rgk"]
+[ext_resource type="Texture2D" uid="uid://7dbhox4wcdfk" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_21.png" id="153_n7twh"]
+[ext_resource type="Texture2D" uid="uid://bvqt5i6j18vgg" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_22.png" id="154_17xkj"]
+[ext_resource type="Texture2D" uid="uid://bsnmrglqo5w0h" path="res://assets/gardenPuzzleScene/floating_objects_03/floating_objects_03_23.png" id="155_rjtr0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iaja"]
 size = Vector2(156, 149)
@@ -134,6 +255,405 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_covrg"]
+size = Vector2(175.86218, 172.41357)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dgssq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_bqm7s")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_atjh8")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olo1i"]
+size = Vector2(1160, 1088)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4037"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("49_w3h8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_vo8bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ptq6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_mesqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_n6cq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_xqwko")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_iusnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_27vlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_bjc46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_5x6nn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_4tb8d")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("48_nsmgx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p4nx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("60_s772p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_yf783")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_r2aop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_7h0bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_i2ecb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_j1wex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_26mqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_5ni6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_0njo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_8awl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_d0aw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_567wv")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("72_qloee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_2jfjj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_vp6da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_qs67h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_ojrrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_qfxyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_stl5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_vb2s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_v8sy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_vg4hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_kpe0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_xvqjj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnvc6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("84_7p4nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_o3q3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_16new")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_wdwng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_6pmkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_yn0me")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_j345w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_330hl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_j8fjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_47a4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_qnvkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_fjhya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_jeanr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_25jvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_ukpkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_pdbpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_spu86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_4a70u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_cx2q7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_1vb0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_ho637")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_gggfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_wkxn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_l6hea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_covrg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("108_hnvc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_yyydd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_vbuhl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_qkdt4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_08rim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_8p3ak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_hw43g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_aqh71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_m6q3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_i0cb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_nep6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_3tkl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_jol6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_r2ial")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_16vgt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_lx82x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_oqdmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_r4x5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_wn6qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_107vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_qf2ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_bshcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_htiym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_qvk2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h4hqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("132_covrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_e51m1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_lrv3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_fd53d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_gblet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_kvxll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_8subd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_n4pq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_r8cxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_y6gvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_rxd7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_wgu3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_1qgnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_40rnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_4cm2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_awg2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_r36cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_0uxhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_bxvnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_sap5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_b2rgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_n7twh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_17xkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_rjtr0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="crashSite" type="Node2D"]
 script = ExtResource("1_2iaja")
 default_spawn_path = NodePath("traversalRoutes/route_a")
@@ -150,7 +670,7 @@ position = Vector2(2065, 396)
 texture = ExtResource("2_kgs3k")
 
 [node name="fg" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 3
 position = Vector2(2065, 393)
 texture = ExtResource("3_eswo1")
 
@@ -210,8 +730,6 @@ marker_type = 1
 [node name="bgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_f0vxg")
 
-[node name="GlobalUI" parent="." instance=ExtResource("10_kgs3k")]
-
 [node name="cursor" parent="." instance=ExtResource("11_eswo1")]
 position = Vector2(1906, 437)
 
@@ -223,7 +741,17 @@ position = Vector2(2064, 395)
 sprite_frames = SubResource("SpriteFrames_nsmgx")
 autoplay = "default"
 
+[node name="player" parent="." groups=["player"] instance=ExtResource("3_g7u24")]
+z_index = 1
+position = Vector2(115, 659)
+start_route_path = NodePath("../traversalRoutes/route_a")
+cursor_default_path = NodePath("../cursor2/CanvasLayer/AnimatedSprite2D")
+cursor_interact_path = NodePath("../clickable_cursor/CanvasLayer/hover_interact")
+route_click_radius = 100.0
+cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
+
 [node name="guide" parent="." instance=ExtResource("12_ra4w2")]
+z_index = 1
 position = Vector2(2256, 418)
 progress_flag = 1
 
@@ -240,15 +768,7 @@ dialogue_lines = Array[String](["Greetings..
 "])
 
 [node name="SpeechPoint" type="Marker2D" parent="guide"]
-position = Vector2(-577, 323)
-
-[node name="player" parent="." groups=["player"] instance=ExtResource("3_g7u24")]
-position = Vector2(115, 659)
-start_route_path = NodePath("../traversalRoutes/route_a")
-cursor_default_path = NodePath("../cursor2/CanvasLayer/AnimatedSprite2D")
-cursor_interact_path = NodePath("../clickable_cursor/CanvasLayer/hover_interact")
-route_click_radius = 100.0
-cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
+position = Vector2(-487, 323)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -279,6 +799,165 @@ scale = Vector2(0.085, 0.085)
 position = Vector2(303.99997, 246.99998)
 scale = Vector2(0.025, 0.025)
 
+[node name="seed" type="Sprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+position = Vector2(534.99994, 344)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("38_covrg")
+script = ExtResource("40_bt5al")
+
+[node name="Area2D" type="Area2D" parent="seed" groups=["clickable_asset"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="seed/Area2D" groups=["clickable_asset"]]
+position = Vector2(1.7243652, 0)
+scale = Vector2(1.0000004, 1.0000004)
+shape = SubResource("RectangleShape2D_covrg")
+
+[node name="inventory" type="AnimatedSprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+z_index = 3
+position = Vector2(311, 585.99994)
+scale = Vector2(0.265, 0.265)
+sprite_frames = SubResource("SpriteFrames_dgssq")
+animation = &"open"
+
+[node name="Area2D" type="Area2D" parent="inventory"]
+position = Vector2(16, -8)
+script = ExtResource("43_yc27d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_olo1i")
+
+[node name="GlobalUI" parent="." instance=ExtResource("10_kgs3k")]
+symbol_texture = ExtResource("44_dgssq")
+hidden_symbol_texture = ExtResource("45_e51m1")
+creature2 = ExtResource("46_gblet")
+creature3 = ExtResource("45_olo1i")
+death_symbol = ExtResource("46_r68mc")
+
+[node name="clickable1" parent="." groups=["clickable_asset"] instance=ExtResource("47_i7pee")]
+position = Vector2(1157, 590)
+item_name = "creature2"
+popup_texture = ExtResource("46_r68mc")
+
+[node name="AnimatedSprite2D" parent="clickable1" index="0"]
+position = Vector2(909, -195)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_c4037")
+
+[node name="GlobalUI" parent="clickable1/AnimatedSprite2D" index="0" instance=ExtResource("10_kgs3k")]
+symbol_texture = ExtResource("44_dgssq")
+hidden_symbol_texture = ExtResource("61_fd53d")
+creature2 = ExtResource("61_lrv3v")
+creature4 = ExtResource("45_olo1i")
+death_symbol = ExtResource("46_r68mc")
+
+[node name="CollisionShape2D" parent="clickable1/Area2D" index="0"]
+position = Vector2(707, 331)
+
+[node name="clickable2" parent="." groups=["clickable_asset"] instance=ExtResource("47_i7pee")]
+gives_item = false
+item_name = ""
+
+[node name="AnimatedSprite2D" parent="clickable2" index="0"]
+position = Vector2(3570.9998, 97)
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_7p4nx")
+animation = &"default"
+frame_progress = 0.7374594
+
+[node name="CollisionShape2D" parent="clickable2/Area2D" index="0"]
+position = Vector2(3573, 71)
+
+[node name="floatingobj1" type="AnimatedSprite2D" parent="."]
+position = Vector2(2859, 891.99994)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_hnvc6")
+autoplay = "default"
+frame_progress = 0.8798537
+
+[node name="fo2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1075, 860)
+scale = Vector2(0.055, 0.055)
+sprite_frames = SubResource("SpriteFrames_covrg")
+autoplay = "default"
+frame_progress = 0.2584532
+
+[node name="fo3" type="AnimatedSprite2D" parent="."]
+position = Vector2(2145, 799)
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_h4hqw")
+autoplay = "default"
+frame_progress = 0.4632739
+
+[node name="fo4" type="AnimatedSprite2D" parent="."]
+z_index = 4
+position = Vector2(3742.0005, 843.9999)
+rotation = 1.1728612
+scale = Vector2(0.21, 0.21)
+sprite_frames = SubResource("SpriteFrames_h4hqw")
+autoplay = "default"
+frame_progress = 0.09108464
+flip_h = true
+
+[node name="floatingobj2" type="AnimatedSprite2D" parent="."]
+position = Vector2(2671.0002, 113)
+scale = Vector2(0.065, 0.065)
+sprite_frames = SubResource("SpriteFrames_hnvc6")
+autoplay = "default"
+frame_progress = 0.4154719
+
+[node name="fo5" type="AnimatedSprite2D" parent="."]
+position = Vector2(2790, 124)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_covrg")
+autoplay = "default"
+frame_progress = 0.21229778
+flip_h = true
+flip_v = true
+
+[node name="fo6" type="AnimatedSprite2D" parent="."]
+position = Vector2(202, 362)
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_covrg")
+autoplay = "default"
+frame_progress = 0.98963547
+
+[node name="fo7" type="AnimatedSprite2D" parent="."]
+z_index = 4
+position = Vector2(781, 231.00006)
+rotation = 1.1728612
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_h4hqw")
+autoplay = "default"
+frame_progress = 0.5102712
+flip_h = true
+
+[node name="fo9" type="AnimatedSprite2D" parent="."]
+position = Vector2(901.00006, 898.00006)
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_h4hqw")
+autoplay = "default"
+frame_progress = 0.6019051
+flip_h = true
+flip_v = true
+
+[node name="fo10" type="AnimatedSprite2D" parent="."]
+z_index = 3
+position = Vector2(104, 831)
+scale = Vector2(0.04, 0.04)
+sprite_frames = SubResource("SpriteFrames_covrg")
+autoplay = "default"
+frame_progress = 0.4169863
+
+[node name="fo11" type="AnimatedSprite2D" parent="."]
+position = Vector2(1770, 219)
+scale = Vector2(0.11, 0.11)
+sprite_frames = SubResource("SpriteFrames_h4hqw")
+autoplay = "default"
+frame_progress = 0.6019051
+flip_h = true
+flip_v = true
+
 [connection signal="body_entered" from="scene_exit" to="scene_exit" method="_on_body_entered"]
 
 [editable path="cursor"]
@@ -286,3 +965,5 @@ scale = Vector2(0.025, 0.025)
 [editable path="CanvasLayer/SpeechBox"]
 [editable path="cursor2"]
 [editable path="clickable_cursor"]
+[editable path="clickable1"]
+[editable path="clickable2"]

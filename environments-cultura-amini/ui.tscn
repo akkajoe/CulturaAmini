@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7symwiqlxn2u"]
+[gd_scene load_steps=23 format=3 uid="uid://b7symwiqlxn2u"]
 
 [ext_resource type="Script" uid="uid://5wwwkcbvqbf3" path="res://ui.gd" id="1_fyqef"]
 [ext_resource type="Texture2D" uid="uid://w2ueupob736b" path="res://assets/symbols/health/symbol_2-9.png" id="3_n5ude"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="6_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="7_irxef"]
 [ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="8_e2l4f"]
+[ext_resource type="Texture2D" uid="uid://dw6q4nla11eu5" path="res://assets/gardenPuzzleScene/ambience/Seed2.png" id="9_n5rqp"]
 [ext_resource type="Texture2D" uid="uid://dtfgi5nqoha1u" path="res://UI/inventory/Bag page (1).png" id="9_ok7cu"]
 [ext_resource type="Texture2D" uid="uid://cmfu0ep4ermus" path="res://UI/Left.png" id="10_e2l4f"]
 [ext_resource type="Texture2D" uid="uid://bmsh7cogymtso" path="res://UI/Right.png" id="11_n5rqp"]
@@ -40,9 +41,10 @@ mushroom = ExtResource("7_irxef")
 bad_mushroom = ExtResource("5_irxef")
 creature1 = ExtResource("5_waa4j")
 creature2 = ExtResource("6_ok7cu")
-creature3 = ExtResource("7_irxef")
+creature3 = ExtResource("5_irxef")
 creature4 = ExtResource("8_e2l4f")
 death_symbol = ExtResource("6_ok7cu")
+seed_texture = ExtResource("9_n5rqp")
 
 [node name="inventoryPopup" type="Control" parent="."]
 layout_mode = 3
@@ -109,11 +111,11 @@ stretch_mode = 5
 
 [node name="LeftButton" type="Button" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = 393.54794
-offset_top = 664.51605
-offset_right = 2449.5479
-offset_bottom = 2720.516
-scale = Vector2(0.055, 0.055)
+offset_left = 383.87057
+offset_top = 587.0967
+offset_right = 2439.8706
+offset_bottom = 2643.0967
+scale = Vector2(0.12, 0.12)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_e2l4f")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nvb2n")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_os5c7")
@@ -123,11 +125,11 @@ icon = ExtResource("10_e2l4f")
 
 [node name="RightButton" type="Button" parent="inventoryPopup"]
 layout_mode = 0
-offset_left = 2016.1285
-offset_top = 670.96765
-offset_right = 4072.1284
-offset_bottom = 2726.9678
-scale = Vector2(0.055, 0.055)
+offset_left = 1925.8058
+offset_top = 587.09674
+offset_right = 3981.8057
+offset_bottom = 2643.0967
+scale = Vector2(0.12, 0.12)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n5rqp")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gs482")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_cxd00")

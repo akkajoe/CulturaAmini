@@ -33,7 +33,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 
 	if path_a == null or path_b == null or anchor_a == null or anchor_b == null or fade_rect == null:
-		push_error("Hotspot: assign paths/anchors/fade_rect_path.")
+		push_error("assign paths/anchors/fade_rect_path.")
 		return
 
 	if not (body.has_method("get_current_path")
@@ -68,15 +68,13 @@ func _on_body_entered(body: Node) -> void:
 
 
 func _on_body_exited(body: Node) -> void:
-	# once the player physically leaves the hotspot, we can arm it again
 	if _armed:
 		return
 	_rearm_deferred()
 
 
 func _rearm_deferred() -> void:
-	# small delay to not instantly retrigger on edge jitter
-	# (especially if player snaps near boundary)
+	# small delay to not instantly retrigger on edge 
 	await get_tree().create_timer(min_rearm_time).timeout
 	set_deferred("monitoring", true)
 	_armed = true

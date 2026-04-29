@@ -40,10 +40,7 @@ func warm_scene_instance(path: String) -> void:
 	var inst := packed.instantiate()
 	if inst == null:
 		return
-	if inst is CanvasItem:
-		(inst as CanvasItem).visible = false
-	add_child(inst)
-	inst.process_mode = Node.PROCESS_MODE_DISABLED
+	# Store it WITHOUT adding to the scene tree
 	_instance_cache[path] = inst
 
 
@@ -56,12 +53,6 @@ func take_scene_instance(path: String) -> Node:
 		return null
 	var inst: Node = _instance_cache[path]
 	_instance_cache.erase(path)
-	if inst.get_parent() == self:
-		remove_child(inst)
-	# Reset process mode on the entire subtree so nothing stays disabled
-	# from the pre-warm phase. Without this, Camera2D._physics_process
-	# never runs and the camera appears frozen.
-	_reset_process_mode_recursive(inst)
 	return inst
 
 

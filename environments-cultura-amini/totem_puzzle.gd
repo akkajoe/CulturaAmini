@@ -48,6 +48,7 @@ func _play_spores() -> void:
 	if spores == null:
 		push_warning("TotemPuzzle: spores node not assigned.")
 		return
+	$spores2.play()
 	spores.modulate.a = 0.0
 	spores.visible = true
 	spores.play()

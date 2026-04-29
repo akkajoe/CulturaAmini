@@ -19,6 +19,7 @@ extends CanvasLayer
 @export var creature3: Texture2D
 @export var creature4: Texture2D
 @export var death_symbol: Texture2D
+@export var seed_texture: Texture2D
 
 var _is_hovered: bool = false
 var scroll_offset: int = 0
@@ -141,6 +142,8 @@ func _get_texture_for_item(item_name: String) -> Texture2D:
 			return creature4
 		"death_symbol":
 			return death_symbol
+		"seed":
+			return seed_texture
 		_:
 			return null
 
@@ -155,6 +158,7 @@ func get_item_name_for_texture(tex: Texture2D) -> String:
 	if tex == creature3: return "creature3"
 	if tex == creature4: return "creature4"
 	if tex == death_symbol: return "death_symbol"
+	if tex == seed_texture: return "seed"
 	return ""
 
 

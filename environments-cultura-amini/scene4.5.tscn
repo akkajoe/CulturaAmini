@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmocpqbjdu6k6"]
+[gd_scene load_steps=12 format=3 uid="uid://cmocpqbjdu6k6"]
 
 [ext_resource type="Texture2D" uid="uid://rlnedoikw6b7" path="res://assets/scene4.5/Scene_4.5_midground_2220x1380_300dpi.jpg" id="1_phpln"]
 [ext_resource type="Texture2D" uid="uid://b45eeerxlgt0q" path="res://assets/scene4.5/Scene_4.5_foreground_2220x1380_300dpi_transparent.png" id="2_p7r12"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="6_i0vdm"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="7_wfgpo"]
 [ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="8_vbuic"]
+[ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="9_brq4l"]
 
 [sub_resource type="Curve2D" id="Curve2D_i0vdm"]
 _data = {
@@ -39,7 +40,9 @@ script = ExtResource("3_503xe")
 
 [node name="player" parent="." instance=ExtResource("4_kouag")]
 position = Vector2(181, 540)
-cursor_default_path = NodePath("../Node2D/AnimatedSprite2D")
+cursor_default_path = NodePath("../Node2D/CanvasLayer/AnimatedSprite2D")
+cursor_interact_path = NodePath("../Node2D2/CanvasLayer/hover_interact")
+cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
 
 [node name="traversalRoutes" type="Node2D" parent="."]
 
@@ -69,7 +72,13 @@ shape = SubResource("RectangleShape2D_wfgpo")
 
 [node name="Node2D" parent="." instance=ExtResource("8_vbuic")]
 
+[node name="Node2D2" parent="." instance=ExtResource("9_brq4l")]
+
+[node name="hover_interact" parent="Node2D2/CanvasLayer" index="0"]
+scale = Vector2(0.025, 0.025)
+
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 
 [editable path="cursor"]
 [editable path="Node2D"]
+[editable path="Node2D2"]

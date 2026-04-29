@@ -8,7 +8,7 @@ extends Node
 func _ready() -> void:
 	light_sprite.stop_blinking()
 	
-	# Load all scenes in the background while player watches the intro.
+	# Load all scenes in the background
 	SceneCache.warm_all_async([
 		"res://cut_scene_1.tscn",
 		"res://crash_site.tscn",

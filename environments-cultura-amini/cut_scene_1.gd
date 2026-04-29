@@ -41,7 +41,7 @@ func _wait_for_load() -> void:
 func _ensure_garden_warmed() -> void:
 	const GARDEN_PATH := "res://garden_puzzle.tscn"
 	if SceneCache.has_scene_instance(GARDEN_PATH):
-		push_warning("[CUTSCENE1] garden already pre-instantiated ✓")
+		push_warning("CUTSCENE1 garden already pre-instantiated")
 		return
 	var max_wait_frames := 120
 	var waited := 0
@@ -50,23 +50,22 @@ func _ensure_garden_warmed() -> void:
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			break
 		elif status == ResourceLoader.THREAD_LOAD_FAILED:
-			push_warning("[CUTSCENE1] garden async load FAILED — transition will be cold")
+			push_warning("CUTSCENE1 garden async load FAILED")
 			return
 		await get_tree().process_frame
 		waited += 1
 	var packed := ResourceLoader.load_threaded_get(GARDEN_PATH) as PackedScene
 	if packed == null:
-		push_warning("[CUTSCENE1] garden packed scene is null — transition will be cold")
+		push_warning("CUTSCENE1   garden packed scene is null")
 		return
 	SceneCache._packed_cache[GARDEN_PATH] = packed
 	SceneCache.warm_scene_instance(GARDEN_PATH)
-	push_warning("[CUTSCENE1] garden pre-instantiated ✓  has_instance=%s" \
-		% str(SceneCache.has_scene_instance(GARDEN_PATH)))
+	push_warning("CUTSCENE1 garden pre-instantiated" % str(SceneCache.has_scene_instance(GARDEN_PATH)))
 
 func _ensure_mushroom_warmed() -> void:
 	const MUSHROOM_PATH := "res://mushroom_language_puzzle.tscn"
 	if SceneCache.has_scene_instance(MUSHROOM_PATH):
-		push_warning("[CUTSCENE1] mushroom already pre-instantiated ✓")
+		push_warning("CUTSCENE1 mushroom already pre-instantiated")
 		return
 	var max_wait_frames := 120
 	var waited := 0
@@ -75,18 +74,43 @@ func _ensure_mushroom_warmed() -> void:
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			break
 		elif status == ResourceLoader.THREAD_LOAD_FAILED:
-			push_warning("[CUTSCENE1] mushroom async load FAILED — transition will be cold")
+			push_warning("CUTSCENE1 mushroom async load FAILED")
 			return
 		await get_tree().process_frame
 		waited += 1
 	var packed := ResourceLoader.load_threaded_get(MUSHROOM_PATH) as PackedScene
 	if packed == null:
-		push_warning("[CUTSCENE1] mushroom packed scene is null — transition will be cold")
+		push_warning("CUTSCENE1 mushroom packed scene is null BOOHOOO")
 		return
 	SceneCache._packed_cache[MUSHROOM_PATH] = packed
 	SceneCache.warm_scene_instance(MUSHROOM_PATH)
-	push_warning("[CUTSCENE1] mushroom pre-instantiated ✓  has_instance=%s" \
+	push_warning("CUTSCENE1 mushroom pre-instantiated  has_instance=%s" \
 		% str(SceneCache.has_scene_instance(MUSHROOM_PATH)))
+
+func _ensure_mountain_warmed() -> void:
+	const MOUNTAIN_PATH := "res://mountain_creature_puzzle.tscn"
+	if SceneCache.has_scene_instance(MOUNTAIN_PATH):
+		push_warning("CUTSCENE1 mountain already pre-instantiated")
+		return
+	var max_wait_frames := 120
+	var waited := 0
+	while waited < max_wait_frames:
+		var status := ResourceLoader.load_threaded_get_status(MOUNTAIN_PATH)
+		if status == ResourceLoader.THREAD_LOAD_LOADED:
+			break
+		elif status == ResourceLoader.THREAD_LOAD_FAILED:
+			push_warning("CUTSCENE1mountain async load FAILED")
+			return
+		await get_tree().process_frame
+		waited += 1
+	var packed := ResourceLoader.load_threaded_get(MOUNTAIN_PATH) as PackedScene
+	if packed == null:
+		push_warning("CUTSCENE1 mountain packed scene is null")
+		return
+	SceneCache._packed_cache[MOUNTAIN_PATH] = packed
+	SceneCache.warm_scene_instance(MOUNTAIN_PATH)
+	push_warning("CUTSCENE1 mountain pre-instantiated  has_instance=%s" \
+		% str(SceneCache.has_scene_instance(MOUNTAIN_PATH)))
 
 func _go_to_next_scene() -> void:
 	var packed := ResourceLoader.load_threaded_get(next_scene_path) as PackedScene
@@ -100,38 +124,18 @@ func _go_to_next_scene() -> void:
 	var new_scene := packed.instantiate()
 	get_tree().root.add_child(new_scene)
 	get_tree().current_scene = new_scene
-	if new_scene.has_method("on_scene_activated"):
-		new_scene.on_scene_activated()
+
 	var cam := new_scene.get_node_or_null("Camera2D")
 	if cam is Camera2D and cam.is_inside_tree():
 		(cam as Camera2D).make_current()
 		if cam.has_method("snap_to_target_now"):
 			cam.snap_to_target_now()
+
 	await get_tree().process_frame
 	$ColorRect.visible = false
+
+	if new_scene.has_method("on_scene_activated"):
+		new_scene.on_scene_activated()
+
 	if old_scene != null:
 		old_scene.call_deferred("queue_free")
-func _ensure_mountain_warmed() -> void:
-	const MOUNTAIN_PATH := "res://mountain_creature_puzzle.tscn"
-	if SceneCache.has_scene_instance(MOUNTAIN_PATH):
-		push_warning("[CUTSCENE1] mountain already pre-instantiated ✓")
-		return
-	var max_wait_frames := 120
-	var waited := 0
-	while waited < max_wait_frames:
-		var status := ResourceLoader.load_threaded_get_status(MOUNTAIN_PATH)
-		if status == ResourceLoader.THREAD_LOAD_LOADED:
-			break
-		elif status == ResourceLoader.THREAD_LOAD_FAILED:
-			push_warning("[CUTSCENE1] mountain async load FAILED — transition will be cold")
-			return
-		await get_tree().process_frame
-		waited += 1
-	var packed := ResourceLoader.load_threaded_get(MOUNTAIN_PATH) as PackedScene
-	if packed == null:
-		push_warning("[CUTSCENE1] mountain packed scene is null — transition will be cold")
-		return
-	SceneCache._packed_cache[MOUNTAIN_PATH] = packed
-	SceneCache.warm_scene_instance(MOUNTAIN_PATH)
-	push_warning("[CUTSCENE1] mountain pre-instantiated ✓  has_instance=%s" \
-		% str(SceneCache.has_scene_instance(MOUNTAIN_PATH)))

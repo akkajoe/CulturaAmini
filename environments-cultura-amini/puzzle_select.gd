@@ -116,7 +116,7 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> vo
 			_debug_log("Player told to walk to puzzle target")
 		else:
 			push_warning("Player does not have walk_to_position(global_pos).")
-			_debug_log("FAILED: player missing walk_to_position")
+			_debug_log("FAILEDwefqefwfeTHIS IS FRUSTRATING: player missing walk_to_position")
 
 
 func _on_mouse_entered() -> void:

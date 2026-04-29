@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://18mv8bbljs5v"]
+[gd_scene load_steps=135 format=3 uid="uid://18mv8bbljs5v"]
 
 [ext_resource type="Script" uid="uid://cyfem6x7mbhoh" path="res://garden_puzzle.gd" id="1_xilqs"]
 [ext_resource type="Texture2D" uid="uid://dojjiii2ikjud" path="res://assets/gardenPuzzleScene/finalAssets/Scene_02_Forest-background.jpg" id="2_48yf5"]
@@ -7,33 +7,46 @@
 [ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="4_0a2j4"]
 [ext_resource type="Texture2D" uid="uid://xk4jwl8egrlc" path="res://assets/gardenPuzzleScene/Foreground_Version_1_Updated (2).png" id="4_45q0m"]
 [ext_resource type="PackedScene" uid="uid://cv8au5688djcg" path="res://guide.tscn" id="5_4kmq4"]
+[ext_resource type="AudioStream" uid="uid://01tbn8lbco6y" path="res://assets/audio/sfx/Spore_Chime_2.mp3" id="5_vty26"]
 [ext_resource type="Script" uid="uid://loc74odklg0g" path="res://zoom_areaF.gd" id="7_ewlnx"]
 [ext_resource type="Script" uid="uid://dypw3fcom7i4p" path="res://traversalJumpPoint.gd" id="8_trnai"]
 [ext_resource type="AudioStream" uid="uid://bykt6f7ddmr1k" path="res://assets/audio/Biome_Demo.mp3" id="11_8dqgj"]
 [ext_resource type="Script" uid="uid://ctsd8x2mqpbjf" path="res://traversalMarker.gd" id="12_rn6j4"]
 [ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="12_unlio"]
 [ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="14_qcogw"]
-[ext_resource type="Texture2D" uid="uid://bfga212h1g56m" path="res://assets/symbols/health/symbol_2-15.png" id="14_ywmil"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="15_5mals"]
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="16_48yf5"]
 [ext_resource type="PackedScene" uid="uid://bwob36l55jj5i" path="res://TotemPuzzle.tscn" id="16_vwglx"]
 [ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="16_xilqs"]
 [ext_resource type="PackedScene" uid="uid://dnl45jmdu7yd4" path="res://clickable_asset.tscn" id="18_vwglx"]
-[ext_resource type="Texture2D" uid="uid://l6m1v2ld1xxc" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_10/symbol_10-11.png" id="20_yntci"]
+[ext_resource type="Texture2D" uid="uid://dbx6531kjuonq" path="res://assets/gardenPuzzleScene/finalAssets/symbol_color/symbol_10.png" id="19_emh4m"]
+[ext_resource type="Texture2D" uid="uid://cfl3ekgdpnoek" path="res://assets/gardenPuzzleScene/finalAssets/symbol_color/symbol_5.png" id="20_mh6kt"]
 [ext_resource type="Texture2D" uid="uid://bcvf7ifvd05cp" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-1.png" id="21_ucl4h"]
+[ext_resource type="Texture2D" uid="uid://ppn7w7aaxqvy" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-1.png" id="22_17b64"]
 [ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="22_b0wad"]
 [ext_resource type="Texture2D" uid="uid://xkfyc5qqcvi8" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-2.png" id="22_yntci"]
 [ext_resource type="Texture2D" uid="uid://5ee1s7e2xvkj" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-3.png" id="23_jtj6t"]
+[ext_resource type="Texture2D" uid="uid://die383kojg4cu" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-2.png" id="23_mlwgq"]
 [ext_resource type="Texture2D" uid="uid://dppdoh8ivxjfr" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-4.png" id="24_40twg"]
+[ext_resource type="Texture2D" uid="uid://vfdaqhjfipw0" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-3.png" id="24_a622c"]
+[ext_resource type="Texture2D" uid="uid://d1wngmysiwxiy" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-4.png" id="25_07hpp"]
 [ext_resource type="Texture2D" uid="uid://ciosvumo6n70g" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-5.png" id="25_hydx1"]
 [ext_resource type="PackedScene" uid="uid://kj3sxynvlq4e" path="res://spores.tscn" id="26_fol8i"]
 [ext_resource type="Texture2D" uid="uid://dcwm2a7hjjpor" path="res://assets/gardenPuzzleScene/ambience/AnimatedRockClickable/Rock-6.png" id="26_ne5em"]
+[ext_resource type="Texture2D" uid="uid://b6yw1ayts7474" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-5.png" id="26_pgbfv"]
+[ext_resource type="Texture2D" uid="uid://by0uywpnh1jlx" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-6.png" id="27_mnhru"]
 [ext_resource type="Script" uid="uid://y1y5edqwm21m" path="res://psych_mushroom.gd" id="28_ebjw5"]
 [ext_resource type="Texture2D" uid="uid://uvagd4bonvai" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_6/symbol_6-7.png" id="28_f1fsx"]
+[ext_resource type="Texture2D" uid="uid://ddgshe4jam6nf" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-7.png" id="28_ned4m"]
+[ext_resource type="Texture2D" uid="uid://b1jw58tnbwoyi" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-8.png" id="29_6fiwk"]
 [ext_resource type="Texture2D" uid="uid://b5nkkoqa2m8uh" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-1.png" id="29_f1fsx"]
+[ext_resource type="Texture2D" uid="uid://cd1w75gmfdxkm" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-9.png" id="30_2lwv1"]
 [ext_resource type="Texture2D" uid="uid://crdvmeli2lxj7" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-2.png" id="30_fidvf"]
+[ext_resource type="Texture2D" uid="uid://jybtnx2jfht0" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-10.png" id="31_jmldh"]
 [ext_resource type="Texture2D" uid="uid://cn2w5or2hdafh" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-3.png" id="31_ok8m8"]
 [ext_resource type="Texture2D" uid="uid://ly7ervmnfw3j" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-4.png" id="32_hf202"]
+[ext_resource type="Texture2D" uid="uid://wo0d31o46ogr" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-11.png" id="32_jwkib"]
+[ext_resource type="Texture2D" uid="uid://dr6wsvggeqx1c" path="res://assets/gardenPuzzleScene/ambience/Animated Psychadelic/Untitled_-_April_26,_2026_00.21.21-12.png" id="33_2cu3r"]
 [ext_resource type="Texture2D" uid="uid://c7qoy4prb18fl" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-5.png" id="33_vlwvw"]
 [ext_resource type="Texture2D" uid="uid://glqqjrbypt0n" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-6.png" id="34_4dwh0"]
 [ext_resource type="Texture2D" uid="uid://bjsqbxfsfrts8" path="res://assets/gardenPuzzleScene/ambience/AnimatedSnailClickable/Untitled_-_April_25,_2026_23.35.58-7.png" id="35_4rec8"]
@@ -63,73 +76,190 @@
 [ext_resource type="Texture2D" uid="uid://c70ajaktulxhs" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-10.png" id="49_blgpl"]
 [ext_resource type="Texture2D" uid="uid://pueble80le1o" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-11.png" id="50_8q2s1"]
 [ext_resource type="Texture2D" uid="uid://d1eg1jnulucbq" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-11.png" id="50_yrqvo"]
+[ext_resource type="Texture2D" uid="uid://clb6umkdj0o6l" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-1.png" id="51_6fiwk"]
 [ext_resource type="Texture2D" uid="uid://badnole0i3slb" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-12.png" id="51_23vec"]
 [ext_resource type="Texture2D" uid="uid://cykmbu4yxjfse" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-12.png" id="51_ggnps"]
+[ext_resource type="Texture2D" uid="uid://cetjnmj5hfbvl" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-2.png" id="52_2lwv1"]
 [ext_resource type="Texture2D" uid="uid://don68f1xuiau3" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-13.png" id="52_3810r"]
 [ext_resource type="Texture2D" uid="uid://b2si2xf3gv8ff" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-13.png" id="52_hmsxe"]
 [ext_resource type="Texture2D" uid="uid://bagnr703vakav" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-14.png" id="53_g4xql"]
+[ext_resource type="Texture2D" uid="uid://dm8iob47742fh" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-3.png" id="53_jmldh"]
 [ext_resource type="Texture2D" uid="uid://bgf775cbrnjjr" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-14.png" id="53_k3g3c"]
 [ext_resource type="Texture2D" uid="uid://bo2xj7e11vse0" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-15.png" id="54_cfpai"]
+[ext_resource type="Texture2D" uid="uid://dmp2rku53k06h" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-4.png" id="54_jwkib"]
 [ext_resource type="Texture2D" uid="uid://baihkh1p1mcjg" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-15.png" id="54_nqgtr"]
+[ext_resource type="Texture2D" uid="uid://batm04vcxjf3s" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-5.png" id="55_2cu3r"]
 [ext_resource type="Texture2D" uid="uid://3gwqsctp8k8y" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_7/symbol_7-16.png" id="55_6u8tu"]
 [ext_resource type="Texture2D" uid="uid://lr31157o2ldx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-16.png" id="55_vtgau"]
+[ext_resource type="Texture2D" uid="uid://d0nc8ufsweeva" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-6.png" id="56_7msbo"]
 [ext_resource type="Texture2D" uid="uid://cuxp3twl85xvj" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-17.png" id="56_x8om5"]
+[ext_resource type="Texture2D" uid="uid://ygkhfv2266kq" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-7.png" id="57_ifctk"]
 [ext_resource type="Texture2D" uid="uid://bqbcmf3gtkmsx" path="res://assets/gardenPuzzleScene/ambience/psychedlicMushroom/symbol_5-18.png" id="57_jsa6y"]
-[ext_resource type="Texture2D" uid="uid://q8ix0brnqn30" path="res://assets/gardenPuzzleScene/ambience/mushroompsych.png" id="76_xxskn"]
+[ext_resource type="Texture2D" uid="uid://bwgik6pq5l2ab" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_1/Untitled_Artwork-8.png" id="58_iuuup"]
+[ext_resource type="Texture2D" uid="uid://cqy14f6ks0mm3" path="res://UI/symbol_growing color/symbol_5 2.png" id="61_cm6us"]
 [ext_resource type="Script" uid="uid://bagidrpp61ewe" path="res://inventory_area.gd" id="77_itbwr"]
+[ext_resource type="Texture2D" uid="uid://ctxfto31npr2n" path="res://UI/symbol_growing color/symbol_7.png" id="78_i4qtp"]
+[ext_resource type="Texture2D" uid="uid://bt5en0r0jgaty" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_closed.png" id="79_i4qtp"]
+[ext_resource type="Texture2D" uid="uid://7xwaej43xq63" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_Up.png" id="80_76bxc"]
+[ext_resource type="Texture2D" uid="uid://dq8orhhgvc1sj" path="res://assets/symbols/corrupt/symbol_8-132.png" id="81_76bxc"]
+[ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="82_jaexd"]
+[ext_resource type="Texture2D" uid="uid://mgn8rp1nwplf" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-1.png" id="102_dldhm"]
+[ext_resource type="Texture2D" uid="uid://ds48abbiefaf1" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-2.png" id="103_2qxe3"]
+[ext_resource type="Texture2D" uid="uid://ccasp4db7byie" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-3.png" id="104_emh4m"]
+[ext_resource type="Texture2D" uid="uid://c3v4qdpjajs00" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-4.png" id="105_mh6kt"]
+[ext_resource type="Texture2D" uid="uid://bljn7l56jdeph" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-5.png" id="106_pvmms"]
+[ext_resource type="Texture2D" uid="uid://b8rtljksb7rbt" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-6.png" id="107_prbm3"]
+[ext_resource type="Texture2D" uid="uid://cum8p15hhltaq" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-7.png" id="108_i3hea"]
+[ext_resource type="Texture2D" uid="uid://r5e7nbd0tyuu" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-8.png" id="109_ae00l"]
+[ext_resource type="Texture2D" uid="uid://cc1j0oyfjkec" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-9.png" id="110_2kgg3"]
+[ext_resource type="Texture2D" uid="uid://cu8dhd0v810xs" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-10.png" id="111_072yy"]
+[ext_resource type="Texture2D" uid="uid://d3lytm75l6flh" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-11.png" id="112_isckw"]
+[ext_resource type="Texture2D" uid="uid://b60piiukh8cu7" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-12.png" id="113_6lotf"]
+[ext_resource type="Texture2D" uid="uid://rd8obwocujoe" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_2-15 (1).png" id="114_2qxe3"]
+[ext_resource type="Texture2D" uid="uid://cf05m7xoqfbxj" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-13.png" id="114_uek1t"]
+[ext_resource type="Texture2D" uid="uid://bwgmv3exciqcw" path="res://assets/gardenPuzzleScene/ambience/Celine_Interactive_Plant_3/Untitled_Artwork-14.png" id="115_6udcc"]
+[ext_resource type="Texture2D" uid="uid://v3gt22qyuoir" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-12.png" id="117_pvmms"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_itbwr"]
-size = Vector2(1160, 1088)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
-size = Vector2(941, 532)
-
-[sub_resource type="Curve2D" id="Curve2D_gcn0c"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -4, 834, 0, 0, 0, 0, 216, 793, 0, 0, 0, 0, 271, 766, 0, 0, 0, 0, 324, 732, 0, 0, 0, 0, 374, 701, 0, 0, 0, 0, 431, 658, 0, 0, 0, 0, 484, 623, 0, 0, 0, 0, 541, 596, 0, 0, 0, 0, 586, 592, 0, 0, 0, 0, 650, 598, 0, 0, 0, 0, 779, 640, 0, 0, 0, 0, 893, 699, 0, 0, 0, 0, 961, 738, 0, 0, 0, 0, 1049, 794, 0, 0, 0, 0, 1122, 823, 0, 0, 0, 0, 1179, 835, 0, 0, 0, 0, 1308, 849, 0, 0, 0, 0, 1471, 855, 0, 0, 0, 0, 1607, 852, 0, 0, 0, 0, 1818, 855, 0, 0, 0, 0, 1939, 873, 0, 0, 0, 0, 2032, 882, 0, 0, 0, 0, 2291, 874, 0, 0, 0, 0, 2664, 889, 0, 0, 0, 0, 2914, 862, 0, 0, 0, 0, 2947, 855, 0, 0, 0, 0, 3030, 857, 0, 0, 0, 0, 3199, 863, 0, 0, 0, 0, 3445, 852, 0, 0, 0, 0, 3702, 847, 0, 0, 0, 0, 3751, 844, 0, 0, 0, 0, 3803, 850, 0, 0, 0, 0, 3891, 858, 0, 0, 0, 0, 3968, 856, 0, 0, 0, 0, 4010, 856)
-}
-point_count = 35
-
-[sub_resource type="Curve2D" id="Curve2D_unlio"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1004, 756, 0, 0, 0, 0, 1038, 712, 0, 0, 0, 0, 1087, 652, 0, 0, 0, 0, 1162, 605, 0, 0, 0, 0, 1256, 560, 0, 0, 0, 0, 1336, 490)
-}
-point_count = 6
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xilqs"]
-size = Vector2(122, 163.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_48yf5"]
-size = Vector2(390, 13)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ucl4h"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_76bxc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_ucl4h")
+"texture": ExtResource("22_17b64")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_yntci")
+"texture": ExtResource("23_mlwgq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_jtj6t")
+"texture": ExtResource("24_a622c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_40twg")
+"texture": ExtResource("25_07hpp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_hydx1")
+"texture": ExtResource("26_pgbfv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("26_ne5em")
+"texture": ExtResource("27_mnhru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ned4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6fiwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2lwv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_jmldh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_jwkib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_2cu3r")
 }],
 "loop": false,
+"name": &"clicked",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sghb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("102_dldhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_2qxe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_emh4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_mh6kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_pvmms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_prbm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_i3hea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_ae00l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_2kgg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_072yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_isckw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_6lotf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_uek1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_6udcc")
+}],
+"loop": true,
 "name": &"clicked",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_ucl4h")
+"texture": ExtResource("102_dldhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_2qxe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_emh4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_mh6kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_pvmms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_prbm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_i3hea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_ae00l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_2kgg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_072yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_isckw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_6lotf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_uek1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_6udcc")
 }],
 "loop": true,
 "name": &"default",
@@ -169,6 +299,49 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jaexd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("79_i4qtp")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("80_76bxc")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blgpl"]
+size = Vector2(332.07532, 845.28357)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njd60"]
+size = Vector2(941, 532)
+
+[sub_resource type="Curve2D" id="Curve2D_gcn0c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 834, 0, 0, 0, 0, 216, 793, 0, 0, 0, 0, 271, 766, 0, 0, 0, 0, 324, 732, 0, 0, 0, 0, 374, 701, 0, 0, 0, 0, 431, 658, 0, 0, 0, 0, 484, 623, 0, 0, 0, 0, 541, 596, 0, 0, 0, 0, 586, 592, 0, 0, 0, 0, 650, 598, 0, 0, 0, 0, 779, 640, 0, 0, 0, 0, 893, 699, 0, 0, 0, 0, 961, 738, 0, 0, 0, 0, 1049, 794, 0, 0, 0, 0, 1122, 823, 0, 0, 0, 0, 1179, 835, 0, 0, 0, 0, 1308, 849, 0, 0, 0, 0, 1471, 855, 0, 0, 0, 0, 1607, 852, 0, 0, 0, 0, 1818, 855, 0, 0, 0, 0, 1939, 873, 0, 0, 0, 0, 2032, 882, 0, 0, 0, 0, 2291, 874, 0, 0, 0, 0, 2664, 889, 0, 0, 0, 0, 2914, 862, 0, 0, 0, 0, 2947, 855, 0, 0, 0, 0, 3030, 857, 0, 0, 0, 0, 3199, 863, 0, 0, 0, 0, 3445, 852, 0, 0, 0, 0, 3702, 847, 0, 0, 0, 0, 3751, 844, 0, 0, 0, 0, 3803, 850, 0, 0, 0, 0, 3891, 858, 0, 0, 0, 0, 3968, 856, 0, 0, 0, 0, 4010, 856)
+}
+point_count = 35
+
+[sub_resource type="Curve2D" id="Curve2D_unlio"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1004, 756, 0, 0, 0, 0, 1038, 712, 0, 0, 0, 0, 1087, 652, 0, 0, 0, 0, 1162, 605, 0, 0, 0, 0, 1256, 560, 0, 0, 0, 0, 1336, 490)
+}
+point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xilqs"]
+size = Vector2(122, 163.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48yf5"]
+size = Vector2(390, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wad"]
 size = Vector2(45.5, 154.5)
@@ -210,7 +383,68 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("29_f1fsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_fidvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ok8m8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_hf202")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vlwvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4dwh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_4rec8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_8hy8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_yrqvo")
 }],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2lv2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("51_6fiwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_2lwv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_jmldh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_jwkib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_2cu3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_7msbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_ifctk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_iuuup")
+}],
+"loop": false,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -272,6 +506,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("57_jsa6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_cm6us")
 }],
 "loop": false,
 "name": &"bad_mushroom",
@@ -325,6 +562,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("55_6u8tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_i4qtp")
 }],
 "loop": false,
 "name": &"default",
@@ -357,20 +597,70 @@ texture = ExtResource("3_48yf5")
 [node name="totem" parent="." instance=ExtResource("16_vwglx")]
 position = Vector2(1972, 103)
 
-[node name="inventory" type="Sprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
-position = Vector2(1795, 749)
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("76_xxskn")
+[node name="spores2" type="AudioStreamPlayer" parent="totem"]
+stream = ExtResource("5_vty26")
 
-[node name="Area2D" type="Area2D" parent="inventory"]
-position = Vector2(16, -8)
-script = ExtResource("77_itbwr")
+[node name="click2" parent="." groups=["clickable_asset"] instance=ExtResource("18_vwglx")]
+position = Vector2(3878, 801.00006)
+scale = Vector2(0.99999994, 0.99999994)
+gives_item = false
+item_name = ""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_itbwr")
+[node name="AnimatedSprite2D" parent="click2" index="0"]
+position = Vector2(-13, -83.99982)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_76bxc")
+frame = 11
+frame_progress = 1.0
+
+[node name="CollisionShape2D" parent="click2/Area2D" index="0"]
+position = Vector2(-12.000008, -49.999817)
+scale = Vector2(0.59999985, 0.59999985)
+
+[node name="click3" parent="." groups=["clickable_asset"] instance=ExtResource("18_vwglx")]
+position = Vector2(3980, 802)
+scale = Vector2(0.99999994, 0.99999994)
+popup_texture = ExtResource("19_emh4m")
+
+[node name="AnimatedSprite2D" parent="click3" index="0"]
+position = Vector2(-13, -83.99982)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_76bxc")
+frame = 11
+frame_progress = 1.0
+
+[node name="CollisionShape2D" parent="click3/Area2D" index="0"]
+position = Vector2(-12.000008, -49.999817)
+scale = Vector2(0.59999985, 0.59999985)
+
+[node name="Node2D" parent="." groups=["clickable_asset"] instance=ExtResource("18_vwglx")]
+position = Vector2(1275, 686)
+item_name = "creature3"
+popup_texture = ExtResource("20_mh6kt")
+
+[node name="AnimatedSprite2D" parent="Node2D" index="0"]
+sprite_frames = SubResource("SpriteFrames_sghb6")
+animation = &"default"
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="Node2D/Area2D" index="0"]
+position = Vector2(0, -1.968811)
+
+[node name="Node2D4" parent="." groups=["clickable_asset"] instance=ExtResource("18_vwglx")]
+position = Vector2(1662.0002, 770.0002)
+scale = Vector2(0.825, 0.825)
+gives_item = false
+
+[node name="AnimatedSprite2D" parent="Node2D4" index="0"]
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_l2cbc")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="Node2D4/Area2D" index="0"]
+position = Vector2(0, 25.937439)
 
 [node name="guide" parent="." instance=ExtResource("5_4kmq4")]
+z_index = 1
 position = Vector2(1980, 636)
 move_speed = 120.0
 min_exit_time = 3.0
@@ -379,13 +669,27 @@ progress_flag = 2
 [node name="GuideTrigger" parent="guide" index="2"]
 camera_path = NodePath("../../Camera2D")
 popup_path = NodePath("../../CanvasLayer/SpeechBox")
-dialogue_lines = Array[String](["Dominating this world is a mycelium system that connects all living and nonliving organisms. "])
+dialogue_lines = Array[String](["Dominating this world is a mycelium system that connects all living and nonliving organisms. ", "From the tops of the trees to the very ground you stand upon, all falls under one system.", "However, a great evil is seeping its way into this cycle, and sinking its claws into this world.", " I’ve taken it upon myself, as a guiding figure of sorts, to terminate this poison.", "This totem, when aligned, releases spores to grow foliage.", " It is the job of the guide to manage the growth of this world, and prevent this evil from spreading its roots into the system that prevails.", "Come, follow me. The path to salvation is this way."])
 
 [node name="CollisionShape2D" parent="guide/GuideTrigger" index="0"]
 position = Vector2(232, -42)
 
 [node name="SpeechPoint" type="Marker2D" parent="guide"]
-position = Vector2(-634, 296)
+position = Vector2(-336, 296)
+
+[node name="inventory" type="AnimatedSprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+position = Vector2(361.99988, 508.99994)
+scale = Vector2(0.265, 0.265)
+sprite_frames = SubResource("SpriteFrames_jaexd")
+animation = &"close"
+
+[node name="Area2D" type="Area2D" parent="inventory"]
+position = Vector2(16, -8)
+script = ExtResource("77_itbwr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
+position = Vector2(-8.453613, 15.547363)
+shape = SubResource("RectangleShape2D_blgpl")
 
 [node name="player" parent="." groups=["player"] instance=ExtResource("2_l0lom")]
 position = Vector2(601, 589)
@@ -527,13 +831,10 @@ route_b_path = NodePath("../../traversalRoutes/route_b")
 stream = ExtResource("11_8dqgj")
 parameters/looping = true
 
-[node name="GlobalUI" parent="." groups=["inventory_ui"] instance=ExtResource("14_qcogw")]
-hidden_symbol_texture = ExtResource("14_ywmil")
-
 [node name="cursor" parent="." instance=ExtResource("15_5mals")]
 
 [node name="fg" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 3
 position = Vector2(1960, 529)
 texture = ExtResource("4_45q0m")
 
@@ -576,47 +877,6 @@ shape = SubResource("RectangleShape2D_48yf5")
 [node name="spawn_from_top" type="Marker2D" parent="." groups=["off_route_spawn"]]
 position = Vector2(3718, -158)
 
-[node name="Node2D" parent="." instance=ExtResource("18_vwglx")]
-z_index = 2
-position = Vector2(115.000015, 821.99994)
-rotation = -0.12042773
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="Node2D2" parent="." instance=ExtResource("18_vwglx")]
-z_index = 2
-position = Vector2(1818, 1014)
-
-[node name="Node2D3" parent="." instance=ExtResource("18_vwglx")]
-z_index = 2
-position = Vector2(2125, 1014)
-rotation = -0.17453294
-scale = Vector2(0.99999994, 0.99999994)
-popup_texture = ExtResource("20_yntci")
-
-[node name="AnimatedSprite2D" parent="Node2D3" index="0"]
-position = Vector2(6.9453125, -39.39258)
-scale = Vector2(0.08, 0.08)
-sprite_frames = SubResource("SpriteFrames_ucl4h")
-animation = &"default"
-
-[node name="Area2D" parent="Node2D3" index="1"]
-position = Vector2(3.6467285, -20.68103)
-
-[node name="CollisionShape2D" parent="Node2D3/Area2D" index="0"]
-position = Vector2(-1.0418701, 5.9088135)
-
-[node name="Node2D4" parent="." instance=ExtResource("18_vwglx")]
-z_index = 2
-position = Vector2(3592, 989.00006)
-rotation = -0.23736477
-item_name = "hidden_symbol"
-popup_texture = ExtResource("22_b0wad")
-
-[node name="AnimatedSprite2D" parent="Node2D4" index="0"]
-scale = Vector2(0.08, 0.08)
-sprite_frames = SubResource("SpriteFrames_l2cbc")
-animation = &"default"
-
 [node name="scene_exit2" type="Area2D" parent="."]
 position = Vector2(3839, 812)
 script = ExtResource("16_48yf5")
@@ -626,11 +886,10 @@ next_scene_path = "uid://mcctughmtbmw"
 position = Vector2(168.25, 3)
 shape = SubResource("RectangleShape2D_b0wad")
 
-[node name="Node2D5" parent="." instance=ExtResource("18_vwglx")]
-z_index = 2
-position = Vector2(2703, 966)
-rotation = -1.1379547
-item_name = "creature2"
+[node name="Node2D5" parent="." groups=["clickable_asset"] instance=ExtResource("18_vwglx")]
+z_index = 3
+position = Vector2(3734, 971)
+gives_item = false
 popup_texture = ExtResource("28_f1fsx")
 
 [node name="AnimatedSprite2D" parent="Node2D5" index="0"]
@@ -638,13 +897,25 @@ position = Vector2(20.134033, 43.578125)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_ggnps")
 animation = &"default"
+autoplay = "default"
+frame_progress = 0.9509559
 
 [node name="Area2D" parent="Node2D5" index="1"]
 position = Vector2(25.442566, 45.52661)
 
-[node name="Node2D6" parent="." instance=ExtResource("18_vwglx")]
+[node name="CollisionShape2D" parent="Node2D5/Area2D" index="0" groups=["clickable_asset"]]
+
+[node name="Node2D6" parent="." groups=["clickable_asset"] instance=ExtResource("18_vwglx")]
 z_index = 2
-position = Vector2(3610, 777)
+position = Vector2(2584, 918)
+item_name = "hidden_symbol"
+popup_texture = ExtResource("22_b0wad")
+
+[node name="AnimatedSprite2D" parent="Node2D6" index="0"]
+sprite_frames = SubResource("SpriteFrames_y2lv2")
+
+[node name="CollisionShape2D" parent="Node2D6/Area2D" index="0"]
+position = Vector2(0, -44.125)
 
 [node name="spawn_from_right" type="Marker2D" parent="."]
 position = Vector2(4003, 826)
@@ -659,7 +930,6 @@ frame = 13
 frame_progress = 0.37658754
 
 [node name="psychMushroom" type="Area2D" parent="." groups=["clickable_asset"]]
-z_index = 2
 position = Vector2(2538, 789)
 scale = Vector2(0.099999994, 0.099999994)
 script = ExtResource("28_ebjw5")
@@ -679,18 +949,28 @@ shape = SubResource("RectangleShape2D_1m2bg")
 [node name="hover_interact" parent="clickable_cursor/CanvasLayer" index="0"]
 scale = Vector2(0.025, 0.025)
 
+[node name="GlobalUI" parent="." instance=ExtResource("14_qcogw")]
+symbol_texture = ExtResource("22_b0wad")
+hidden_symbol_texture = ExtResource("114_2qxe3")
+creature2 = ExtResource("117_pvmms")
+creature4 = ExtResource("81_76bxc")
+death_symbol = ExtResource("82_jaexd")
+
 [connection signal="body_entered" from="ZoomArea" to="ZoomArea" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoomArea" to="ZoomArea" method="_on_body_exited"]
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 
 [editable path="totem"]
 [editable path="totem/spores"]
+[editable path="click2"]
+[editable path="click3"]
+[editable path="Node2D"]
+[editable path="Node2D4"]
 [editable path="guide"]
 [editable path="player"]
 [editable path="cursor"]
-[editable path="Node2D3"]
-[editable path="Node2D4"]
 [editable path="Node2D5"]
+[editable path="Node2D6"]
 [editable path="spores"]
 [editable path="cursor2"]
 [editable path="clickable_cursor"]

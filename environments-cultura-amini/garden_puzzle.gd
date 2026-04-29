@@ -61,12 +61,12 @@ func _restore_state() -> void:
 func _apply_spawn(first_time_here: bool) -> void:
 	var player: CharacterBody2D = get_node_or_null(player_path)
 	if player == null:
-		push_warning("GardenPuzzle.gd: player not found.")
+		push_warning("GardenPuzzle.gd: player not found")
 		return
 
 	var spawn_node: Node2D = get_node_or_null(default_spawn_path)
 	if spawn_node == null:
-		push_warning("GardenPuzzle.gd: no spawn node found.")
+		push_warning("GardenPuzzle.gd: no spawn node foun")
 		return
 
 	if player.has_method("set_spawn_world_position"):

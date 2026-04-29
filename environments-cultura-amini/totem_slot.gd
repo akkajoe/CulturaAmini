@@ -1,7 +1,7 @@
 extends Area2D
 class_name TotemSlot
 
-signal slot_changed  # ADD THIS
+signal slot_changed 
 
 @export var accepted_item_name: String = ""
 @export var correct_item_name: String = "hidden_symbol"
@@ -50,7 +50,7 @@ func _try_accept_drag() -> void:
 	var inventory_ui := get_tree().get_first_node_in_group("inventory_ui")
 	if inventory_ui != null and inventory_ui.has_method("refresh_inventory_ui"):
 		inventory_ui.refresh_inventory_ui()
-	DragManager.accept_drop()  # CHANGED from stop_drag so DragManager knows it was accepted
+	DragManager.accept_drop() 
 
 func place_symbol(item_name: String) -> void:
 	current_symbol_name = item_name
@@ -70,7 +70,7 @@ func place_symbol(item_name: String) -> void:
 		print("DefaultSymbol must be Sprite2D or AnimatedSprite2D")
 		return
 	print("PLACED:", item_name, "on", name)
-	slot_changed.emit()  # ADD THIS
+	slot_changed.emit() 
 
 func _replace_animated_with_sprite(tex: Texture2D) -> void:
 	var old_node := default_symbol

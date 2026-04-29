@@ -10,10 +10,10 @@ func _ready() -> void:
 	add_to_group("clickable_asset")
 	input_pickable = true
 	if GameProgress.mushroom_picked_up and not GameProgress.inventory_items.has("mushroom"):
-		# bad mushroom was picked up but default hasn't appeared yet — stay hidden
+		# bad mushroom was picked up but default hasn't appeared yet 
 		visible = false
 	elif GameProgress.mushroom_picked_up and GameProgress.inventory_items.has("mushroom"):
-		# both picked up — remove entirely
+		# both picked up 
 		queue_free()
 
 

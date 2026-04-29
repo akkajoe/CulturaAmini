@@ -28,18 +28,9 @@ func _ready() -> void:
 	current_offset = Vector2.ZERO
 	_snap_lock_frames = 0
 	_has_snapped = false
-	# Do nothing else — no position, no snap, no lock.
-	# Transition path: scene_exit calls snap_to_target_now(player).
-	# First load path: _physics_process snaps on first frame.
 
 
 func _physics_process(delta: float) -> void:
-	#push_warning("CAM PROCESS: has_snapped=%s lock=%d cam_pos=%s player_pos=%s" % [
-		#str(_has_snapped),
-		#_snap_lock_frames,
-		#str(global_position),
-		#str(target.global_position if target else "NULL")
-	#])
 	if target == null or not is_instance_valid(target):
 		_resolve_target()
 		if target == null:
@@ -48,14 +39,13 @@ func _physics_process(delta: float) -> void:
 	if in_cutscene:
 		return
 
-	# First load path — snap on first physics frame
+	# Snap on first physics frame
 	if not _has_snapped:
 		follow_position = target.global_position
 		global_position = target.global_position
 		_has_snapped = true
 		return
 
-	# Hard lock after snap_to_target_now()
 	if _snap_lock_frames > 0:
 		_snap_lock_frames -= 1
 		follow_position = target.global_position
@@ -75,7 +65,6 @@ func _physics_process(delta: float) -> void:
 	current_offset = current_offset.lerp(desired_offset, offset_lerp_speed * delta)
 
 	global_position = follow_position + current_offset
-
 
 func _resolve_target() -> void:
 	if target_path.is_empty():
@@ -114,7 +103,7 @@ func snap_to_target_now(explicit_target: Node2D = null) -> void:
 		_resolve_target()
 
 	if target == null:
-		push_warning("snap_to_target_now: no target resolved, snap skipped")
+		push_warning("snap_to_target_now: no target found, snap was skipped")
 		return
 
 	follow_position = target.global_position
@@ -126,7 +115,6 @@ func set_zoom_zone(new_zoom: Vector2, new_offset: Vector2 = Vector2.ZERO) -> voi
 	zoom_zone_active = true
 	zoom_zone_value = new_zoom
 	zoom_zone_offset = new_offset
-
 
 func clear_zoom_zone() -> void:
 	zoom_zone_active = false

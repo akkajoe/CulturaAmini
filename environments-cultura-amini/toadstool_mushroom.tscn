@@ -1,23 +1,112 @@
-[gd_scene load_steps=7 format=3 uid="uid://375e2ralimux"]
+[gd_scene load_steps=28 format=3 uid="uid://375e2ralimux"]
 
-[ext_resource type="Texture2D" uid="uid://dotxy6gpc1ag6" path="res://assets/char/ToadstoolMushroom/Creature Placeholder.png" id="1_kqcg0"]
 [ext_resource type="Script" uid="uid://lvi70ka8f7ev" path="res://toadstool_mushroom.gd" id="1_nxoia"]
+[ext_resource type="Texture2D" uid="uid://biqebmv274wh4" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-1.png" id="2_0kfgn"]
+[ext_resource type="Texture2D" uid="uid://ddffl7wat3py6" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-2.png" id="3_4kt4m"]
 [ext_resource type="Script" uid="uid://bmi2kcc11j1n7" path="res://mushroomtoadstool_trigger.gd" id="3_vs1vq"]
+[ext_resource type="Texture2D" uid="uid://n2pc2w8f3nfv" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-3.png" id="4_1tsoh"]
+[ext_resource type="Texture2D" uid="uid://cwplr6m8oq85e" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-4.png" id="5_duh4x"]
 [ext_resource type="PackedScene" uid="uid://2pus3cfe0e85" path="res://popUpToadstoolMushroom.tscn" id="5_xx2u5"]
+[ext_resource type="Texture2D" uid="uid://cg25np6shpwak" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-5.png" id="6_bsc0j"]
+[ext_resource type="Texture2D" uid="uid://cibi1hywn6xso" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-6.png" id="7_jjtt6"]
+[ext_resource type="Texture2D" uid="uid://4meplpn33g3d" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-7.png" id="8_dkooo"]
+[ext_resource type="Texture2D" uid="uid://cq08ppml0cwyl" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-8.png" id="9_oxu60"]
+[ext_resource type="Texture2D" uid="uid://54srnjk6j5hp" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-9.png" id="10_sf3bd"]
+[ext_resource type="Texture2D" uid="uid://di0u3cmq0silt" path="res://assets/char/ToadstoolMushroom/Creature 3_Idle_BellyPat/Untitled_Artwork-10.png" id="11_owjsw"]
+[ext_resource type="Texture2D" uid="uid://h3acijvgduoi" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-1.png" id="12_mo1cm"]
+[ext_resource type="Texture2D" uid="uid://hj8jr6244jc4" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-2.png" id="13_12q1m"]
+[ext_resource type="Texture2D" uid="uid://clgp4mx4a6bsh" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-3.png" id="14_ddxxr"]
+[ext_resource type="Texture2D" uid="uid://b484ngltoaylb" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-4.png" id="15_6siu8"]
+[ext_resource type="Texture2D" uid="uid://cxuafwio83g4w" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-5.png" id="16_qkay0"]
+[ext_resource type="Texture2D" uid="uid://cedc7ubc4v7wo" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-6.png" id="17_e6qsj"]
+[ext_resource type="Texture2D" uid="uid://db3s1o6bsbjq5" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-7.png" id="18_boe5b"]
+[ext_resource type="Texture2D" uid="uid://decsjhqersu2g" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-8.png" id="19_osbff"]
+[ext_resource type="Texture2D" uid="uid://b8ge4514p5o4y" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-9.png" id="20_52nym"]
+[ext_resource type="Texture2D" uid="uid://bnyojg6o07opw" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-10.png" id="21_hud2c"]
+[ext_resource type="Texture2D" uid="uid://clmr3mesemnv3" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-11.png" id="22_qqbof"]
+[ext_resource type="Texture2D" uid="uid://chupnr02jo41j" path="res://assets/char/ToadstoolMushroom/Creature 3_Talking_HandsWaving/Untitled_Artwork-12.png" id="23_u7tra"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hg8bu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kqcg0")
+"texture": ExtResource("2_0kfgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4kt4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1tsoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_duh4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bsc0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jjtt6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dkooo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oxu60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sf3bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_owjsw")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_mo1cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_12q1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ddxxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6siu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qkay0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_e6qsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_boe5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_osbff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_52nym")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_hud2c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_qqbof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_u7tra")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hg8bu"]
-size = Vector2(1072, 812)
+size = Vector2(594, 468.5)
 
 [node name="ToadStoolMushroom" type="Node2D"]
 position = Vector2(0, 1)
@@ -25,6 +114,9 @@ script = ExtResource("1_nxoia")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hg8bu")
+animation = &"talking"
+autoplay = "default"
+frame_progress = 0.18103692
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("3_vs1vq")

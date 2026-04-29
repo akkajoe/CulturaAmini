@@ -7,20 +7,22 @@ var _required: Array[String] = []
 var _filled: Array[bool] = []
 var _puzzle: Node = null
 var _setup_done: bool = false
-var _symbol_textures: Array[Texture2D] = []  # NEW — store puzzle textures for restore
+var _symbol_textures: Array[Texture2D] = []
+var _slot_fill_textures: Array[Texture2D] = []
 
 
 func _ready() -> void:
 	follow_viewport_enabled = false
 
 
-func setup(required_symbols: Array[String], symbol_textures: Array[Texture2D], puzzle_node: Node) -> void:
+func setup(required_symbols: Array[String], symbol_textures: Array[Texture2D], slot_fill_textures: Array[Texture2D], puzzle_node: Node) -> void:
 	if _setup_done:
 		return
 
 	_setup_done = true
 	_required = required_symbols
-	_symbol_textures = symbol_textures  # NEW
+	_symbol_textures = symbol_textures
+	_slot_fill_textures = slot_fill_textures
 	_puzzle = puzzle_node
 
 	_filled.resize(_required.size())
@@ -36,10 +38,12 @@ func setup(required_symbols: Array[String], symbol_textures: Array[Texture2D], p
 		_slots.append(slot)
 		slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-	_style_slots()
+	call_deferred("_style_slots_then_restore")
 
-	# Defer restore so reparented panels have settled
-	call_deferred("_restore_filled_slots")
+
+func _style_slots_then_restore() -> void:
+	_style_slots()
+	_restore_filled_slots()
 
 
 func _restore_filled_slots() -> void:
@@ -51,13 +55,13 @@ func _restore_filled_slots() -> void:
 	for i in range(mini(saved_step, _slots.size())):
 		_filled[i] = true
 		_slots[i].visible = true
-		# Restore the texture that was shown in this slot
-		# Slots show the symbol_display_textures entry for that step
-		if i < _symbol_textures.size():
+		if i < _slot_fill_textures.size() and _slot_fill_textures[i] != null:
+			_slots[i].texture = _slot_fill_textures[i]
+		elif i < _symbol_textures.size():
 			_slots[i].texture = _symbol_textures[i]
 			_slots[i].modulate = Color.WHITE
 		else:
-			_slots[i].modulate = Color(0.7, 0.85, 0.7, 1.0)  # fallback tint
+			_slots[i].modulate = Color(0.7, 0.85, 0.7, 1.0)
 
 	push_warning("ToadstoolSlotBar restored %d filled slots." % saved_step)
 
@@ -135,17 +139,22 @@ func _try_drop_on_slot(slot_index: int) -> void:
 		return
 
 	DragManager.accept_drop()
-	#GameProgress.inventory_items.erase(dropped_name)
 
 	var slot := _slots[slot_index]
-	slot.texture = dropped_tex
+	if slot_index < _slot_fill_textures.size() and _slot_fill_textures[slot_index] != null:
+		slot.texture = _slot_fill_textures[slot_index]
+	else:
+		slot.texture = dropped_tex
 	slot.visible = true
 	slot.modulate = Color.WHITE
+
+	push_warning("Slot texture set to: %s, slot size: %s, slot visible: %s" % [
+		str(slot.texture), str(slot.size), str(slot.visible)
+	])
 
 	_filled[slot_index] = true
 
 	push_warning("Slot %d filled with %s." % [slot_index + 1, dropped_name])
-	push_warning("Inventory after erase: %s" % str(GameProgress.inventory_items))
 
 	for node in get_tree().get_nodes_in_group("inventory_ui"):
 		if node.has_method("refresh_inventory_ui"):

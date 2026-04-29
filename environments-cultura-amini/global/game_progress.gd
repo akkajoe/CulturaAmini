@@ -1,47 +1,37 @@
 extends Node
 
-# =========================================================
-# Inventory / puzzle progress
-# =========================================================
 var puzzle_solve_count: int = 0
 var has_symbol: bool = false
 var has_hidden_symbol: bool = false
 var inventory_items: Array[String] = []
 
-# =========================================================
-# Crash site state
-# =========================================================
+
 var crash_site_visited: bool = false
 var guide_dialogue_done: bool = false
 var code_scene_seen: bool = false
 
-# =========================================================
-# Garden puzzle state
-# =========================================================
+
 var garden_puzzle_visited: bool = false
 var garden_intro_done: bool = false
 var mushroom_picked_up: bool = false
 
-# =========================================================
-# Mountain creature puzzle state
-# =========================================================
+
 var mountain_creature_visited: bool = false
 var mountain_creature_guide_done: bool = false
 var mountain_creature_symbol_thrown: bool = false
 var mountain_creature_fed: bool = false
 var mountain_creature_openmouth: bool = false
 
-# =========================================================
-# Toadstool puzzle state
-# =========================================================
+
 var toadstool_puzzle_complete: bool = false
 var toadstool_slots_complete: bool = false
 var toadstool_current_step: int = 0
 var toadstool_filled_items: Array[String] = []
 
-# =========================================================
-# Pending spawn marker
-# =========================================================
+
+var final_scene_done: bool = false
+
+
 var next_spawn_marker: String = ""
 
 
@@ -52,7 +42,7 @@ func register_puzzle_solve() -> void:
 	print("Puzzle solves:", puzzle_solve_count)
 	if puzzle_solve_count >= 3:
 		add_inventory_item("symbol")
-		print("Added puzzle reward symbol to inventory after 3 solves.")
+		print("Added puzzle reward symbol to inventory after 3 solves")
 
 
 func add_inventory_item(item_name: String) -> void:
@@ -146,6 +136,7 @@ func reset_progress() -> void:
 	toadstool_slots_complete = false
 	toadstool_current_step = 0
 	toadstool_filled_items.clear()
+	final_scene_done = false
 	next_spawn_marker = ""
-	print("Progress reset.")
+	print("Progress reset")
 	_refresh_inventory_ui()

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://i87glh7lq3qu"]
+[gd_scene load_steps=33 format=3 uid="uid://i87glh7lq3qu"]
 
+[ext_resource type="Script" uid="uid://cf7hacmwv0qbm" path="res://final_scene.gd" id="1_n5lvg"]
 [ext_resource type="Texture2D" uid="uid://dm155mpfgtaou" path="res://final_scene/Scene_05_mid-ground_2220x1380_300dpi_transparent.png" id="1_qj04j"]
 [ext_resource type="Script" uid="uid://dfntbgxlwh006" path="res://traversalRoute.gd" id="2_jremd"]
 [ext_resource type="Script" uid="uid://dwfe0u0in4jm2" path="res://camera_2d.gd" id="3_iu4q0"]
@@ -7,6 +8,24 @@
 [ext_resource type="Script" uid="uid://ck7nyflxxtwmv" path="res://scene_exit.gd" id="5_4u0mm"]
 [ext_resource type="PackedScene" uid="uid://b04u0quhnrrtx" path="res://cursor.tscn" id="6_sdbl0"]
 [ext_resource type="PackedScene" uid="uid://oqrm0tvppwyw" path="res://cursor2.tscn" id="7_7ivoe"]
+[ext_resource type="PackedScene" uid="uid://dtwgh52vpishx" path="res://clickable_cursor.tscn" id="8_h5r04"]
+[ext_resource type="PackedScene" uid="uid://cv8au5688djcg" path="res://guide.tscn" id="9_xo8kt"]
+[ext_resource type="PackedScene" uid="uid://drrygjnf7eh7u" path="res://popUp.tscn" id="10_xygxo"]
+[ext_resource type="AudioStream" uid="uid://bs2o3g0bousfr" path="res://assets/audio/env_bg/Music_End_Level (1).mp3" id="11_agcwu"]
+[ext_resource type="Script" uid="uid://c78eu4j2h1fom" path="res://guide_finalscene.gd" id="11_b4t68"]
+[ext_resource type="Script" uid="uid://d2fmfrc2dmhh6" path="res://area_2d_guide_finalscene.gd" id="12_57oah"]
+[ext_resource type="Script" uid="uid://d3esfvftqxf4t" path="res://pop_up_finalscene.gd" id="13_8cobv"]
+[ext_resource type="Texture2D" uid="uid://bt5en0r0jgaty" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_closed.png" id="16_q5dhp"]
+[ext_resource type="Texture2D" uid="uid://7xwaej43xq63" path="res://assets/gardenPuzzleScene/ambience/Inventory Plant/Inventory_Plant_Up.png" id="17_wnjt5"]
+[ext_resource type="Script" uid="uid://bagidrpp61ewe" path="res://inventory_area.gd" id="18_a2r07"]
+[ext_resource type="PackedScene" uid="uid://b7symwiqlxn2u" path="res://ui.tscn" id="19_dban2"]
+[ext_resource type="Texture2D" uid="uid://t0p7e7jxnd1b" path="res://assets/symbols/health/symbol_2_color-15.png" id="20_efkn8"]
+[ext_resource type="Script" uid="uid://yycigrfturih" path="res://walkable_path.gd" id="20_wnjt5"]
+[ext_resource type="Texture2D" uid="uid://dw6q4nla11eu5" path="res://assets/gardenPuzzleScene/ambience/Seed2.png" id="21_a2r07"]
+[ext_resource type="Texture2D" uid="uid://dq8orhhgvc1sj" path="res://assets/symbols/corrupt/symbol_8-132.png" id="21_w2s5c"]
+[ext_resource type="Texture2D" uid="uid://dc5w4kjoukg5j" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-13.png" id="22_w2s5c"]
+[ext_resource type="Texture2D" uid="uid://v3gt22qyuoir" path="res://assets/MushroomLanguagePuzzle/symbols/symbol_4/symbol_4-12.png" id="23_h5720"]
+[ext_resource type="Texture2D" uid="uid://bsagsyx666j1m" path="res://assets/audio/symbol_2-15 (1).png" id="23_qmahw"]
 
 [sub_resource type="Curve2D" id="Curve2D_vh3px"]
 _data = {
@@ -17,7 +36,36 @@ point_count = 7
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdbl0"]
 size = Vector2(106.355576, 126.1405)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4t68"]
+size = Vector2(209, 339)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efkn8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_q5dhp")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_wnjt5")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2s5c"]
+size = Vector2(1160, 1088)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5dhp"]
+size = Vector2(905, 104.94794)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_n5lvg")
 metadata/_edit_vertical_guides_ = [-2.0, 1900.0]
 metadata/_edit_horizontal_guides_ = [6.0, 208.0, 1085.0]
 
@@ -46,8 +94,10 @@ limit_bottom = 1085
 script = ExtResource("3_iu4q0")
 target_path = NodePath("../player")
 
-[node name="player" parent="." instance=ExtResource("4_4u0mm")]
-cursor_default_path = NodePath("../Node2D/AnimatedSprite2D")
+[node name="player" parent="." groups=["player"] instance=ExtResource("4_4u0mm")]
+cursor_default_path = NodePath("../Node2D/CanvasLayer/AnimatedSprite2D")
+cursor_interact_path = NodePath("../Node2D2/CanvasLayer/hover_interact")
+cursor_path = NodePath("../cursor/CanvasLayer/AnimatedSprite2D")
 
 [node name="SceneBack" type="Area2D" parent="."]
 position = Vector2(43, 543)
@@ -65,7 +115,90 @@ shape = SubResource("RectangleShape2D_sdbl0")
 
 [node name="Node2D" parent="." instance=ExtResource("7_7ivoe")]
 
+[node name="Node2D2" parent="." instance=ExtResource("8_h5r04")]
+
+[node name="hover_interact" parent="Node2D2/CanvasLayer" index="0"]
+scale = Vector2(0.025, 0.025)
+
+[node name="guide" parent="." instance=ExtResource("9_xo8kt")]
+position = Vector2(611, 645)
+script = ExtResource("11_b4t68")
+move_speed = 100.0
+
+[node name="GuideTrigger" parent="guide" index="2"]
+camera_path = NodePath("../../Camera2D")
+popup_path = NodePath("../../CanvasLayer/SpeechBox")
+speech_point_path = NodePath("../../speechPoint")
+dialogue_lines = Array[String](["Here we are, the path to your escape.", "Escape from the fear and desire that haunts you, the unknown, internal longing that you feel.
+", "For I know what that feeling is and how to quell it, for I am you.", "You see, I am you in species, who have been sent here to proliferate our kind and spread our influence. ", "That is the longing that you feel, the desire to ensure that there will be those after you.
+", "We as creatures feel the innate craving to live and for those to live beyond us.", " We were sent here, from a higher power of sorts, to make sure our presence remains stable in this world, even at the cost of its life. ", "Break the cycle, and the consequences will be dire; the great evil is our death in this universe.
+", "Though I wish to see my goaI through, I am dying. Now, it is your job to continue this cycle.", "On your ship lies one singular seed. ", "You must bring me the seed and plant it before me, as a ritual of sorts. ", "Promise the continuity of our goals and our kind, so that I may perish peacefully.
+"])
+
+[node name="Area2D" type="Area2D" parent="guide"]
+script = ExtResource("12_57oah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="guide/Area2D"]
+position = Vector2(34.5, 7.5)
+shape = SubResource("RectangleShape2D_b4t68")
+
+[node name="bgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_agcwu")
+parameters/looping = true
+
+[node name="speechPoint" type="Marker2D" parent="."]
+position = Vector2(369, 937)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SpeechBox" parent="CanvasLayer" instance=ExtResource("10_xygxo")]
+offset_left = -10.0
+offset_top = -398.0
+offset_right = -30.0
+offset_bottom = -1194.0
+scale = Vector2(0.57, 0.57)
+script = ExtResource("13_8cobv")
+guide_path = NodePath("../../guide")
+player_path = NodePath("../../player")
+
+[node name="inventory" type="AnimatedSprite2D" parent="." groups=["clickable_asset", "ui_hoverable"]]
+position = Vector2(988, 561.99994)
+scale = Vector2(0.265, 0.265)
+sprite_frames = SubResource("SpriteFrames_efkn8")
+animation = &"close"
+
+[node name="Area2D" type="Area2D" parent="inventory"]
+position = Vector2(16, -8)
+script = ExtResource("18_a2r07")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="inventory/Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_w2s5c")
+
+[node name="walkable_path" type="Area2D" parent="."]
+script = ExtResource("20_wnjt5")
+seed_world_texture = ExtResource("21_a2r07")
+speech_box_path = NodePath("../CanvasLayer/SpeechBox")
+guide_path = NodePath("../guide")
+second_dialogue_lines = Array[String](["YOU.. WILL KILL US ALL"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walkable_path"]
+position = Vector2(379.16403, 858.5092)
+rotation = 0.055850536
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_q5dhp")
+
+[node name="GlobalUI" parent="." instance=ExtResource("19_dban2")]
+symbol_texture = ExtResource("20_efkn8")
+hidden_symbol_texture = ExtResource("23_qmahw")
+creature2 = ExtResource("23_h5720")
+creature4 = ExtResource("21_w2s5c")
+death_symbol = ExtResource("22_w2s5c")
+
 [connection signal="body_entered" from="SceneBack" to="SceneBack" method="_on_body_entered"]
 
 [editable path="cursor"]
 [editable path="Node2D"]
+[editable path="Node2D2"]
+[editable path="guide"]
+[editable path="CanvasLayer/SpeechBox"]
